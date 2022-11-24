@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Sono";
+  src: url("~/assets/fonts/Sono-VariableFont_MONO\,wght.ttf");
+}
+@font-face {
+  font-family: "Kaushan";
+  src: url("~/assets/fonts/KaushanScript-Regular.ttf");
+}
+
+:root {
+  --font-main: "Sono";
+  --font-second: "Kaushan";
+
+  --fond-tuile: rgba(255, 255, 255, 0.6);
+  --vert-fonce: #263d2b;
+  --vert: #577a72;
+  --beige: #e6dad2;
+  --orange-fonce: #f27d67;
+  --orange: #f2ab82;
+
+  --ombre-tuile: 0px 0px 35px rgba(0, 0, 0, 0.1);
+}
