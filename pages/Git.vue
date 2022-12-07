@@ -3,14 +3,14 @@
     <div v-if="loading" class="loading">Loading...</div>
     <div v-if="error" class="error">Erreur de connexion avec le serveur.</div>
     <div v-if="!error && !loading" v-for="repo in repositories">
-      <GitCard :repo="repo" />
+      <Gitcard :repo="repo" />
     </div>
   </div>
 </template>
 
 <script setup>
 import axios from "axios";
-import GitCard from "../components/GitCard.vue";
+import Gitcard from "../components/Gitcard.vue";
 import { onMounted, ref } from "vue";
 const base_url = process.env.API_URL;
 
