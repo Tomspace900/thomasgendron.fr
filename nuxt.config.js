@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "thomasgendron.fr",
+    title: "Thomas GENDRON",
     htmlAttrs: {
       lang: "en",
     },
@@ -18,7 +18,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["@/assets/style/reset.css", "@/assets/style/index.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
@@ -27,18 +27,23 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/dotenv"],
+  buildModules: ["@nuxtjs/dotenv", "@nuxtjs/composition-api/module"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
+    "@nuxtjs/dotenv",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: "/",
+  },
+
+  env: {
+    API_URL: "http://localhost:8008",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

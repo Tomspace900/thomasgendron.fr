@@ -1,15 +1,37 @@
 <template>
   <div>
-    <Header>HEADER</Header>
+    <Header />
     <nuxt />
   </div>
 </template>
 
-<style lang="css">
-@import "../assets/style/reset.css";
-@import "../assets/style/index.css";
+<script setup>
+import { useStore } from "@nuxtjs/composition-api";
+import { onMounted, onUnmounted } from "vue";
+import Header from "../components/Header.vue";
 
+const store = useStore();
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll, {
+    passive: true,
+  });
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll, {
+    passive: true,
+  });
+});
+
+const handleScroll = () => {
+  store.commit("handleScroll", window.scrollY);
+};
+</script>
+
+<style lang="css">
 * {
   font-family: var(--font-main);
+  font-size: 32px;
+  font-weight: 300;
 }
 </style>

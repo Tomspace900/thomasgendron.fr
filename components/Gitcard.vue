@@ -8,14 +8,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "Gitcard",
-  props: ["repo"],
-  data() {
-    return {};
-  },
-};
+<script setup>
+const props = defineProps({
+  repo: Object,
+});
 </script>
 
-<style lang="css" scoped></style>
+<style lang="scss" scoped></style>

@@ -11,11 +11,16 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/composition-api": "^0.33.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "core-js": "^3.25.3",
     "nuxt": "^2.15.8",
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "sass": "^1.56.1",
+    "sass-loader": "10"
   }
 }
