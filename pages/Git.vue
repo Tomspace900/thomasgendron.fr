@@ -9,8 +9,8 @@
 </template>
 
 <script setup>
-import GitCard from "../components/GitCard.vue";
 import axios from "axios";
+import GitCard from "../components/GitCard.vue";
 import { onMounted, ref } from "vue";
 const base_url = process.env.API_URL;
 
