@@ -16,11 +16,13 @@
       <span id="title">Thomas GENDRON</span>
     </NuxtLink>
 
-    <span v-if="opacity(2 * cathHeight - offset) > 0" id="category"
+    <span
+      v-if="$nuxt.$route.path == '/' && opacity(2 * cathHeight - offset) > 0"
+      id="category"
       >projets
     </span>
     <span
-      v-else-if="opacity(cathHeight - offset) > 0"
+      v-else-if="$nuxt.$route.path == '/' && opacity(cathHeight - offset) > 0"
       :style="{ opacity: opacity(cathHeight - offset) }"
       id="category"
       >parcours
@@ -73,16 +75,13 @@ const opacity = (start) => {
   width: 100%;
   display: flex;
   align-items: center;
-  height: 10vh;
-  min-height: 80px;
+  height: 90px;
   z-index: 10;
 
   &-left {
-    justify-self: flex-start;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    flex: 1;
+    min-width: 33%;
   }
 }
 
@@ -97,8 +96,7 @@ const opacity = (start) => {
 }
 
 #category {
-  position: absolute;
-  width: 100%;
+  width: 34%;
   text-align: center;
   font-family: var(--font-second);
   color: var(--bleu);
