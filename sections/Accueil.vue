@@ -1,7 +1,7 @@
 <template>
   <div id="wrapper">
     <img
-      src="./../assets/images/Photo_Accueil.png"
+      src="./../assets/images/Photo_Accueil.webp"
       id="thomas"
       alt="profile-pic"
     />

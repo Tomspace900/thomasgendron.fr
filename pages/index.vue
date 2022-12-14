@@ -2,7 +2,7 @@
   <div id="main">
     <div class="main-sections" id="accueil">
       <img
-        src="./../assets/images/Turquoise.png"
+        src="./../assets/images/Turquoise.webp"
         id="turquoise"
         alt="background_turquoise"
       />
@@ -14,11 +14,11 @@
         :src="
           require('./../assets/images/' +
             (this.$store.state.parcours == 'apu'
-              ? 'Jaune.png'
+              ? 'Jaune.webp'
               : null || this.$store.state.parcours == 'iut'
-              ? 'Bordeaux.png'
+              ? 'Bordeaux.webp'
               : null || this.$store.state.parcours == 'efrei'
-              ? 'Bleu.png'
+              ? 'Bleu.webp'
               : null))
         "
         id="bleu"
@@ -29,7 +29,7 @@
 
     <div class="main-sections" id="projets">
       <img
-        src="./../assets/images/Violet.png"
+        src="./../assets/images/Violet.webp"
         id="violet"
         alt="background_violet"
       />
@@ -47,10 +47,10 @@ import Projets from "../sections/Projets.vue";
 const store = useStore();
 const background = computed(() => {
   if (store.state.parcours == "apu") {
-    return "Jaune.png";
+    return "Jaune.webp";
   } else if (store.state.parcours == "iut") {
-    return "Bordeaux.png";
-  } else return "Bleu.png";
+    return "Bordeaux.webp";
+  } else return "Bleu.webp";
 });
 </script>
 
