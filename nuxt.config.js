@@ -43,7 +43,7 @@ export default {
   },
 
   env: {
-    API_URL: "http://localhost:8008",
+    API_URL: "https://www.api.thomasgendron.fr",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
