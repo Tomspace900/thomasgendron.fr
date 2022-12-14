@@ -1,9 +1,8 @@
 <template>
   <div id="main">
     <div class="main-sections" id="accueil">
-      <nuxt-img
-        format="webp"
-        src="/images/Turquoise.png"
+      <img
+        src="./../assets/images/Turquoise.png"
         id="turquoise"
         alt="background_turquoise"
       />
@@ -13,7 +12,7 @@
     <div class="main-sections" id="parcours">
       <img
         :src="
-          require('~/assets/images/' +
+          require('./../assets/images/' +
             (this.$store.state.parcours == 'apu'
               ? 'Jaune.png'
               : null || this.$store.state.parcours == 'iut'
@@ -29,9 +28,8 @@
     </div>
 
     <div class="main-sections" id="projets">
-      <nuxt-img
-        format="webp"
-        src="/images/Violet.png"
+      <img
+        src="./../assets/images/Violet.png"
         id="violet"
         alt="background_violet"
       />

@@ -12,7 +12,7 @@
       v-if="opacity(40) > 0"
       :style="{ opacity: opacity(40) }"
     >
-      <img id="logo" src="/images/Logo.svg" alt="logo" />
+      <img id="logo" src="../assets/images/Logo.svg" alt="logo" />
       <span id="title">Thomas GENDRON</span>
     </NuxtLink>
 
@@ -87,6 +87,8 @@ const opacity = (start) => {
 
 #logo {
   margin-left: 4%;
+  height: 50px;
+  width: 50px;
 }
 
 #title {
