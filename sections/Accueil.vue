@@ -55,6 +55,7 @@
       src="../assets/images/Arrow.svg"
       id="arrow"
       @click="scrollDown('parcours')"
+      alt="arrow"
     />
   </div>
 </template>
