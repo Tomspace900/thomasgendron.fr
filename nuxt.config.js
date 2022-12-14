@@ -27,13 +27,18 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/dotenv", "@nuxtjs/composition-api/module"],
+  buildModules: [
+    "@nuxtjs/dotenv",
+    "@nuxtjs/composition-api/module",
+    "@nuxt/image",
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     "@nuxtjs/dotenv",
+    "@nuxt/image",
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -43,7 +48,7 @@ export default {
   },
 
   env: {
-    API_URL: "https://www.api.thomasgendron.fr",
+    API_URL: process.env.API_URL,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

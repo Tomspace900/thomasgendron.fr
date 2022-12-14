@@ -1,7 +1,9 @@
 <template>
   <div id="wrapper">
-    <img
-      src="./../assets/images/Photo_Accueil.png"
+    <nuxt-img
+      format="webp"
+      sizes="xxl: 50vw"
+      src="/images/Photo_Accueil.png"
       id="thomas"
       alt="profile-pic"
     />
@@ -51,11 +53,7 @@
       :link="'https://www.linkedin.com/in/gendron-thomas/'"
     />
 
-    <img
-      src="../assets/images/Arrow.svg"
-      id="arrow"
-      @click="scrollDown('parcours')"
-    />
+    <img src="/images/Arrow.svg" id="arrow" @click="scrollDown('parcours')" />
   </div>
 </template>
 
@@ -113,7 +111,6 @@ function scrollDown(string) {
   position: absolute;
   right: 0;
   bottom: -10px;
-  max-width: 50vw;
   max-height: 85%;
   object-fit: contain;
 }
