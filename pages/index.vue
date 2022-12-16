@@ -71,7 +71,7 @@ const background = computed(() => {
   justify-content: center;
   align-items: center;
   position: relative;
-  border-bottom: 1px solid black;
+  // border-bottom: 1px solid black;
 }
 
 #turquoise {

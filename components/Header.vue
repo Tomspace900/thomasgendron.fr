@@ -19,13 +19,13 @@
     <span
       v-if="$nuxt.$route.path == '/' && opacity(2 * cathHeight - offset) > 0"
       id="category"
-      >projets
+      >Projets
     </span>
     <span
       v-else-if="$nuxt.$route.path == '/' && opacity(cathHeight - offset) > 0"
       :style="{ opacity: opacity(cathHeight - offset) }"
       id="category"
-      >parcours
+      >Parcours
     </span>
     <div id="language">
       <div
@@ -99,7 +99,8 @@ const opacity = (start) => {
   width: 34%;
   text-align: center;
   font-family: var(--font-second);
-  color: var(--bleu);
+  font-size: 1.2rem;
+  color: var(--blue);
 }
 
 #language {

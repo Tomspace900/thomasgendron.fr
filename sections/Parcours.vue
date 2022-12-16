@@ -1,31 +1,14 @@
 <template>
   <div id="wrapper">
-    <h1 id="title">Parcours</h1>
+    <h1 id="title">Mon <span id="parcours">parcours</span> académique</h1>
     <div id="content">
       <div id="school-info">{{ parcours }}</div>
       <hr id="line" />
       <div id="school-cards">
-        <div
-          class="school-card"
-          id="efrei"
-          @click="() => this.$store.commit('toggleParcours', 'efrei')"
-        >
-          {{ parcours }}
-        </div>
-        <div
-          class="school-card"
-          id="apu"
-          @click="() => this.$store.commit('toggleParcours', 'apu')"
-        >
-          {{ parcours }}
-        </div>
-        <div
-          class="school-card"
-          id="iut"
-          @click="() => this.$store.commit('toggleParcours', 'iut')"
-        >
-          {{ parcours }}
-        </div>
+        <SchoolCard class="school-card" id="efrei" :parcours="'efrei'">
+        </SchoolCard>
+        <SchoolCard class="school-card" id="apu" :parcours="'apu'"></SchoolCard>
+        <SchoolCard class="school-card" id="iut" :parcours="'iut'"></SchoolCard>
       </div>
     </div>
   </div>
@@ -34,6 +17,7 @@
 <script setup>
 import { computed } from "vue";
 import { useStore } from "@nuxtjs/composition-api";
+import SchoolCard from "../components/SchoolCard.vue";
 
 const store = useStore();
 
@@ -53,6 +37,13 @@ const parcours = computed(() => store.state.parcours);
 }
 
 #title {
+  font-size: 1.5rem;
+}
+
+#parcours {
+  font-family: var(--font-second);
+  color: var(--blue);
+  font-size: 1.7rem;
 }
 
 #content {
@@ -81,7 +72,7 @@ const parcours = computed(() => store.state.parcours);
 
 #line {
   width: 2px;
-  height: 660px;
+  height: 100%;
   background-color: black;
 }
 
@@ -89,13 +80,19 @@ const parcours = computed(() => store.state.parcours);
   width: 55%;
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
   align-content: space-between;
   margin: 0 10% 0 7%;
 }
 
 .school-card {
+  width: 100%;
+  height: 30%;
+  padding: 10px 20px 10px 20px;
+  background: var(--background-card);
+  box-shadow: var(--shadow-card);
+  border-radius: 20px;
+  display: flex;
+  cursor: pointer;
 }
 </style>
