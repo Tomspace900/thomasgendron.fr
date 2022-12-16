@@ -11,10 +11,10 @@
   --font-main: "Sono";
   --font-second: "Kaushan";
 
-  --background-card: rgba(255, 255, 255, 0.6);
-  --bleu: #0083cc;
-  --violet: #7000c9;
-  --jaune: #f4dc00;
+  --background-card: #ffffff80;
+  --blue: #0083cc;
+  --purple: #7000c9;
+  --yellow: #f4dc00;
   --bordeaux: #98296b;
 
   --shadow-card: 0px 0px 35px rgba(0, 0, 0, 0.1);

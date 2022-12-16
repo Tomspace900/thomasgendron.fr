@@ -40,7 +40,7 @@ const props = defineProps({
 
 .bubble-icon {
   padding-left: 20px;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 </style>
