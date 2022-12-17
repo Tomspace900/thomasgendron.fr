@@ -6,10 +6,13 @@
       alt="profile-pic"
     />
     <div class="left">
-      <h1 id="title">
-        Thomas <br />
-        GENDRON
-      </h1>
+      <div id="title">
+        <div></div>
+        <h1>
+          Thomas<br />
+          GENDRON
+        </h1>
+      </div>
       <hr id="line" />
       <div id="desc">
         {{
@@ -89,14 +92,25 @@ function scrollDown(string) {
 
 .left {
   position: absolute;
+  display: flex;
+  flex-direction: column;
   left: 5%;
-  top: 100px;
+  width: 40vw;
+  top: 110px;
 }
 
 #title {
-  margin-left: 110px;
-  font-size: 3.6rem;
-  font-weight: 100;
+  display: flex;
+  width: 100%;
+
+  div {
+    width: 20%;
+  }
+
+  h1 {
+    font-size: 3.4rem;
+    font-weight: 100;
+  }
 }
 
 #line {
@@ -107,14 +121,14 @@ function scrollDown(string) {
 }
 
 #desc {
-  width: 530px;
+  width: 90%;
 }
 
 #thomas {
   position: absolute;
   right: 0;
   bottom: -10px;
-  max-width: 50vw;
+  max-width: 60vw;
   max-height: 85%;
   object-fit: contain;
 }
@@ -132,14 +146,14 @@ function scrollDown(string) {
 
 #bubble-myprojects {
   position: absolute;
-  left: 756px;
-  top: 404px;
+  left: 55%;
+  top: 53%;
 }
 
 #bubble-myresume {
   position: absolute;
-  right: 80px;
-  bottom: 40px;
+  right: 5%;
+  bottom: 5%;
 }
 
 .bubble-logo {
@@ -156,8 +170,8 @@ function scrollDown(string) {
 
 #bubble-github {
   position: absolute;
-  right: 85px;
-  bottom: 450px;
+  right: 7%;
+  bottom: 55%;
   background: linear-gradient(60deg, #161b22 30%, #ffffff 139.52%);
 }
 
@@ -165,15 +179,15 @@ function scrollDown(string) {
   position: absolute;
   width: 70px;
   height: 70px;
-  left: 743px;
-  bottom: 115px;
+  left: 50%;
+  bottom: 15%;
   background: linear-gradient(60deg, #0279b5 30%, #ffffff 127.15%);
 }
 
 #arrow {
   position: absolute;
   bottom: 50px;
-  left: 300px;
+  left: 15%;
   cursor: pointer;
 }
 </style>

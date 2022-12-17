@@ -84,7 +84,7 @@ const values = computed(() => {
 }
 
 #left {
-  width: 60%;
+  max-width: 60%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -108,10 +108,13 @@ const values = computed(() => {
 }
 
 #right {
-  width: 40%;
+  width: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+
+  & img {
+    width: 100%;
+  }
 }
 </style>

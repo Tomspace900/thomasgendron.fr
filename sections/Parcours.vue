@@ -53,7 +53,8 @@ const parcours = computed(() => store.state.parcours);
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: 92%;
+  max-width: 1400px;
   margin: 5% 0 5% 0;
 }
 
@@ -63,7 +64,6 @@ const parcours = computed(() => store.state.parcours);
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  margin: 0 7% 0 10%;
 
   width: 45%;
   height: 100%;
@@ -76,6 +76,7 @@ const parcours = computed(() => store.state.parcours);
   width: 2px;
   height: 100%;
   background-color: black;
+  margin: 0 7%;
 }
 
 #school-cards {
@@ -84,7 +85,6 @@ const parcours = computed(() => store.state.parcours);
   display: flex;
   flex-wrap: wrap;
   align-content: space-between;
-  margin: 0 10% 0 7%;
 }
 
 .school-card {

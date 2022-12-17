@@ -23,7 +23,19 @@
           opacity(2 * sectionHeight) > 0
             ? opacity(2 * sectionHeight)
             : opacity(sectionHeight),
-        color: opacity(2 * sectionHeight) > 0 ? 'var(--purple)' : 'var(--blue)',
+        color:
+          opacity(2 * sectionHeight) > 0
+            ? 'var(--purple)'
+            : (() => {
+                switch (this.$store.state.parcours) {
+                  case 'apu':
+                    return 'var(--yellow)';
+                  case 'iut':
+                    return 'var(--bordeaux)';
+                  default:
+                    return 'var(--blue)';
+                }
+              })(),
       }"
       id="category"
     >
@@ -85,7 +97,8 @@ const opacity = (start) => {
   &-left {
     display: flex;
     align-items: center;
-    min-width: 33%;
+    min-width: 40%;
+    height: 100%;
   }
 }
 
@@ -100,15 +113,19 @@ const opacity = (start) => {
 }
 
 #category {
-  width: 34%;
+  width: 20%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--font-second);
   font-size: 1.2rem;
+  height: 100%;
 }
 
 #language {
   position: absolute;
-  right: 100px;
+  right: 5%;
   top: 20px;
   width: 300px;
   display: flex;

@@ -68,6 +68,7 @@ onMounted(() => {
   height: 100vh;
   min-height: 800px;
   width: 100%;
+  max-width: 1600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -78,21 +79,20 @@ onMounted(() => {
 
 #turquoise {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -230px;
+  left: -380px;
   z-index: -1;
 }
-
 #bleu {
   position: absolute;
-  right: 0;
+  right: -350px;
   bottom: -316px;
   z-index: -1;
 }
 
 #violet {
   position: absolute;
-  left: 0;
+  left: -290px;
   bottom: -181px;
   z-index: -1;
 }
