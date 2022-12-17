@@ -2,30 +2,32 @@
   <div
     class="header"
     :style="{
-      backgroundColor: 'rgba(255, 255, 255,' + opacity(40) + ')',
-      boxShadow: '0px 0px 82px rgba(0, 0, 0,' + opacity(40) / 10 + ')',
+      backgroundColor: 'rgba(255, 255, 255,' + opacity(140) + ')',
+      boxShadow: '0px 0px 82px rgba(0, 0, 0,' + opacity(140) / 10 + ')',
     }"
   >
     <NuxtLink
       to="/"
       class="header-left"
       v-if="opacity(40) > 0"
-      :style="{ opacity: opacity(40) }"
+      :style="{ opacity: opacity(140) }"
     >
       <img id="logo" src="../assets/images/Logo.svg" alt="logo" />
       <span id="title">Thomas GENDRON</span>
     </NuxtLink>
 
     <span
-      v-if="$nuxt.$route.path == '/' && opacity(2 * cathHeight - offset) > 0"
+      v-if="$nuxt.$route.path == '/'"
+      :style="{
+        opacity:
+          opacity(2 * sectionHeight) > 0
+            ? opacity(2 * sectionHeight)
+            : opacity(sectionHeight),
+        color: opacity(2 * sectionHeight) > 0 ? 'var(--purple)' : 'var(--blue)',
+      }"
       id="category"
-      >Projets
-    </span>
-    <span
-      v-else-if="$nuxt.$route.path == '/' && opacity(cathHeight - offset) > 0"
-      :style="{ opacity: opacity(cathHeight - offset) }"
-      id="category"
-      >Parcours
+    >
+      {{ opacity(2 * sectionHeight) > 0 ? "Projets " : "Parcours " }}
     </span>
     <div id="language">
       <div
@@ -55,16 +57,18 @@ import { useStore } from "@nuxtjs/composition-api";
 const store = useStore();
 const lang = computed(() => store.state.lang);
 const scrollpx = computed(() => store.state.scrollpx);
-const cathHeight = window.innerHeight;
-const offset = 90;
+
+const sectionHeight = computed(() => store.state.sectionHeight);
 
 const opacity = (start) => {
   if ($nuxt.$route.path == "/") {
-    if (scrollpx.value >= start && scrollpx.value < 100 + start) {
-      return (scrollpx.value - start) / 100;
-    } else if (scrollpx.value >= 100 + start) {
+    if (scrollpx.value < start - 100) {
+      return 0;
+    } else if (scrollpx.value >= start - 100 && scrollpx.value <= start) {
+      return (scrollpx.value - (start - 100)) / 100;
+    } else {
       return 1;
-    } else return 0;
+    }
   } else return 1;
 };
 </script>
@@ -100,7 +104,6 @@ const opacity = (start) => {
   text-align: center;
   font-family: var(--font-second);
   font-size: 1.2rem;
-  color: var(--blue);
 }
 
 #language {

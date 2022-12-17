@@ -41,18 +41,18 @@
 </template>
 
 <script setup>
-import { computed, useStore } from "@nuxtjs/composition-api";
 import Accueil from "../sections/Accueil.vue";
 import Parcours from "../sections/Parcours.vue";
 import Projets from "../sections/Projets.vue";
 
-const store = useStore();
-const background = computed(() => {
-  if (store.state.parcours == "apu") {
-    return "Jaune.webp";
-  } else if (store.state.parcours == "iut") {
-    return "Bordeaux.webp";
-  } else return "Bleu.webp";
+import { onMounted } from "vue";
+import { useStore } from "@nuxtjs/composition-api";
+
+onMounted(() => {
+  useStore().commit(
+    "handleSectionHeight",
+    document.getElementById("parcours").offsetTop
+  );
 });
 </script>
 
