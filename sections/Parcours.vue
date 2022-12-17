@@ -2,7 +2,10 @@
   <div id="wrapper">
     <h1 id="title">Mon <span id="parcours">parcours</span> académique</h1>
     <div id="content">
-      <div id="school-info">{{ parcours }}</div>
+      <div id="school-info">
+        {{ parcours }} <br />
+        Contenu encore en travaux... <br />
+      </div>
       <hr id="line" />
       <div id="school-cards">
         <SchoolCard class="school-card" id="efrei" :parcours="'efrei'">
@@ -21,7 +24,6 @@ import SchoolCard from "../components/SchoolCard.vue";
 
 const store = useStore();
 
-const lang = computed(() => store.state.lang);
 const parcours = computed(() => store.state.parcours);
 </script>
 

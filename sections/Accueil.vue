@@ -11,12 +11,12 @@
         GENDRON
       </h1>
       <hr id="line" />
-      <div v-if="lang == 'en'" id="desc">
-        Hello it's a test I'm Thomas I'm struggling to find an idea of design
-      </div>
-      <div v-else id="desc">
-        Bonjour c'est un test moi c'est Thomas je galère à trouver une idée de
-        design
+      <div id="desc">
+        {{
+          lang == "en"
+            ? "Hello it's a test I'm Thomas I'm struggling to find an idea of design"
+            : "Bonjour c'est un test moi c'est Thomas je galère à trouver une idée de design"
+        }}
       </div>
     </div>
 

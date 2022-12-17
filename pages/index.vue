@@ -13,20 +13,22 @@
       <img
         :src="
           require('./../assets/images/' +
-            (this.$store.state.parcours == 'apu'
-              ? 'Jaune.webp'
-              : null || this.$store.state.parcours == 'iut'
-              ? 'Bordeaux.webp'
-              : null || this.$store.state.parcours == 'efrei'
-              ? 'Bleu.webp'
-              : null))
+            (() => {
+              switch (this.$store.state.parcours) {
+                case 'apu':
+                  return 'Jaune.webp';
+                case 'iut':
+                  return 'Bordeaux.webp';
+                default:
+                  return 'Bleu.webp';
+              }
+            })())
         "
         id="bleu"
         alt="background_bleu"
       />
       <Parcours />
     </div>
-
     <div class="main-sections" id="projets">
       <img
         src="./../assets/images/Violet.webp"
