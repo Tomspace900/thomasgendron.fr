@@ -1,6 +1,10 @@
 <template>
   <div id="wrapper">
-    <h1 id="title">Mon <span id="parcours">parcours</span> académique</h1>
+    <h1 id="title">
+      {{ lang == "en" ? "My academic " : "Mon" }}
+      <span id="parcours">{{ lang == "en" ? "background" : "parcours" }}</span
+      >{{ lang == "en" ? null : " académique" }}
+    </h1>
     <div id="content">
       <div id="school-info">
         {{ parcours }} <br />
@@ -23,6 +27,7 @@ import { useStore } from "@nuxtjs/composition-api";
 import SchoolCard from "../components/SchoolCard.vue";
 
 const store = useStore();
+const lang = computed(() => store.state.lang);
 
 const parcours = computed(() => store.state.parcours);
 </script>

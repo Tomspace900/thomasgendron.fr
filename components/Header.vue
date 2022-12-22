@@ -39,7 +39,15 @@
       }"
       id="category"
     >
-      {{ opacity(2 * sectionHeight) > 0 ? "Projets " : "Parcours " }}
+      {{
+        lang == "en"
+          ? opacity(2 * sectionHeight) > 0
+            ? "Projects "
+            : "Background "
+          : opacity(2 * sectionHeight) > 0
+          ? "Projets "
+          : "Parcours "
+      }}
     </span>
     <div id="language">
       <div

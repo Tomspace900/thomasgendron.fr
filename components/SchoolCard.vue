@@ -51,7 +51,7 @@ const values = computed(() => {
         language === "en"
           ? "Paris-Saclay University, FRANCE"
           : "IUT d'Orsay, Université Paris-Saclay";
-      date = language === "en" ? "2018 - 2020" : "2018 020";
+      date = language === "en" ? "2018 - 2020" : "2018 - 2020";
       logo = "logo_saclay.png";
       styleActive = {
         background:
