@@ -1,6 +1,7 @@
 import type { SkinDef } from "./types";
 import type { Skin } from "./meta";
 import { riso } from "./riso";
+import { clean } from "./clean";
 
 /**
  * Registre des skins — usage côté serveur uniquement (layout.tsx, page.tsx) :
@@ -10,7 +11,7 @@ import { riso } from "./riso";
  * Ajouter un skin = créer son dossier (contrat `SkinDef`), l'ajouter ici
  * et dans `meta.ts`.
  */
-export const skins: Record<Skin, SkinDef> = { riso };
+export const skins: Record<Skin, SkinDef> = { riso, clean };
 
 export type { Skin, SkinDef };
 export { defaultSkin, isSkin, skinMeta } from "./meta";

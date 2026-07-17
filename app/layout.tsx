@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Space_Mono } from "next/font/google";
+import { Archivo, Geist, Geist_Mono, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { skins } from "@/components/skins";
 import { getDictionary } from "@/lib/dictionary";
@@ -16,6 +16,20 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
   subsets: ["latin"],
   variable: "--font-space-mono",
+});
+
+// Fontes du skin clean — pas de preload : elles ne se chargent
+// que quand le skin est actif (font-family scopée par data-skin).
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+  preload: false,
+});
+
+const geistMono = Geist_Mono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono-v",
+  preload: false,
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -46,7 +60,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       data-skin={skin}
-      className={`${archivo.variable} ${spaceMono.variable} antialiased`}
+      className={`${archivo.variable} ${spaceMono.variable} ${geist.variable} ${geistMono.variable} antialiased`}
     >
       <body>
         <S.Header dict={dict} locale={locale} skin={skin} />

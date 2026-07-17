@@ -8,6 +8,10 @@ export const en = {
   header: {
     skipToContent: "Skip to content",
   },
+  skins: {
+    riso: "Ink",
+    clean: "Sleek",
+  },
   hero: {
     hello: "Hi, I'm",
     tagline: "Everything there is to know about me, and even more.",

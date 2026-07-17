@@ -1,4 +1,5 @@
 import type { ProjectKind, ProjectSlug } from "../projects";
+import type { Skin } from "../../components/skins/meta";
 
 /**
  * Source de vérité des clés de traduction.
@@ -12,6 +13,8 @@ export type Dictionary = {
   header: {
     skipToContent: string;
   };
+  /** Libellés des positions du toggle de skin */
+  skins: Record<Skin, string>;
   hero: {
     hello: string;
     tagline: string;

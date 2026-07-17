@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Les 5 encres + le papier */
+  /* ——— Skin riso : les 5 encres + le papier ——— */
   --color-ink: #161412;
   --color-paper: #f3ecdd;
   --color-rose: #ff4fa3;
@@ -9,8 +9,18 @@
   --color-sun: #ffd500;
   --color-leaf: #00a874;
 
+  /* ——— Skin clean : neutres shadcn, light/dark auto via light-dark() ——— */
+  --color-c-bg: light-dark(#ffffff, #0a0a0a);
+  --color-c-fg: light-dark(#171717, #ededed);
+  --color-c-muted: light-dark(#737373, #a3a3a3);
+  --color-c-border: light-dark(#e5e5e5, #262626);
+  --color-c-card: light-dark(#fafafa, #141414);
+  --color-c-accent: light-dark(#2563eb, #3b82f6);
+
   --font-display: var(--font-archivo), system-ui, sans-serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
+  --font-geist: var(--font-geist-sans), system-ui, sans-serif;
+  --font-geist-m: var(--font-geist-mono-v), ui-monospace, monospace;
 
   --animate-marquee: marquee 24s linear infinite;
   @keyframes marquee {
@@ -28,18 +38,27 @@ html {
 }
 
 body {
-  background: var(--color-paper);
-  color: var(--color-ink);
-  font-family: var(--font-display);
   overflow-x: clip;
 }
 
-::selection {
+/* ——————————————— Skin riso ——————————————— */
+
+[data-skin="riso"] {
+  color-scheme: light;
+}
+
+[data-skin="riso"] body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+}
+
+[data-skin="riso"] ::selection {
   background: var(--color-ink);
   color: var(--color-paper);
 }
 
-:focus-visible {
+[data-skin="riso"] :focus-visible {
   outline: 3px dashed currentColor;
   outline-offset: 4px;
 }
@@ -63,6 +82,28 @@ body {
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 140px 140px;
+}
+
+/* ——————————————— Skin clean ——————————————— */
+
+[data-skin="clean"] {
+  color-scheme: light dark;
+}
+
+[data-skin="clean"] body {
+  background: var(--color-c-bg);
+  color: var(--color-c-fg);
+  font-family: var(--font-geist);
+}
+
+[data-skin="clean"] ::selection {
+  background: var(--color-c-accent);
+  color: #ffffff;
+}
+
+[data-skin="clean"] :focus-visible {
+  outline: 2px solid var(--color-c-accent);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

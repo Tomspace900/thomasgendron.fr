@@ -19,7 +19,7 @@ export function Header({ dict, locale, skin }: HeaderProps) {
         TG
       </a>
       <div className="flex items-center gap-3">
-        <SkinSwitcher current={skin} />
+        <SkinSwitcher current={skin} labels={dict.skins} />
         <LocaleSwitcher current={locale} />
       </div>
     </header>

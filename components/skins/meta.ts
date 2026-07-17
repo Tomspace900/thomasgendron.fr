@@ -3,7 +3,10 @@
  * ici — le registre des composants vit dans index.ts, côté serveur, pour que
  * seul le skin actif parte dans le bundle).
  */
-export const skinMeta = [{ name: "riso", label: "Encre" }] as const;
+export const skinMeta = [
+  { name: "riso", label: "Encre" },
+  { name: "clean", label: "Lisse" },
+] as const;
 
 export type Skin = (typeof skinMeta)[number]["name"];
 

@@ -10,7 +10,13 @@ function setSkinCookie(skin: Skin) {
 }
 
 /** Le toggle signature « même contenu, trois présentations » — version riso. */
-export function SkinSwitcher({ current }: { current: Skin }) {
+export function SkinSwitcher({
+  current,
+  labels,
+}: {
+  current: Skin;
+  labels: Record<Skin, string>;
+}) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
@@ -32,7 +38,7 @@ export function SkinSwitcher({ current }: { current: Skin }) {
         isPending && "opacity-60",
       )}
     >
-      {skinMeta.map(({ name, label }) => (
+      {skinMeta.map(({ name }) => (
         <button
           key={name}
           onClick={() => switchTo(name)}
@@ -44,7 +50,7 @@ export function SkinSwitcher({ current }: { current: Skin }) {
               : "bg-paper/80 text-ink hover:bg-ink hover:text-paper",
           )}
         >
-          {label}
+          {labels[name]}
         </button>
       ))}
     </div>
