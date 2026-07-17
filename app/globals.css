@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Les 5 encres + le papier */
+  --color-ink: #161412;
+  --color-paper: #f3ecdd;
+  --color-rose: #ff4fa3;
+  --color-blue: #0078bf;
+  --color-sun: #ffd500;
+  --color-leaf: #00a874;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
+
+  --animate-marquee: marquee 24s linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 3px dashed currentColor;
+  outline-offset: 4px;
+}
+
+/* Titres façon affiche : ultra-noirs, étirés, serrés */
+.display-title {
+  font-weight: 900;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+/* Grain de papier — tuile SVG feTurbulence en data-URI, un seul overlay fixe pour tout le site */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.55;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

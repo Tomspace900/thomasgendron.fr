@@ -1,0 +1,94 @@
+import { SectionHeading } from "../SectionHeading";
+import { Reveal } from "../fx/Reveal";
+import type { Dictionary, Locale } from "@/content/i18n";
+import { projects } from "@/content/projects";
+
+export function Projects({
+  dict,
+  locale,
+}: {
+  dict: Dictionary;
+  locale: Locale;
+}) {
+  return (
+    <section className="bg-sun px-6 py-24 md:px-12 md:py-32">
+      <div className="mx-auto max-w-7xl">
+        <SectionHeading
+          number={dict.projects.number}
+          title={dict.projects.title}
+          layers={["text-rose", "text-leaf"]}
+        />
+        <p className="-mt-6 mb-12 max-w-2xl font-mono text-sm md:mb-16">
+          {dict.projects.intro}
+        </p>
+
+        <ul className="grid gap-6 md:grid-cols-2 md:gap-8">
+          {projects.map((project, i) => (
+            <li key={project.slug}>
+              <Reveal delay={(i % 2) * 0.08} className="h-full">
+                <article className="group flex h-full flex-col border-3 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--color-ink)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-[-0.5deg] md:p-8">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <h3 className="display-title text-3xl transition-[text-shadow] duration-200 group-hover:[text-shadow:3px_3px_0_var(--color-rose)] md:text-4xl">
+                      {project.name}
+                    </h3>
+                    <p className="font-mono text-sm font-bold opacity-60">
+                      {project.year}
+                    </p>
+                  </div>
+
+                  <p className="mt-4 grow text-base leading-relaxed font-medium">
+                    {project.description[locale]}
+                  </p>
+
+                  {project.contribution && (
+                    <p className="mt-3 font-mono text-xs opacity-60">
+                      ⑂ {project.contribution}
+                    </p>
+                  )}
+
+                  <div className="mt-6 flex flex-wrap items-center gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="border-2 border-ink px-2 py-0.5 font-mono text-xs font-bold uppercase"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-4 border-t-3 border-ink pt-4 font-mono text-sm font-bold uppercase">
+                    {project.repo ? (
+                      <a
+                        href={project.repo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline decoration-2 underline-offset-4 hover:decoration-rose"
+                      >
+                        {dict.projects.seeCode} ↗
+                      </a>
+                    ) : (
+                      <span className="opacity-50">
+                        {dict.projects.privateRepo}
+                      </span>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="underline decoration-2 underline-offset-4 hover:decoration-blue"
+                      >
+                        {dict.projects.seeLive} ↗
+                      </a>
+                    )}
+                  </div>
+                </article>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  );
+}
