@@ -5,6 +5,7 @@ import { skins } from "@/components/skins";
 import { getDictionary } from "@/lib/dictionary";
 import { getSkin } from "@/lib/skin";
 import { site } from "@/content/site";
+import { Analytics } from "@vercel/analytics/next";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -66,6 +67,7 @@ export default async function RootLayout({
         <S.Header dict={dict} locale={locale} skin={skin} />
         {children}
         <S.Chrome dict={dict} />
+        <Analytics />
       </body>
     </html>
   );
