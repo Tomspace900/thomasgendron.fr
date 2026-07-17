@@ -15,6 +15,14 @@ export type Dictionary = {
   };
   /** Libellés des positions du toggle de skin */
   skins: Record<Skin, string>;
+  /** Chrome du skin word (pastiche Word 97) */
+  word: {
+    docTitle: string;
+    menus: string[];
+    pageInfo: string;
+    clippy: string;
+    figure: string;
+  };
   hero: {
     hello: string;
     tagline: string;

@@ -53,9 +53,10 @@ components/SkinSwitcher # contrat commun (3 positions), stylé par chaque skin,
    `proxy.ts` pour `?skin=` + SkinSwitcher (masqué tant qu'il n'y a qu'un
    skin). Logique HireMe extraite en hook headless `lib/hooks/useHireMe.ts`.
    Skin par défaut : riso (décision Thomas).
-2. **Skin clean** : shadcn/vercel-like. Question ouverte : lui donner un
-   light/dark auto (cohérent avec sa personnalité « pro »), alors que riso
-   reste mono-thème.
+2. ✅ **Skin clean « Lisse »** (fait) : Geist + neutres shadcn, header sticky
+   blur + nav ancres, emojis, light/dark AUTO via `light-dark()` +
+   `color-scheme` (riso verrouillé clair). Libellés du toggle en i18n
+   (`dict.skins`) : Encre/Lisse, Ink/Sleek.
 3. **Skin 3** : à décider. Pistes, par contraste croissant avec les deux autres :
    - Terminal/CLI — le site en invite de commandes interactive
    - Une de journal papier — colonnes, lettrines, noir & blanc

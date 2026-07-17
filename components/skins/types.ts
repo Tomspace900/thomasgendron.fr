@@ -35,6 +35,6 @@ export type SkinDef = {
   Header: ComponentType<HeaderProps>;
   /** Le contenu du site, sections dans l'ordre : hero → à propos → parcours → projets → photos → IA → contact */
   Page: ComponentType<PageProps>;
-  /** Overlays globaux (grain, curseur…) montés dans le layout */
-  Chrome: ComponentType;
+  /** Overlays globaux (grain, curseur, barre d'état…) montés dans le layout */
+  Chrome: ComponentType<{ dict: Dictionary }>;
 };

@@ -11,6 +11,15 @@ export const fr = {
   skins: {
     riso: "Encre",
     clean: "Lisse",
+    word: "Brut",
+  },
+  word: {
+    docTitle: "Microsoft Word - thomasgendron_CV_FINAL_v5(1).doc",
+    menus: ["Fichier", "Édition", "Affichage", "Insertion", "Format", "Outils", "?"],
+    pageInfo: "Page 1 sur 1   Sec 1   À 2,5 cm   Li 1   Col 1",
+    clippy:
+      "Il semble que vous essayiez de recruter un développeur full-stack. Voulez-vous de l'aide ?",
+    figure: "Figure",
   },
   hero: {
     hello: "Bonjour, moi c'est",

@@ -5,31 +5,21 @@ import { skinMeta, type Skin } from "../meta";
 import { cn } from "@/lib/cn";
 import { useCookieSwitch } from "@/lib/hooks/useCookieSwitch";
 
-const segmentGroup =
-  "inline-flex items-center gap-0.5 rounded-md border border-c-border p-0.5 text-xs font-medium";
-const segment = "rounded-[5px] px-2 py-1 transition-colors";
-const segmentActive = "bg-c-fg text-c-bg";
-const segmentIdle = "text-c-muted hover:text-c-fg";
-
 export function LocaleSwitcher({ current }: { current: Locale }) {
   const { apply, isPending } = useCookieSwitch();
   return (
-    <div className={cn(segmentGroup, isPending && "opacity-60")}>
+    <span className={cn("inline-flex gap-0.5", isPending && "opacity-60")}>
       {locales.map((locale) => (
         <button
           key={locale}
           onClick={() => locale !== current && apply("locale", locale)}
           aria-pressed={locale === current}
-          className={cn(
-            segment,
-            "uppercase",
-            locale === current ? segmentActive : segmentIdle,
-          )}
+          className="w95-btn uppercase"
         >
           {locale}
         </button>
       ))}
-    </div>
+    </span>
   );
 }
 
@@ -43,21 +33,21 @@ export function SkinSwitcher({
   const { apply, isPending } = useCookieSwitch();
   if (skinMeta.length < 2) return null;
   return (
-    <div
+    <span
       role="group"
       aria-label="Style du site"
-      className={cn(segmentGroup, isPending && "opacity-60")}
+      className={cn("inline-flex gap-0.5", isPending && "opacity-60")}
     >
       {skinMeta.map(({ name }) => (
         <button
           key={name}
           onClick={() => name !== current && apply("skin", name)}
           aria-pressed={name === current}
-          className={cn(segment, name === current ? segmentActive : segmentIdle)}
+          className="w95-btn"
         >
           {labels[name]}
         </button>
       ))}
-    </div>
+    </span>
   );
 }

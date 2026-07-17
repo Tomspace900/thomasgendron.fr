@@ -65,7 +65,7 @@ export default async function RootLayout({
       <body>
         <S.Header dict={dict} locale={locale} skin={skin} />
         {children}
-        <S.Chrome />
+        <S.Chrome dict={dict} />
       </body>
     </html>
   );

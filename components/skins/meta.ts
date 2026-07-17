@@ -6,6 +6,7 @@
 export const skinMeta = [
   { name: "riso", label: "Encre" },
   { name: "clean", label: "Lisse" },
+  { name: "word", label: "Brut" },
 ] as const;
 
 export type Skin = (typeof skinMeta)[number]["name"];

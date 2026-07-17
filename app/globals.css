@@ -106,6 +106,87 @@ body {
   outline-offset: 2px;
 }
 
+/* ——————————————— Skin word (pastiche Word 97 / Win95) ——————————————— */
+
+[data-skin="word"] {
+  color-scheme: light;
+}
+
+[data-skin="word"] body {
+  background: #868a8e;
+  color: #000000;
+  font-family: "Times New Roman", Times, serif;
+}
+
+[data-skin="word"] ::selection {
+  background: #000080;
+  color: #ffffff;
+}
+
+[data-skin="word"] :focus-visible {
+  outline: 1px dotted #000000;
+  outline-offset: 0px;
+}
+
+/* Reliefs Win95 : 2px clair en haut/gauche, sombre en bas/droite */
+.w95-raised {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+}
+
+.w95-sunken {
+  background: #ffffff;
+  border: 2px solid;
+  border-color: #404040 #ffffff #ffffff #404040;
+}
+
+.w95-btn {
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  padding: 2px 10px;
+}
+
+.w95-btn:active,
+.w95-btn[aria-pressed="true"] {
+  border-color: #404040 #ffffff #ffffff #404040;
+  background: #b0b0b0;
+}
+
+/* Lien bleu d'époque */
+.word-link {
+  color: #0000ee;
+  text-decoration: underline;
+}
+
+.word-link:visited {
+  color: #551a8b;
+}
+
+/* « Mot inconnu du dictionnaire » */
+.word-typo {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #ff0000;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* WordArt maison pour le titre */
+.wordart {
+  font-family: Impact, "Arial Black", sans-serif;
+  background: linear-gradient(180deg, #ff3300 0%, #ffcc00 45%, #009933 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  transform: skewY(-4deg) scaleY(1.15);
+  filter: drop-shadow(3px 3px 0 #9a9a9a);
+  letter-spacing: 0.01em;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
