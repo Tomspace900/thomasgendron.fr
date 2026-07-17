@@ -1,15 +1,9 @@
 import { SectionHeading } from "../SectionHeading";
 import { Reveal } from "../fx/Reveal";
-import type { Dictionary, Locale } from "@/content/i18n";
+import type { Dictionary } from "@/content/i18n";
 import { projects } from "@/content/projects";
 
-export function Projects({
-  dict,
-  locale,
-}: {
-  dict: Dictionary;
-  locale: Locale;
-}) {
+export function Projects({ dict }: { dict: Dictionary }) {
   return (
     <section className="bg-sun px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-7xl">
@@ -31,13 +25,13 @@ export function Projects({
                     <h3 className="display-title text-3xl transition-[text-shadow] duration-200 group-hover:[text-shadow:3px_3px_0_var(--color-rose)] md:text-4xl">
                       {project.name}
                     </h3>
-                    <p className="font-mono text-sm font-bold opacity-60">
-                      {project.year}
+                    <p className="font-mono text-sm font-bold whitespace-nowrap opacity-60">
+                      {dict.projects.kinds[project.kind]} · {project.year}
                     </p>
                   </div>
 
                   <p className="mt-4 grow text-base leading-relaxed font-medium">
-                    {project.description[locale]}
+                    {dict.projects.items[project.slug]}
                   </p>
 
                   {project.contribution && (

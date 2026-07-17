@@ -17,7 +17,7 @@ export function Page({ dict, locale, personas }: PageProps) {
       <InkWipe from="bg-paper" to="bg-blue" />
       <Experience dict={dict} locale={locale} />
       <InkWipe from="bg-blue" to="bg-sun" />
-      <Projects dict={dict} locale={locale} />
+      <Projects dict={dict} />
       <InkWipe from="bg-sun" to="bg-paper" />
       <Photos dict={dict} />
       <InkWipe from="bg-paper" to="bg-leaf" />

@@ -35,6 +35,25 @@ export const en = {
     seeCode: "View code",
     seeLive: "View live",
     privateRepo: "Private repo",
+    kinds: {
+      perso: "Personal",
+      pro: "Work",
+      scolaire: "School",
+    },
+    items: {
+      geodoku:
+        "Daily geographic puzzle: a 3×3 grid to fill by crossing country criteria. A new challenge every day.",
+      "phase-diversity":
+        "Research tool for astronomers: a web interface wrapping Eric Gendron's phase-diversity core algorithm, to analyse telescope optical aberrations.",
+      tomato:
+        "Lost-and-found tracking platform using QR codes: web, mobile and a Supabase backend. Contribution to Victor Billaud's project.",
+      "revision-droit":
+        "Generic study tool: a mobile-first PWA that turns a course PDF into interactive flashcards, quizzes and an AI assistant — no backend.",
+      sesame:
+        "Smart vault to centralise and monitor purchases, subscriptions and trips in one place.",
+      opheli:
+        "Dematerialisation of medical prescriptions: Express API and React front end.",
+    },
   },
   photos: {
     number: "04",

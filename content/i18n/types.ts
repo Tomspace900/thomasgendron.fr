@@ -1,3 +1,5 @@
+import type { ProjectKind, ProjectSlug } from "../projects";
+
 /**
  * Source de vérité des clés de traduction.
  * Ajouter une langue = créer `<locale>.ts` qui `satisfies Dictionary`
@@ -37,6 +39,8 @@ export type Dictionary = {
     seeCode: string;
     seeLive: string;
     privateRepo: string;
+    kinds: Record<ProjectKind, string>;
+    items: Record<ProjectSlug, string>;
   };
   photos: {
     number: string;
