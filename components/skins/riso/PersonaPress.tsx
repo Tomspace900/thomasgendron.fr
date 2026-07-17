@@ -3,16 +3,12 @@
 import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/cn";
+import type { PersonaData } from "../types";
 
 const BLOB =
   "M44.6,-64.3C57.1,-55.9,66.1,-42.6,71.6,-27.9C77.2,-13.1,79.3,3.1,74.9,17.2C70.5,31.2,59.6,43.1,47,52.6C34.4,62.1,20.1,69.2,4.4,64.1C-11.3,59,-28.4,41.6,-41.5,32.5C-54.6,23.4,-63.6,12.6,-66.3,-0.5C-69,-13.5,-65.3,-27,-56.9,-36.6C-48.4,-46.2,-35.2,-51.9,-22.4,-60C-9.7,-68.1,2.7,-78.5,15.8,-77.8C28.9,-77,32.1,-72.7,44.6,-64.3Z";
 
-export type Persona = {
-  key: "linkedin" | "github" | "instagram";
-  label: string;
-  tagline: string;
-  href: string;
-};
+export type Persona = PersonaData;
 
 const INK: Record<Persona["key"], { text: string; offset: { x: number; y: number } }> = {
   linkedin: { text: "text-blue", offset: { x: -14, y: -8 } },

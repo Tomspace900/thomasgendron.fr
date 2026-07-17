@@ -5,11 +5,8 @@ import { motion, useReducedMotion } from "motion/react";
 import { SectionHeading } from "../SectionHeading";
 import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
+import { useHireMe, HIRE_ME_MAX_LENGTH } from "@/lib/hooks/useHireMe";
 import type { Dictionary, Locale } from "@/content/i18n";
-
-const MAX_LENGTH = 500;
-
-type Status = "idle" | "loading" | "done" | "error" | "rate_limited";
 
 export function HireMe({
   dict,
@@ -18,9 +15,8 @@ export function HireMe({
   dict: Dictionary;
   locale: Locale;
 }) {
-  const [context, setContext] = useState("");
-  const [status, setStatus] = useState<Status>("idle");
-  const [answer, setAnswer] = useState("");
+  const { context, setContext, status, answer, canSubmit, submit } =
+    useHireMe(locale);
   const [displayed, setDisplayed] = useState("");
   const reduceMotion = useReducedMotion();
 
@@ -52,30 +48,8 @@ export function HireMe({
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
-    if (status === "loading" || context.trim().length < 10) return;
-    setStatus("loading");
-    setAnswer("");
-    try {
-      const res = await fetch("/api/hire-me", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ context, locale }),
-      });
-      if (res.status === 429) {
-        setStatus("rate_limited");
-        return;
-      }
-      if (!res.ok) {
-        setStatus("error");
-        return;
-      }
-      const data = (await res.json()) as { text: string };
-      setAnswer(data.text);
-      typeOut(data.text);
-      setStatus("done");
-    } catch {
-      setStatus("error");
-    }
+    const text = await submit();
+    if (text) typeOut(text);
   }
 
   const typingDone = displayed.length >= answer.length && answer.length > 0;
@@ -112,21 +86,21 @@ export function HireMe({
             <Textarea
               id="hire-context"
               rows={4}
-              maxLength={MAX_LENGTH}
+              maxLength={HIRE_ME_MAX_LENGTH}
               value={context}
               onChange={(e) => setContext(e.target.value)}
               placeholder={dict.hireMe.placeholder}
               required
             />
             <p className="mt-1 text-right font-mono text-xs opacity-50">
-              {context.length}/{MAX_LENGTH}
+              {context.length}/{HIRE_ME_MAX_LENGTH}
             </p>
 
             <Button
               type="submit"
               size="lg"
               className="mt-4 w-full"
-              disabled={status === "loading" || context.trim().length < 10}
+              disabled={!canSubmit}
             >
               {status === "loading" ? dict.hireMe.loading : dict.hireMe.submit}
             </Button>

@@ -1,19 +1,17 @@
-import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
-import { Experience } from "@/components/sections/Experience";
-import { Projects } from "@/components/sections/Projects";
-import { Photos } from "@/components/sections/Photos";
-import { HireMe } from "@/components/sections/HireMe";
-import { Contact } from "@/components/sections/Contact";
-import { InkWipe } from "@/components/fx/InkWipe";
-import type { Persona } from "@/components/PersonaPress";
+import { skins } from "@/components/skins";
+import type { PersonaData } from "@/components/skins/types";
 import { getDictionary } from "@/lib/dictionary";
+import { getSkin } from "@/lib/skin";
 import { site } from "@/content/site";
 
 export default async function Home() {
-  const { locale, dict } = await getDictionary();
+  const [{ locale, dict }, skin] = await Promise.all([
+    getDictionary(),
+    getSkin(),
+  ]);
+  const S = skins[skin];
 
-  const personas: Persona[] = (
+  const personas: PersonaData[] = (
     ["linkedin", "github", "instagram"] as const
   ).map((key) => ({
     key,
@@ -24,19 +22,7 @@ export default async function Home() {
 
   return (
     <main id="content">
-      <Hero dict={dict} personas={personas} />
-      <InkWipe from="bg-rose" to="bg-paper" />
-      <About dict={dict} />
-      <InkWipe from="bg-paper" to="bg-blue" />
-      <Experience dict={dict} locale={locale} />
-      <InkWipe from="bg-blue" to="bg-sun" />
-      <Projects dict={dict} locale={locale} />
-      <InkWipe from="bg-sun" to="bg-paper" />
-      <Photos dict={dict} />
-      <InkWipe from="bg-paper" to="bg-leaf" />
-      <HireMe dict={dict} locale={locale} />
-      <InkWipe from="bg-leaf" to="bg-ink" />
-      <Contact dict={dict} />
+      <S.Page dict={dict} locale={locale} personas={personas} />
     </main>
   );
 }

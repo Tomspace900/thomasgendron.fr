@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Archivo, Space_Mono } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/Header";
-import { InkCursor } from "@/components/fx/InkCursor";
+import { skins } from "@/components/skins";
 import { getDictionary } from "@/lib/dictionary";
+import { getSkin } from "@/lib/skin";
 import { site } from "@/content/site";
 
 const archivo = Archivo({
@@ -36,18 +36,22 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const { locale, dict } = await getDictionary();
+  const [{ locale, dict }, skin] = await Promise.all([
+    getDictionary(),
+    getSkin(),
+  ]);
+  const S = skins[skin];
 
   return (
     <html
       lang={locale}
+      data-skin={skin}
       className={`${archivo.variable} ${spaceMono.variable} antialiased`}
     >
       <body>
-        <Header locale={locale} skipLabel={dict.header.skipToContent} />
+        <S.Header dict={dict} locale={locale} skin={skin} />
         {children}
-        <div className="grain-overlay" aria-hidden />
-        <InkCursor />
+        <S.Chrome />
       </body>
     </html>
   );

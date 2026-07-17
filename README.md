@@ -26,6 +26,19 @@ Rate-limiting : fenêtre glissante en mémoire par IP (5/min, 20/jour) dans
 `lib/rate-limit.ts`. Best-effort sur serverless ; passer à `@upstash/ratelimit`
 si besoin d'une garantie multi-instances.
 
+## Skins — « même contenu, trois présentations »
+
+Le design est découplé du contenu : chaque skin implémente le contrat
+`components/skins/types.ts` (`Header` + `Page` + `Chrome`, mêmes props
+partout) avec ses propres composants. Sélection par cookie `skin`
+(défaut `riso`), lien partageable via `?skin=<nom>` (géré par `proxy.ts`).
+Seul le code du skin actif est envoyé au client (server components).
+
+Ajouter un skin : créer `components/skins/<nom>/` qui exporte un `SkinDef`,
+puis l'enregistrer dans `components/skins/meta.ts` (nom + libellé du toggle)
+et `components/skins/index.ts`. Le `SkinSwitcher` apparaît automatiquement
+dès qu'il y a au moins deux skins. Plan détaillé : `docs/PLAN-skins.md`.
+
 ## Éditer le contenu
 
 Tout le contenu vit dans `content/` :

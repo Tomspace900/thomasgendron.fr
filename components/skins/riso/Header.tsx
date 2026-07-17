@@ -1,20 +1,15 @@
 import { LocaleSwitcher } from "./LocaleSwitcher";
-import type { Locale } from "@/content/i18n";
+import { SkinSwitcher } from "./SkinSwitcher";
+import type { HeaderProps } from "../types";
 
-export function Header({
-  locale,
-  skipLabel,
-}: {
-  locale: Locale;
-  skipLabel: string;
-}) {
+export function Header({ dict, locale, skin }: HeaderProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between p-4 md:p-6">
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:bg-ink focus:px-4 focus:py-2 focus:font-mono focus:text-paper"
       >
-        {skipLabel}
+        {dict.header.skipToContent}
       </a>
       <a
         href="#top"
@@ -23,7 +18,10 @@ export function Header({
       >
         TG
       </a>
-      <LocaleSwitcher current={locale} />
+      <div className="flex items-center gap-3">
+        <SkinSwitcher current={skin} />
+        <LocaleSwitcher current={locale} />
+      </div>
     </header>
   );
 }
