@@ -1,23 +1,20 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { SectionShell } from "../SectionShell";
 import { Button } from "../ui/button";
 import type { Dictionary } from "@/content/i18n";
-import { photos, isLandscape } from "@/content/photos";
+import { isLandscape } from "@/content/photos";
+import { usePhotoGallery } from "@/lib/hooks/usePhotoGallery";
 import { cn } from "@/lib/cn";
-
-const INITIAL_COUNT = 6;
 
 /**
  * Mosaïque sobre : paysages sur deux colonnes, coins arrondis, zoom doux
  * au survol, liseré intérieur et légende sur bandeau flouté.
  */
 export function Photos({ dict }: { dict: Dictionary }) {
-  const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? photos : photos.slice(0, INITIAL_COUNT);
-  const hiddenCount = photos.length - INITIAL_COUNT;
+  const { visible, expanded, hiddenCount, toggle, anchorRef } =
+    usePhotoGallery();
 
   return (
     <SectionShell
@@ -55,12 +52,8 @@ export function Photos({ dict }: { dict: Dictionary }) {
       </div>
 
       {hiddenCount > 0 && (
-        <div className="mt-6 text-center">
-          <Button
-            type="button"
-            variant="outline"
-            onClick={() => setExpanded(!expanded)}
-          >
+        <div ref={anchorRef} className="mt-6 text-center">
+          <Button type="button" variant="outline" onClick={toggle}>
             {expanded
               ? dict.photos.showLess
               : `${dict.photos.showMore} (+${hiddenCount})`}

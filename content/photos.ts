@@ -15,6 +15,26 @@ export function isLandscape(photo: Photo): boolean {
 }
 
 /**
+ * Ordre d'affichage mosaïque : sur 3 colonnes, alterne les rangées
+ * [paysage, portrait] et [portrait, paysage] tant qu'il y a des paysages,
+ * puis enchaîne les portraits restants. L'ordre du tableau `photos`
+ * (chronologique) n'est pas modifié.
+ */
+export function mosaicOrder(list: Photo[]): Photo[] {
+  const landscapes = list.filter(isLandscape);
+  const portraits = list.filter((p) => !isLandscape(p));
+  const out: Photo[] = [];
+  let flip = false;
+  while (landscapes.length > 0 && portraits.length > 0) {
+    if (flip) out.push(portraits.shift()!, landscapes.shift()!);
+    else out.push(landscapes.shift()!, portraits.shift()!);
+    flip = !flip;
+  }
+  out.push(...landscapes, ...portraits);
+  return out;
+}
+
+/**
  * Ajouter des photos : déposer les originaux dans photos-src/ puis
  * `node scripts/process-photos.mjs` — le script convertit en webp optimisé
  * et imprime les entrées à coller ici.

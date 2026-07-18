@@ -1,14 +1,12 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import { SectionHeading } from "../SectionHeading";
 import { Button } from "../ui/button";
 import type { Dictionary } from "@/content/i18n";
-import { photos, isLandscape } from "@/content/photos";
+import { isLandscape } from "@/content/photos";
+import { usePhotoGallery } from "@/lib/hooks/usePhotoGallery";
 import { cn } from "@/lib/cn";
-
-const INITIAL_COUNT = 6;
 
 /** Ombre portée à la couleur d'accent du tirage, qui s'élargit au survol. */
 const INK_SHADOW = {
@@ -27,9 +25,8 @@ const TILTS = ["rotate-2", "-rotate-2", "rotate-1", "-rotate-3", "rotate-3"];
  * redresse, grossit et passe au premier plan.
  */
 export function Photos({ dict }: { dict: Dictionary }) {
-  const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? photos : photos.slice(0, INITIAL_COUNT);
-  const hiddenCount = photos.length - INITIAL_COUNT;
+  const { visible, expanded, hiddenCount, toggle, anchorRef } =
+    usePhotoGallery();
 
   return (
     <section className="bg-paper px-6 py-24 md:px-12 md:py-32">
@@ -69,12 +66,8 @@ export function Photos({ dict }: { dict: Dictionary }) {
         </div>
 
         {hiddenCount > 0 && (
-          <div className="mt-12 text-center">
-            <Button
-              type="button"
-              variant="paper"
-              onClick={() => setExpanded(!expanded)}
-            >
+          <div ref={anchorRef} className="mt-12 text-center">
+            <Button type="button" variant="paper" onClick={toggle}>
               {expanded
                 ? dict.photos.showLess
                 : `${dict.photos.showMore} (+${hiddenCount})`}

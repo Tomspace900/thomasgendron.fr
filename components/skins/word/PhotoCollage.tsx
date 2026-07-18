@@ -1,18 +1,15 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import type { Dictionary } from "@/content/i18n";
-import { photos, isLandscape } from "@/content/photos";
+import { isLandscape } from "@/content/photos";
+import { usePhotoGallery } from "@/lib/hooks/usePhotoGallery";
 import { cn } from "@/lib/cn";
-
-const INITIAL_COUNT = 6;
 
 /** Collage brut : images collées, paysages sur deux colonnes, zéro fioriture. */
 export function PhotoCollage({ dict }: { dict: Dictionary }) {
-  const [expanded, setExpanded] = useState(false);
-  const visible = expanded ? photos : photos.slice(0, INITIAL_COUNT);
-  const hiddenCount = photos.length - INITIAL_COUNT;
+  const { visible, expanded, hiddenCount, toggle, anchorRef } =
+    usePhotoGallery();
 
   return (
     <div>
@@ -34,12 +31,11 @@ export function PhotoCollage({ dict }: { dict: Dictionary }) {
       </div>
 
       {hiddenCount > 0 && (
-        <p className="mt-3 text-center font-[Arial,Helvetica,sans-serif]">
-          <button
-            type="button"
-            className="w95-btn font-bold"
-            onClick={() => setExpanded(!expanded)}
-          >
+        <p
+          ref={anchorRef}
+          className="mt-3 text-center font-[Arial,Helvetica,sans-serif]"
+        >
+          <button type="button" className="w95-btn font-bold" onClick={toggle}>
             {expanded
               ? dict.photos.showLess
               : `${dict.photos.showMore} (+${hiddenCount})`}
