@@ -21,8 +21,8 @@ export function Projects({ dict }: { dict: Dictionary }) {
             <li key={project.slug}>
               <Reveal delay={(i % 2) * 0.08} className="h-full">
                 <article className="group flex h-full flex-col border-3 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--color-ink)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-[-0.5deg] md:p-8">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="display-title text-3xl transition-[text-shadow] duration-200 group-hover:[text-shadow:3px_3px_0_var(--color-rose)] md:text-4xl">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <h3 className="display-title min-w-0 text-2xl transition-[text-shadow] duration-200 group-hover:[text-shadow:3px_3px_0_var(--color-rose)] sm:text-3xl md:text-4xl">
                       {project.name}
                     </h3>
                     <p className="font-mono text-sm font-bold whitespace-nowrap opacity-60">
