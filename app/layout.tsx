@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Geist, Geist_Mono, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { skins } from "@/components/skins";
+import { SkinTransitionProvider } from "@/components/skins/SkinTransition";
 import { getDictionary } from "@/lib/dictionary";
 import { getSkin } from "@/lib/skin";
 import { site } from "@/content/site";
@@ -63,9 +64,11 @@ export default async function RootLayout({
       className={`${archivo.variable} ${spaceMono.variable} ${geist.variable} ${geistMono.variable} antialiased`}
     >
       <body>
-        <S.Header dict={dict} locale={locale} skin={skin} />
-        {children}
-        <S.Chrome dict={dict} />
+        <SkinTransitionProvider skin={skin} wordWaitLabel={dict.word.switching}>
+          <S.Header dict={dict} locale={locale} skin={skin} />
+          {children}
+          <S.Chrome dict={dict} />
+        </SkinTransitionProvider>
       </body>
     </html>
   );

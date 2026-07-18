@@ -2,6 +2,7 @@
 
 import { locales, type Locale } from "@/content/i18n";
 import { skinMeta, type Skin } from "../meta";
+import { useSkinSwitch } from "../SkinTransition";
 import { cn } from "@/lib/cn";
 import { useCookieSwitch } from "@/lib/hooks/useCookieSwitch";
 
@@ -30,7 +31,7 @@ export function SkinSwitcher({
   current: Skin;
   labels: Record<Skin, string>;
 }) {
-  const { apply, isPending } = useCookieSwitch();
+  const { switchSkin, isPending } = useSkinSwitch();
   if (skinMeta.length < 2) return null;
   return (
     <span
@@ -41,7 +42,7 @@ export function SkinSwitcher({
       {skinMeta.map(({ name }) => (
         <button
           key={name}
-          onClick={() => name !== current && apply("skin", name)}
+          onClick={() => switchSkin(name)}
           aria-pressed={name === current}
           className="w95-btn"
         >

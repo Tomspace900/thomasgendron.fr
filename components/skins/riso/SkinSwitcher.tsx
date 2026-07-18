@@ -1,15 +1,10 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useTransition } from "react";
 import { skinMeta, type Skin } from "../meta";
+import { useSkinSwitch } from "../SkinTransition";
 import { cn } from "@/lib/cn";
 
-function setSkinCookie(skin: Skin) {
-  document.cookie = `skin=${skin};path=/;max-age=31536000;samesite=lax`;
-}
-
-/** Le toggle signature « même contenu, trois présentations » — version riso. */
+/** Toggle du header — version riso. Le switch passe par la transition. */
 export function SkinSwitcher({
   current,
   labels,
@@ -17,17 +12,9 @@ export function SkinSwitcher({
   current: Skin;
   labels: Record<Skin, string>;
 }) {
-  const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const { switchSkin, isPending } = useSkinSwitch();
 
-  // Tant qu'un seul skin existe, le toggle n'a pas de raison d'être visible.
   if (skinMeta.length < 2) return null;
-
-  function switchTo(skin: Skin) {
-    if (skin === current) return;
-    setSkinCookie(skin);
-    startTransition(() => router.refresh());
-  }
 
   return (
     <div
@@ -41,7 +28,7 @@ export function SkinSwitcher({
       {skinMeta.map(({ name }) => (
         <button
           key={name}
-          onClick={() => switchTo(name)}
+          onClick={() => switchSkin(name)}
           aria-pressed={name === current}
           className={cn(
             "border-2 border-ink px-2 py-0.5 transition-colors",

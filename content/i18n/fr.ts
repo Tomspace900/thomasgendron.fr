@@ -9,9 +9,14 @@ export const fr = {
     skipToContent: "Aller au contenu",
   },
   skins: {
-    riso: "Encre",
-    clean: "Lisse",
-    word: "Brut",
+    riso: "Riso",
+    clean: "Vercel",
+    word: "Word 97",
+  },
+  manifesto: {
+    punch: "La forme est devenue gratuite. Le fond, non.",
+    body: "N'importe quelle IA génère aujourd'hui n'importe quel front — un joli portfolio de plus ne prouve plus rien. Alors celui-ci a trois interfaces interchangeables : même contenu, même code derrière. Ce qui compte, c'est l'ingénierie qui tient tout ça debout.",
+    pick: "Choisissez votre interface :",
   },
   word: {
     docTitle: "Microsoft Word - thomasgendron_CV_FINAL_v5(1).doc",
@@ -20,12 +25,13 @@ export const fr = {
     clippy:
       "Il semble que vous essayiez de recruter un développeur full-stack. Voulez-vous de l'aide ?",
     figure: "Figure",
+    switching: "Changement d'affichage en cours…",
   },
   hero: {
     hello: "Bonjour, moi c'est",
     tagline: "Tout ce qu'il y a à savoir sur moi, et même davantage.",
     scroll: "Faites défiler",
-    trioCaption: "Le même moi, trois encres",
+    trioCaption: "Le même moi, trois registres",
   },
   personas: {
     linkedin: { label: "LinkedIn", tagline: "Un peu plus formel" },
@@ -77,16 +83,16 @@ export const fr = {
     number: "05",
     title: "Pourquoi me recruter ?",
     intro:
-      "Dites-moi qui vous êtes et ce que vous cherchez — l'atelier imprime une réponse sur mesure.",
+      "Dites-moi qui vous êtes et ce que vous cherchez — l'IA rédige une réponse sur mesure.",
     formLabel: "Votre contexte",
     placeholder:
       "Ex. « Je recrute un dev full-stack chez ACME, stack React/Node, équipe de 6 »",
-    submit: "Imprimer la réponse",
-    loading: "Encrage en cours…",
+    submit: "Générer la réponse",
+    loading: "Génération en cours…",
     stamp: "Candidat idéal",
-    errorGeneric: "La machine est à court d'encre. Réessayez dans un instant.",
+    errorGeneric: "Quelque chose a coincé. Réessayez dans un instant.",
     errorRateLimit:
-      "Le rouleau chauffe ! Trop de tirages d'un coup — réessayez dans une minute.",
+      "Doucement ! Trop de demandes d'un coup — réessayez dans une minute.",
     disclaimer:
       "Réponse générée par IA à partir d'un profil rédigé par Thomas. À prendre avec humour (mais pas que).",
   },
@@ -99,6 +105,6 @@ export const fr = {
     marquee: "Disponible pour de nouvelles aventures",
   },
   footer: {
-    credits: "Conçu et imprimé numériquement par Thomas Gendron",
+    credits: "Conçu et développé par Thomas Gendron",
   },
 } satisfies Dictionary;

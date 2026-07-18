@@ -1,5 +1,6 @@
 import type { Dictionary } from "@/content/i18n";
 import type { PersonaData } from "../../types";
+import { ThemePicker } from "../../ThemePicker";
 
 const PERSONA_EMOJI: Record<PersonaData["key"], string> = {
   linkedin: "💼",
@@ -55,6 +56,19 @@ export function Hero({
           </li>
         ))}
       </ul>
+
+      {/* Manifesto : pourquoi trois interfaces */}
+      <div className="mt-14 rounded-xl border border-c-border bg-c-card p-6">
+        <p className="text-xl font-bold tracking-tight">
+          {dict.manifesto.punch}
+        </p>
+        <p className="mt-2 text-sm leading-6 text-c-muted">
+          {dict.manifesto.body}
+        </p>
+        <div className="mt-5">
+          <ThemePicker labels={dict.skins} pickLabel={dict.manifesto.pick} />
+        </div>
+      </div>
     </section>
   );
 }

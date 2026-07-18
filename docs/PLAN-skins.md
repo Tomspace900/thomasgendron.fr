@@ -57,16 +57,13 @@ components/SkinSwitcher # contrat commun (3 positions), stylé par chaque skin,
    blur + nav ancres, emojis, light/dark AUTO via `light-dark()` +
    `color-scheme` (riso verrouillé clair). Libellés du toggle en i18n
    (`dict.skins`) : Encre/Lisse, Ink/Sleek.
-3. **Skin 3** : à décider. Pistes, par contraste croissant avec les deux autres :
-   - Terminal/CLI — le site en invite de commandes interactive
-   - Une de journal papier — colonnes, lettrines, noir & blanc
-   - **Anti-design bureautique (Word 97)** — Times New Roman, liens bleus
-     soulignés, fond blanc brut : l'illustration parfaite de la philosophie
-     (favori pour l'instant, décision Thomas)
-   - Y2K / GeoCities — compteurs de visite, gifs
+3. ✅ **Skin word « Brut »** (fait) : pastiche Word 97 — fenêtre Win95,
+   page blanche sur gris, Times justifié, WordArt, tableaux, squiggles
+   rouges sur les noms de projets, Clippy pour l'IA, surligneur jaune,
+   barre d'état. 100 % fontes système. `useCookieSwitch` partagé,
+   contrat `Chrome` enrichi de `dict`.
 
-## Décisions à prendre (non bloquantes pour l'étape 1)
+## Triptyque complet ✅ — décisions actées
 
-- Skin par défaut au premier chargement (proposition : riso)
-- Noms des trois positions du toggle (ex. « encre / lisse / brut »)
-- Transition au switch : reload sec ou petit effet de passage
+- Skin par défaut : **riso** · Toggle : **Encre / Lisse / Brut** (i18n : Ink / Sleek / Raw)
+- Reste ouvert : petit effet de transition au switch (reload sec aujourd'hui)

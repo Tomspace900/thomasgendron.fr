@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { DocHeading } from "./DocHeading";
 import { HireMe } from "./HireMe";
+import { ThemePicker } from "../ThemePicker";
 import type { PageProps } from "../types";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
@@ -43,6 +44,15 @@ export function Page({ dict, locale, personas }: PageProps) {
               </li>
             ))}
           </ul>
+        </section>
+
+        {/* ——— Manifesto : pourquoi trois interfaces ——— */}
+        <section className="mt-8 border border-black p-4">
+          <p className="font-bold">{dict.manifesto.punch}</p>
+          <p className="mt-2 text-justify text-[14px]">{dict.manifesto.body}</p>
+          <div className="mt-4 text-[13px]">
+            <ThemePicker labels={dict.skins} pickLabel={dict.manifesto.pick} />
+          </div>
         </section>
 
         {/* ——— À propos ——— */}

@@ -1,6 +1,7 @@
 import { MisregisterTitle } from "../fx/MisregisterTitle";
 import { StampShape } from "../fx/StampShape";
 import { PersonaPress, type Persona } from "../PersonaPress";
+import { ThemePicker } from "../../ThemePicker";
 import type { Dictionary } from "@/content/i18n";
 
 export function Hero({
@@ -57,6 +58,21 @@ export function Hero({
 
         <div className="justify-self-center lg:justify-self-end">
           <PersonaPress personas={personas} caption={dict.hero.trioCaption} />
+        </div>
+      </div>
+
+      {/* Manifesto : pourquoi trois interfaces */}
+      <div className="relative z-10 mx-auto mt-16 w-full max-w-7xl pb-10">
+        <div className="max-w-2xl -rotate-1 border-3 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--color-ink)] md:p-8">
+          <p className="display-title text-2xl md:text-3xl">
+            {dict.manifesto.punch}
+          </p>
+          <p className="mt-4 text-sm leading-relaxed font-medium">
+            {dict.manifesto.body}
+          </p>
+          <div className="mt-6">
+            <ThemePicker labels={dict.skins} pickLabel={dict.manifesto.pick} />
+          </div>
         </div>
       </div>
 

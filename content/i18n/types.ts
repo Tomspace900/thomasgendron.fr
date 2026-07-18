@@ -15,6 +15,12 @@ export type Dictionary = {
   };
   /** Libellés des positions du toggle de skin */
   skins: Record<Skin, string>;
+  /** Le « pourquoi trois interfaces » — switcher central du hero */
+  manifesto: {
+    punch: string;
+    body: string;
+    pick: string;
+  };
   /** Chrome du skin word (pastiche Word 97) */
   word: {
     docTitle: string;
@@ -22,6 +28,7 @@ export type Dictionary = {
     pageInfo: string;
     clippy: string;
     figure: string;
+    switching: string;
   };
   hero: {
     hello: string;

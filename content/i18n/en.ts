@@ -9,9 +9,14 @@ export const en = {
     skipToContent: "Skip to content",
   },
   skins: {
-    riso: "Ink",
-    clean: "Sleek",
-    word: "Raw",
+    riso: "Riso",
+    clean: "Vercel",
+    word: "Word 97",
+  },
+  manifesto: {
+    punch: "Looks became free. Substance didn't.",
+    body: "Any AI can generate any front-end these days — one more pretty portfolio proves nothing. So this one ships three interchangeable interfaces: same content, same code underneath. What matters is the engineering holding it all together.",
+    pick: "Pick your interface:",
   },
   word: {
     docTitle: "Microsoft Word - thomasgendron_Resume_FINAL_v5(1).doc",
@@ -20,12 +25,13 @@ export const en = {
     clippy:
       "It looks like you're trying to hire a full-stack developer. Would you like help?",
     figure: "Figure",
+    switching: "Switching view, please wait…",
   },
   hero: {
     hello: "Hi, I'm",
     tagline: "Everything there is to know about me, and even more.",
     scroll: "Scroll down",
-    trioCaption: "Same me, three inks",
+    trioCaption: "Same me, three registers",
   },
   personas: {
     linkedin: { label: "LinkedIn", tagline: "A bit more formal" },
@@ -77,16 +83,16 @@ export const en = {
     number: "05",
     title: "Why hire me?",
     intro:
-      "Tell me who you are and what you're looking for — the print shop will press a tailored answer.",
+      "Tell me who you are and what you're looking for — the AI writes a tailored answer.",
     formLabel: "Your context",
     placeholder:
       "E.g. “I'm hiring a full-stack dev at ACME, React/Node stack, team of 6”",
-    submit: "Print the answer",
-    loading: "Inking…",
+    submit: "Generate the answer",
+    loading: "Generating…",
     stamp: "Ideal candidate",
-    errorGeneric: "The machine ran out of ink. Try again in a moment.",
+    errorGeneric: "Something jammed. Try again in a moment.",
     errorRateLimit:
-      "The roller is overheating! Too many prints at once — try again in a minute.",
+      "Easy there! Too many requests at once — try again in a minute.",
     disclaimer:
       "AI-generated answer based on a profile written by Thomas. Take it with humour (but not only).",
   },
@@ -99,6 +105,6 @@ export const en = {
     marquee: "Available for new adventures",
   },
   footer: {
-    credits: "Designed and digitally printed by Thomas Gendron",
+    credits: "Designed & built by Thomas Gendron",
   },
 } satisfies Dictionary;
