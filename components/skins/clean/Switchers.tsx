@@ -1,8 +1,6 @@
 "use client";
 
 import { locales, type Locale } from "@/content/i18n";
-import { skinMeta, type Skin } from "../meta";
-import { useSkinSwitch } from "../SkinTransition";
 import { cn } from "@/lib/cn";
 import { useCookieSwitch } from "@/lib/hooks/useCookieSwitch";
 
@@ -28,35 +26,6 @@ export function LocaleSwitcher({ current }: { current: Locale }) {
           )}
         >
           {locale}
-        </button>
-      ))}
-    </div>
-  );
-}
-
-export function SkinSwitcher({
-  current,
-  labels,
-}: {
-  current: Skin;
-  labels: Record<Skin, string>;
-}) {
-  const { switchSkin, isPending } = useSkinSwitch();
-  if (skinMeta.length < 2) return null;
-  return (
-    <div
-      role="group"
-      aria-label="Style du site"
-      className={cn(segmentGroup, isPending && "opacity-60")}
-    >
-      {skinMeta.map(({ name }) => (
-        <button
-          key={name}
-          onClick={() => switchSkin(name)}
-          aria-pressed={name === current}
-          className={cn(segment, name === current ? segmentActive : segmentIdle)}
-        >
-          {labels[name]}
         </button>
       ))}
     </div>

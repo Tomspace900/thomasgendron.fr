@@ -65,5 +65,11 @@ components/SkinSwitcher # contrat commun (3 positions), stylé par chaque skin,
 
 ## Triptyque complet ✅ — décisions actées
 
-- Skin par défaut : **riso** · Toggle : **Encre / Lisse / Brut** (i18n : Ink / Sleek / Raw)
-- Reste ouvert : petit effet de transition au switch (reload sec aujourd'hui)
+- Skin par défaut : **riso** · Toggle : **Riso / Vercel / Word 97** (mêmes noms FR/EN)
+- ✅ **Manifesto** « La forme est devenue gratuite. Le fond, non. » dans les
+  trois heroes, avec le **ThemePicker** central (`skins/ThemePicker.tsx`) :
+  chaque bouton est stylé comme son thème cible.
+- ✅ **Transitions théâtrales** (`skins/SkinTransition.tsx`, provider dans le
+  layout, machine à états par timers — PAS par callbacks d'animation, peu
+  fiables ici) : rideau d'encre / fondu / sablier Win95 (hold 900 ms).
+- ✅ Vocabulaire encre retiré du dico partagé (réservé au visuel riso).

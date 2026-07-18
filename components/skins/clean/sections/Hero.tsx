@@ -23,35 +23,23 @@ export function Hero({
       <h1 className="text-4xl font-bold tracking-tight md:text-6xl">
         Thomas Gendron
       </h1>
-      <p className="mt-4 max-w-xl text-lg text-c-muted md:text-xl">
+      <p className="mt-4 max-w-xl text-lg font-medium text-c-muted md:text-xl">
         {dict.hero.tagline}
       </p>
 
-      <p className="mt-12 mb-3 text-sm font-medium text-c-muted">
-        ✨ {dict.hero.trioCaption}
-      </p>
-      <ul className="grid gap-3 sm:grid-cols-3">
+      {/* Trio de personas — compact, façon rangée de chips */}
+      <ul className="mt-8 flex flex-wrap gap-2.5">
         {personas.map((p) => (
           <li key={p.key}>
             <a
               href={p.href}
               target="_blank"
               rel="noreferrer"
-              className="group flex h-full flex-col rounded-xl border border-c-border bg-c-card p-4 transition-colors hover:border-c-accent"
+              className="flex items-center gap-2 rounded-md border border-c-border bg-c-card px-3 py-2 transition-colors hover:border-c-fg"
             >
-              <span aria-hidden className="text-2xl">
-                {PERSONA_EMOJI[p.key]}
-              </span>
-              <span className="mt-3 flex items-center gap-1 text-sm font-semibold">
-                {p.label}
-                <span
-                  aria-hidden
-                  className="text-c-muted transition-transform group-hover:translate-x-0.5 group-hover:text-c-accent"
-                >
-                  →
-                </span>
-              </span>
-              <span className="mt-0.5 text-sm text-c-muted">{p.tagline}</span>
+              <span aria-hidden>{PERSONA_EMOJI[p.key]}</span>
+              <span className="text-sm font-semibold">{p.label}</span>
+              <span className="text-xs text-c-muted">{p.tagline}</span>
             </a>
           </li>
         ))}

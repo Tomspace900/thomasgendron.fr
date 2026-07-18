@@ -3,6 +3,10 @@ import { SectionShell } from "../SectionShell";
 import type { Dictionary } from "@/content/i18n";
 import { photos } from "@/content/photos";
 
+/**
+ * Masonry sobre : coins arrondis, zoom doux au survol, liseré intérieur
+ * et légende sur bandeau flouté.
+ */
 export function Photos({ dict }: { dict: Dictionary }) {
   return (
     <SectionShell
@@ -11,26 +15,30 @@ export function Photos({ dict }: { dict: Dictionary }) {
       number={dict.photos.number}
       title={dict.photos.title}
     >
-      <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="columns-2 gap-4 lg:columns-3">
         {photos.map((photo) => (
-          <li key={photo.file}>
-            <figure>
-              <div className="overflow-hidden rounded-xl border border-c-border">
-                <Image
-                  src={photo.file}
-                  alt={photo.alt}
-                  width={800}
-                  height={600}
-                  className="aspect-4/3 w-full object-cover transition-transform duration-300 hover:scale-[1.03]"
-                />
-              </div>
-              <figcaption className="mt-2 text-xs text-c-muted">
-                📍 {photo.location}
-              </figcaption>
-            </figure>
-          </li>
+          <figure
+            key={photo.file}
+            className="group relative mb-4 break-inside-avoid overflow-hidden rounded-xl"
+          >
+            <Image
+              src={photo.file}
+              alt={photo.alt}
+              width={800}
+              height={600}
+              className="w-full transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+            {/* Liseré intérieur, façon Vercel */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 rounded-xl shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)]"
+            />
+            <figcaption className="absolute inset-x-0 bottom-0 bg-c-bg/60 px-3 py-2 text-xs font-medium backdrop-blur-md">
+              📍 {photo.location}
+            </figcaption>
+          </figure>
         ))}
-      </ul>
+      </div>
     </SectionShell>
   );
 }

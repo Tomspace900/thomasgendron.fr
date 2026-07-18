@@ -38,7 +38,7 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     rel="noreferrer"
                     className="text-c-accent hover:underline"
                   >
-                    {dict.projects.seeCode} ↗
+                    {dict.projects.seeCode}
                   </a>
                 ) : (
                   <span className="text-c-muted">
@@ -52,7 +52,7 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     rel="noreferrer"
                     className="text-c-accent hover:underline"
                   >
-                    {dict.projects.seeLive} ↗
+                    {dict.projects.seeLive}
                   </a>
                 )}
               </div>

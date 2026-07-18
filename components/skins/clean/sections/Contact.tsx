@@ -31,7 +31,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
             rel="noreferrer"
             className="text-c-muted transition-colors hover:text-c-accent"
           >
-            LinkedIn ↗
+            LinkedIn
           </a>
           <a
             href={site.links.github}
@@ -39,7 +39,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
             rel="noreferrer"
             className="text-c-muted transition-colors hover:text-c-accent"
           >
-            GitHub ↗
+            GitHub
           </a>
           <a
             href={site.links.instagram}
@@ -47,7 +47,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
             rel="noreferrer"
             className="text-c-muted transition-colors hover:text-c-accent"
           >
-            Instagram ↗
+            Instagram
           </a>
         </nav>
       </SectionShell>

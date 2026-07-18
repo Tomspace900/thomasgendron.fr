@@ -1,8 +1,8 @@
-import { LocaleSwitcher, SkinSwitcher } from "./Switchers";
+import { LocaleSwitcher } from "./Switchers";
 import type { HeaderProps } from "../types";
 
 /** La fenêtre Word 97 : barre de titre Win95 + barre de menus décorative. */
-export function Header({ dict, locale, skin }: HeaderProps) {
+export function Header({ dict, locale }: HeaderProps) {
   return (
     <header className="fixed inset-x-0 top-0 z-50 font-[Arial,Helvetica,sans-serif] text-[12px]">
       <a
@@ -39,8 +39,7 @@ export function Header({ dict, locale, skin }: HeaderProps) {
             </span>
           ))}
         </p>
-        <span className="flex items-center gap-2 py-0.5">
-          <SkinSwitcher current={skin} labels={dict.skins} />
+        <span className="flex items-center py-0.5">
           <LocaleSwitcher current={locale} />
         </span>
       </div>

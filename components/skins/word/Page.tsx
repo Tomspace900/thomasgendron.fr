@@ -135,23 +135,20 @@ export function Page({ dict, locale, personas }: PageProps) {
           </ol>
         </section>
 
-        {/* ——— Photos ——— */}
+        {/* ——— Photos : collage brut, images collées, tailles libres ——— */}
         <section>
           <DocHeading id="photos" number={dict.photos.number} title={dict.photos.title} />
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="columns-2 gap-1 sm:columns-3">
             {photos.map((photo, i) => (
-              <figure key={photo.file}>
-                <Image
-                  src={photo.file}
-                  alt={photo.alt}
-                  width={800}
-                  height={600}
-                  className="aspect-4/3 w-full border border-black object-cover"
-                />
-                <figcaption className="mt-1 text-center text-[13px] italic">
-                  {dict.word.figure} {i + 1} — {photo.location}
-                </figcaption>
-              </figure>
+              <Image
+                key={photo.file}
+                src={photo.file}
+                alt={`${dict.word.figure} ${i + 1} — ${photo.location}`}
+                title={photo.location}
+                width={800}
+                height={600}
+                className="mb-1 w-full border border-black"
+              />
             ))}
           </div>
         </section>

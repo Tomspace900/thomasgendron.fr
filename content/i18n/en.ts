@@ -14,9 +14,9 @@ export const en = {
     word: "Word 97",
   },
   manifesto: {
-    punch: "Looks became free. Substance didn't.",
-    body: "Any AI can generate any front-end these days — one more pretty portfolio proves nothing. So this one ships three interchangeable interfaces: same content, same code underneath. What matters is the engineering holding it all together.",
-    pick: "Pick your interface:",
+    punch: "These days, anyone can build a pretty front-end in an afternoon.",
+    body: "That's no longer what sets people apart — so I didn't hold back, I made three.",
+    pick: "Take your pick:",
   },
   word: {
     docTitle: "Microsoft Word - thomasgendron_Resume_FINAL_v5(1).doc",

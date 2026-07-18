@@ -14,9 +14,9 @@ export const fr = {
     word: "Word 97",
   },
   manifesto: {
-    punch: "La forme est devenue gratuite. Le fond, non.",
-    body: "N'importe quelle IA génère aujourd'hui n'importe quel front — un joli portfolio de plus ne prouve plus rien. Alors celui-ci a trois interfaces interchangeables : même contenu, même code derrière. Ce qui compte, c'est l'ingénierie qui tient tout ça debout.",
-    pick: "Choisissez votre interface :",
+    punch: "Aujourd'hui, n'importe qui fait un beau frontend en une après-midi.",
+    body: "Ce n'est plus ça qui fait la différence — alors je ne m'en suis pas privé, j'en ai fait trois.",
+    pick: "À vous de choisir :",
   },
   word: {
     docTitle: "Microsoft Word - thomasgendron_CV_FINAL_v5(1).doc",

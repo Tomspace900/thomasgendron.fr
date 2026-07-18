@@ -1,7 +1,7 @@
-import { LocaleSwitcher, SkinSwitcher } from "./Switchers";
+import { LocaleSwitcher } from "./Switchers";
 import type { HeaderProps } from "../types";
 
-export function Header({ dict, locale, skin }: HeaderProps) {
+export function Header({ dict, locale }: HeaderProps) {
   const nav = [
     { href: "#about", label: dict.about.title },
     { href: "#projects", label: dict.projects.title },
@@ -35,10 +35,7 @@ export function Header({ dict, locale, skin }: HeaderProps) {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-2">
-          <SkinSwitcher current={skin} labels={dict.skins} />
-          <LocaleSwitcher current={locale} />
-        </div>
+        <LocaleSwitcher current={locale} />
       </div>
     </header>
   );
