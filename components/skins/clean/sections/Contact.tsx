@@ -53,11 +53,10 @@ export function Contact({ dict }: { dict: Dictionary }) {
       </SectionShell>
 
       <footer className="border-t border-c-border">
-        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-2 px-6 py-8 text-xs text-c-muted">
+        <div className="mx-auto max-w-3xl px-6 py-8 text-xs text-c-muted">
           <p>
-            © {new Date().getFullYear()} — {dict.footer.credits} 🖨️
+            © {new Date().getFullYear()} — {dict.footer.credits}
           </p>
-          <p>Next.js · Tailwind CSS</p>
         </div>
       </footer>
     </>

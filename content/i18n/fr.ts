@@ -3,7 +3,7 @@ import type { Dictionary } from "./types";
 export const fr = {
   meta: {
     description:
-      "Thomas Gendron — développeur full-stack à Paris. Tout ce qu'il y a à savoir sur moi, et même davantage.",
+      "Thomas Gendron — développeur full-stack à Paris. Un portfolio, trois interfaces : Riso, Vercel et Word 97.",
   },
   header: {
     skipToContent: "Aller au contenu",
@@ -29,7 +29,7 @@ export const fr = {
   },
   hero: {
     hello: "Bonjour, moi c'est",
-    tagline: "Tout ce qu'il y a à savoir sur moi, et même davantage.",
+    tagline: "Développeur full-stack basé à Paris.",
     scroll: "Faites défiler",
     trioCaption: "Le même moi, trois registres",
   },
@@ -50,7 +50,6 @@ export const fr = {
   projects: {
     number: "03",
     title: "Projets",
-    intro: "Une sélection curée, tirée de mon GitHub.",
     seeCode: "Voir le code",
     seeLive: "Voir en ligne",
     privateRepo: "Repo privé",
@@ -77,7 +76,8 @@ export const fr = {
   photos: {
     number: "04",
     title: "Je voyage, et je prends des photos",
-    hint: "Survolez pour révéler les couleurs",
+    showMore: "Voir plus de photos",
+    showLess: "En voir moins",
   },
   hireMe: {
     number: "05",

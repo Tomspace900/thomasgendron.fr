@@ -1,11 +1,10 @@
-import Image from "next/image";
 import { DocHeading } from "./DocHeading";
 import { HireMe } from "./HireMe";
+import { PhotoCollage } from "./PhotoCollage";
 import { ThemePicker } from "../ThemePicker";
 import type { PageProps } from "../types";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
-import { photos } from "@/content/photos";
 import { site } from "@/content/site";
 
 /**
@@ -94,7 +93,6 @@ export function Page({ dict, locale, personas }: PageProps) {
             number={dict.projects.number}
             title={dict.projects.title}
           />
-          <p>{dict.projects.intro}</p>
           <ol className="mt-2 list-decimal pl-8">
             {projects.map((project) => (
               <li key={project.slug} className="mb-3">
@@ -138,19 +136,7 @@ export function Page({ dict, locale, personas }: PageProps) {
         {/* ——— Photos : collage brut, images collées, tailles libres ——— */}
         <section>
           <DocHeading id="photos" number={dict.photos.number} title={dict.photos.title} />
-          <div className="columns-2 gap-1 sm:columns-3">
-            {photos.map((photo, i) => (
-              <Image
-                key={photo.file}
-                src={photo.file}
-                alt={`${dict.word.figure} ${i + 1} — ${photo.location}`}
-                title={photo.location}
-                width={800}
-                height={600}
-                className="mb-1 w-full border border-black"
-              />
-            ))}
-          </div>
+          <PhotoCollage dict={dict} />
         </section>
 
         {/* ——— IA / Clippy ——— */}

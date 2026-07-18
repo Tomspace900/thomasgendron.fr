@@ -1,13 +1,24 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { SectionShell } from "../SectionShell";
+import { Button } from "../ui/button";
 import type { Dictionary } from "@/content/i18n";
-import { photos } from "@/content/photos";
+import { photos, isLandscape } from "@/content/photos";
+import { cn } from "@/lib/cn";
+
+const INITIAL_COUNT = 6;
 
 /**
- * Masonry sobre : coins arrondis, zoom doux au survol, liseré intérieur
- * et légende sur bandeau flouté.
+ * Mosaïque sobre : paysages sur deux colonnes, coins arrondis, zoom doux
+ * au survol, liseré intérieur et légende sur bandeau flouté.
  */
 export function Photos({ dict }: { dict: Dictionary }) {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? photos : photos.slice(0, INITIAL_COUNT);
+  const hiddenCount = photos.length - INITIAL_COUNT;
+
   return (
     <SectionShell
       id="photos"
@@ -15,18 +26,21 @@ export function Photos({ dict }: { dict: Dictionary }) {
       number={dict.photos.number}
       title={dict.photos.title}
     >
-      <div className="columns-2 gap-4 lg:columns-3">
-        {photos.map((photo) => (
+      <div className="grid grid-flow-dense grid-cols-2 gap-4 lg:grid-cols-3">
+        {visible.map((photo) => (
           <figure
             key={photo.file}
-            className="group relative mb-4 break-inside-avoid overflow-hidden rounded-xl"
+            className={cn(
+              "group relative overflow-hidden rounded-xl",
+              isLandscape(photo) ? "col-span-2 aspect-3/2" : "aspect-3/4",
+            )}
           >
             <Image
               src={photo.file}
               alt={photo.alt}
-              width={800}
-              height={600}
-              className="w-full transition-transform duration-500 ease-out group-hover:scale-105"
+              width={photo.width}
+              height={photo.height}
+              className="size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
             {/* Liseré intérieur, façon Vercel */}
             <div
@@ -39,6 +53,20 @@ export function Photos({ dict }: { dict: Dictionary }) {
           </figure>
         ))}
       </div>
+
+      {hiddenCount > 0 && (
+        <div className="mt-6 text-center">
+          <Button
+            type="button"
+            variant="outline"
+            onClick={() => setExpanded(!expanded)}
+          >
+            {expanded
+              ? dict.photos.showLess
+              : `${dict.photos.showMore} (+${hiddenCount})`}
+          </Button>
+        </div>
+      )}
     </SectionShell>
   );
 }

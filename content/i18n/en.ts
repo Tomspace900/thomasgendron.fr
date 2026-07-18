@@ -3,7 +3,7 @@ import type { Dictionary } from "./types";
 export const en = {
   meta: {
     description:
-      "Thomas Gendron — full-stack developer in Paris. Everything there is to know about me, and even more.",
+      "Thomas Gendron — full-stack developer in Paris. One portfolio, three interfaces: Riso, Vercel and Word 97.",
   },
   header: {
     skipToContent: "Skip to content",
@@ -29,7 +29,7 @@ export const en = {
   },
   hero: {
     hello: "Hi, I'm",
-    tagline: "Everything there is to know about me, and even more.",
+    tagline: "Full-stack developer based in Paris.",
     scroll: "Scroll down",
     trioCaption: "Same me, three registers",
   },
@@ -50,7 +50,6 @@ export const en = {
   projects: {
     number: "03",
     title: "Projects",
-    intro: "A curated selection, straight from my GitHub.",
     seeCode: "View code",
     seeLive: "View live",
     privateRepo: "Private repo",
@@ -77,7 +76,8 @@ export const en = {
   photos: {
     number: "04",
     title: "I travel, and I take pictures",
-    hint: "Hover to reveal the colors",
+    showMore: "Show more photos",
+    showLess: "Show fewer",
   },
   hireMe: {
     number: "05",

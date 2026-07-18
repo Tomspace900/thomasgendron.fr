@@ -1,24 +1,36 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { SectionHeading } from "../SectionHeading";
+import { Button } from "../ui/button";
 import type { Dictionary } from "@/content/i18n";
-import { photos } from "@/content/photos";
+import { photos, isLandscape } from "@/content/photos";
 import { cn } from "@/lib/cn";
 
-const INK_BG = {
-  rose: "bg-rose",
-  blue: "bg-blue",
-  sun: "bg-sun",
-  leaf: "bg-leaf",
+const INITIAL_COUNT = 6;
+
+/** Ombre portée à la couleur d'accent du tirage, qui s'élargit au survol. */
+const INK_SHADOW = {
+  rose: "shadow-[8px_8px_0_var(--color-rose)] hover:shadow-[14px_14px_0_var(--color-rose)]",
+  blue: "shadow-[8px_8px_0_var(--color-blue)] hover:shadow-[14px_14px_0_var(--color-blue)]",
+  sun: "shadow-[8px_8px_0_var(--color-sun)] hover:shadow-[14px_14px_0_var(--color-sun)]",
+  leaf: "shadow-[8px_8px_0_var(--color-leaf)] hover:shadow-[14px_14px_0_var(--color-leaf)]",
 } as const;
 
 /** Rotations « posées à la main », cyclées sur l'index. */
 const TILTS = ["rotate-2", "-rotate-2", "rotate-1", "-rotate-3", "rotate-3"];
 
 /**
- * Masonry de tirages de travers : bichromie riso par défaut, et au survol
- * le tirage se redresse, grossit et reprend ses vraies couleurs.
+ * Mosaïque de tirages pleine couleur, de travers, ombrés à l'encre :
+ * les paysages s'étalent sur deux colonnes, et au survol le tirage se
+ * redresse, grossit et passe au premier plan.
  */
 export function Photos({ dict }: { dict: Dictionary }) {
+  const [expanded, setExpanded] = useState(false);
+  const visible = expanded ? photos : photos.slice(0, INITIAL_COUNT);
+  const hiddenCount = photos.length - INITIAL_COUNT;
+
   return (
     <section className="bg-paper px-6 py-24 md:px-12 md:py-32">
       <div className="mx-auto max-w-7xl">
@@ -27,46 +39,27 @@ export function Photos({ dict }: { dict: Dictionary }) {
           title={dict.photos.title}
           layers={["text-leaf", "text-rose"]}
         />
-        <p className="-mt-6 mb-12 font-mono text-sm opacity-70 md:mb-16">
-          {dict.photos.hint}
-        </p>
 
-        <div className="columns-2 gap-8 lg:columns-3">
-          {photos.map((photo, i) => (
+        <div className="grid grid-flow-dense grid-cols-2 gap-6 md:gap-8 lg:grid-cols-3">
+          {visible.map((photo, i) => (
             <figure
               key={photo.file}
               className={cn(
-                "group relative mb-8 break-inside-avoid border-3 border-ink shadow-[8px_8px_0_var(--color-ink)]",
-                "transition-transform duration-300 ease-out",
-                "hover:z-10 hover:rotate-0 hover:scale-110 hover:shadow-[14px_14px_0_var(--color-ink)]",
+                "group relative border-3 border-ink transition-transform duration-300 ease-out",
+                "hover:z-10 hover:rotate-0 hover:scale-105",
+                isLandscape(photo) ? "col-span-2 aspect-3/2" : "aspect-3/4",
+                INK_SHADOW[photo.ink],
                 TILTS[i % TILTS.length],
               )}
             >
-              <div className="relative overflow-hidden">
-                {/* Tirage couleur, révélé au hover */}
+              <div className="size-full overflow-hidden">
                 <Image
                   src={photo.file}
                   alt={photo.alt}
-                  width={800}
-                  height={600}
-                  className="w-full"
+                  width={photo.width}
+                  height={photo.height}
+                  className="size-full object-cover"
                 />
-                {/* Bichromie riso par-dessus : fond encre + image en blend-screen */}
-                <div
-                  aria-hidden
-                  className={cn(
-                    "absolute inset-0 transition-opacity duration-300 group-hover:opacity-0",
-                    INK_BG[photo.ink],
-                  )}
-                >
-                  <Image
-                    src={photo.file}
-                    alt=""
-                    width={800}
-                    height={600}
-                    className="size-full object-cover grayscale contrast-125 mix-blend-screen"
-                  />
-                </div>
               </div>
               <figcaption className="absolute bottom-3 left-3 border-2 border-ink bg-paper px-2 py-1 font-mono text-xs font-bold uppercase">
                 ⌖ {photo.location}
@@ -74,6 +67,20 @@ export function Photos({ dict }: { dict: Dictionary }) {
             </figure>
           ))}
         </div>
+
+        {hiddenCount > 0 && (
+          <div className="mt-12 text-center">
+            <Button
+              type="button"
+              variant="paper"
+              onClick={() => setExpanded(!expanded)}
+            >
+              {expanded
+                ? dict.photos.showLess
+                : `${dict.photos.showMore} (+${hiddenCount})`}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

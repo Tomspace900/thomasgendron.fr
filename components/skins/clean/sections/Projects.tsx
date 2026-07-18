@@ -11,7 +11,6 @@ export function Projects({ dict }: { dict: Dictionary }) {
       number={dict.projects.number}
       title={dict.projects.title}
     >
-      <p className="-mt-4 mb-8 text-sm text-c-muted">{dict.projects.intro}</p>
       <ul className="grid gap-4 sm:grid-cols-2">
         {projects.map((project) => (
           <li key={project.slug}>

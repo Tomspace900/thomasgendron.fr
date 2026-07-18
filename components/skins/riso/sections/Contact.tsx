@@ -63,11 +63,10 @@ export function Contact({ dict }: { dict: Dictionary }) {
         </div>
       </div>
 
-      <footer className="flex flex-wrap items-center justify-between gap-4 px-6 py-6 font-mono text-xs opacity-70 md:px-12">
+      <footer className="px-6 py-6 font-mono text-xs opacity-70 md:px-12">
         <p>
           © {new Date().getFullYear()} — {dict.footer.credits}
         </p>
-        <p>Next.js · Tailwind CSS · Motion</p>
       </footer>
     </section>
   );

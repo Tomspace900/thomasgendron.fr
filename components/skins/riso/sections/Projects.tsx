@@ -12,9 +12,6 @@ export function Projects({ dict }: { dict: Dictionary }) {
           title={dict.projects.title}
           layers={["text-rose", "text-leaf"]}
         />
-        <p className="-mt-6 mb-12 max-w-2xl font-mono text-sm md:mb-16">
-          {dict.projects.intro}
-        </p>
 
         <ul className="grid gap-6 md:grid-cols-2 md:gap-8">
           {projects.map((project, i) => (

@@ -53,7 +53,6 @@ export type Dictionary = {
   projects: {
     number: string;
     title: string;
-    intro: string;
     seeCode: string;
     seeLive: string;
     privateRepo: string;
@@ -63,7 +62,8 @@ export type Dictionary = {
   photos: {
     number: string;
     title: string;
-    hint: string;
+    showMore: string;
+    showLess: string;
   };
   hireMe: {
     number: string;
