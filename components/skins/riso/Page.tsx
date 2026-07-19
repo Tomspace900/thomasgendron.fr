@@ -3,7 +3,7 @@ import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
 import { Projects } from "./sections/Projects";
 import { Photos } from "./sections/Photos";
-import { HireMe } from "./sections/HireMe";
+import { Debrief } from "./sections/Debrief";
 import { Contact } from "./sections/Contact";
 import { InkWipe } from "./fx/InkWipe";
 import type { PageProps } from "../types";
@@ -21,7 +21,7 @@ export function Page({ dict, locale, personas }: PageProps) {
       <InkWipe from="bg-sun" to="bg-paper" />
       <Photos dict={dict} />
       <InkWipe from="bg-paper" to="bg-leaf" />
-      <HireMe dict={dict} locale={locale} />
+      <Debrief dict={dict} />
       <InkWipe from="bg-leaf" to="bg-ink" />
       <Contact dict={dict} />
     </>

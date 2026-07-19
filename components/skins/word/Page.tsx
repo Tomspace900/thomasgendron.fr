@@ -1,5 +1,5 @@
 import { DocHeading } from "./DocHeading";
-import { HireMe } from "./HireMe";
+import { Debrief } from "./Debrief";
 import { PhotoCollage } from "./PhotoCollage";
 import { ThemePicker } from "../ThemePicker";
 import type { PageProps } from "../types";
@@ -139,10 +139,14 @@ export function Page({ dict, locale, personas }: PageProps) {
           <PhotoCollage dict={dict} />
         </section>
 
-        {/* ——— IA / Clippy ——— */}
+        {/* ——— Le mot de la fin, écrit d'après la visite ——— */}
         <section>
-          <DocHeading id="hire-me" number={dict.hireMe.number} title={dict.hireMe.title} />
-          <HireMe dict={dict} locale={locale} />
+          <DocHeading
+            id="debrief"
+            number={dict.debrief.number}
+            title={dict.debrief.title}
+          />
+          <Debrief dict={dict} />
         </section>
 
         {/* ——— Contact ——— */}

@@ -11,7 +11,10 @@ export function Experience({
   locale: Locale;
 }) {
   return (
-    <section className="bg-blue px-6 py-24 text-paper md:px-12 md:py-32">
+    <section
+      id="experience"
+      className="scroll-mt-24 bg-blue px-6 py-24 text-paper md:px-12 md:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           number={dict.experience.number}

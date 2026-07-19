@@ -79,22 +79,20 @@ export const fr = {
     showMore: "Voir plus de photos",
     showLess: "En voir moins",
   },
-  hireMe: {
+  concierge: {
+    mute: "Chut",
+    unmute: "Rallumer le concierge",
+    muted: "Concierge en sourdine.",
+    why: "Comment je sais ça",
+    whyTitle: "Signaux observés",
+    offline: "réplique écrite d'avance (pas de clé API)",
+  },
+  debrief: {
     number: "05",
-    title: "Pourquoi me recruter ?",
-    intro:
-      "Dites-moi qui vous êtes et ce que vous cherchez — l'IA rédige une réponse sur mesure.",
-    formLabel: "Votre contexte",
-    placeholder:
-      "Ex. « Je recrute un dev full-stack chez ACME, stack React/Node, équipe de 6 »",
-    submit: "Générer la réponse",
-    loading: "Génération en cours…",
-    stamp: "Candidat idéal",
-    errorGeneric: "Quelque chose a coincé. Réessayez dans un instant.",
-    errorRateLimit:
-      "Doucement ! Trop de demandes d'un coup — réessayez dans une minute.",
+    title: "Le mot de la fin",
+    loading: "Relecture de votre visite…",
     disclaimer:
-      "Réponse générée par IA à partir d'un profil rédigé par Thomas. À prendre avec humour (mais pas que).",
+      "Écrit à l'instant d'après votre visite. Rien n'est enregistré : tout vit dans votre onglet.",
   },
   contact: {
     number: "06",

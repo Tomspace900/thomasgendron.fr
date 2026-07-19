@@ -5,7 +5,10 @@ import type { Dictionary } from "@/content/i18n";
 
 export function About({ dict }: { dict: Dictionary }) {
   return (
-    <section className="relative overflow-hidden bg-paper px-6 py-24 md:px-12 md:py-32">
+    <section
+      id="about"
+      className="relative scroll-mt-24 overflow-hidden bg-paper px-6 py-24 md:px-12 md:py-32"
+    >
       <StampShape
         variant="blob"
         className="top-[10%] right-[-3%] text-sun"

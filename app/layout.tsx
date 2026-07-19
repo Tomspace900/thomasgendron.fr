@@ -3,6 +3,7 @@ import { Archivo, Geist, Geist_Mono, Space_Mono } from "next/font/google";
 import "./globals.css";
 import { skins } from "@/components/skins";
 import { SkinTransitionProvider } from "@/components/skins/SkinTransition";
+import { ConciergeProvider } from "@/lib/concierge/ConciergeContext";
 import { getDictionary } from "@/lib/dictionary";
 import { getSkin } from "@/lib/skin";
 import { site } from "@/content/site";
@@ -65,9 +66,11 @@ export default async function RootLayout({
     >
       <body>
         <SkinTransitionProvider skin={skin} wordWaitLabel={dict.word.switching}>
-          <S.Header dict={dict} locale={locale} skin={skin} />
-          {children}
-          <S.Chrome dict={dict} />
+          <ConciergeProvider locale={locale}>
+            <S.Header dict={dict} locale={locale} skin={skin} />
+            {children}
+            <S.Chrome dict={dict} />
+          </ConciergeProvider>
         </SkinTransitionProvider>
       </body>
     </html>

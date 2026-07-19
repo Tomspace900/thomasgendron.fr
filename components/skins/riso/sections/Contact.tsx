@@ -7,7 +7,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
   const marqueeText = Array(6).fill(dict.contact.marquee).join(" ✳ ") + " ✳ ";
 
   return (
-    <section className="bg-ink pt-24 text-paper md:pt-32">
+    <section id="contact" className="scroll-mt-24 bg-ink pt-24 text-paper md:pt-32">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <SectionHeading
           number={dict.contact.number}

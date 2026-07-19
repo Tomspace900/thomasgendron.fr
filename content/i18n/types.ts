@@ -65,17 +65,20 @@ export type Dictionary = {
     showMore: string;
     showLess: string;
   };
-  hireMe: {
+  /** Le concierge : une seule voix, une présentation par thème */
+  concierge: {
+    mute: string;
+    unmute: string;
+    muted: string;
+    why: string;
+    whyTitle: string;
+    offline: string;
+  };
+  /** Le mot de la fin, écrit d'après la visite réelle */
+  debrief: {
     number: string;
     title: string;
-    intro: string;
-    formLabel: string;
-    placeholder: string;
-    submit: string;
     loading: string;
-    stamp: string;
-    errorGeneric: string;
-    errorRateLimit: string;
     disclaimer: string;
   };
   contact: {

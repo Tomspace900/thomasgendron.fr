@@ -29,7 +29,10 @@ export function Photos({ dict }: { dict: Dictionary }) {
     usePhotoGallery();
 
   return (
-    <section className="bg-paper px-6 py-24 md:px-12 md:py-32">
+    <section
+      id="photos"
+      className="scroll-mt-24 bg-paper px-6 py-24 md:px-12 md:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           number={dict.photos.number}

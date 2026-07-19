@@ -79,22 +79,20 @@ export const en = {
     showMore: "Show more photos",
     showLess: "Show fewer",
   },
-  hireMe: {
+  concierge: {
+    mute: "Hush",
+    unmute: "Wake the concierge",
+    muted: "Concierge muted.",
+    why: "How I know that",
+    whyTitle: "Observed signals",
+    offline: "pre-written line (no API key)",
+  },
+  debrief: {
     number: "05",
-    title: "Why hire me?",
-    intro:
-      "Tell me who you are and what you're looking for — the AI writes a tailored answer.",
-    formLabel: "Your context",
-    placeholder:
-      "E.g. “I'm hiring a full-stack dev at ACME, React/Node stack, team of 6”",
-    submit: "Generate the answer",
-    loading: "Generating…",
-    stamp: "Ideal candidate",
-    errorGeneric: "Something jammed. Try again in a moment.",
-    errorRateLimit:
-      "Easy there! Too many requests at once — try again in a minute.",
+    title: "Closing remarks",
+    loading: "Reviewing your visit…",
     disclaimer:
-      "AI-generated answer based on a profile written by Thomas. Take it with humour (but not only).",
+      "Written just now from your actual visit. Nothing is stored: it all lives in your tab.",
   },
   contact: {
     number: "06",

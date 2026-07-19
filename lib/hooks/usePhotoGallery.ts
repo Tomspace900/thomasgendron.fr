@@ -75,6 +75,10 @@ export function usePhotoGallery(threeColQuery = "(min-width: 1024px)") {
   function toggle() {
     const collapsing = expanded;
     setExpanded(!expanded);
+    // Le concierge aime savoir qu'on a voulu voir toutes les photos
+    if (!collapsing) {
+      window.dispatchEvent(new CustomEvent("tg:gallery-expanded"));
+    }
     if (collapsing) {
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
