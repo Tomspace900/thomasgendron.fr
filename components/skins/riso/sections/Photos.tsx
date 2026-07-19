@@ -37,14 +37,16 @@ export function Photos({ dict }: { dict: Dictionary }) {
           layers={["text-leaf", "text-rose"]}
         />
 
-        <div className="grid grid-flow-dense grid-cols-2 gap-6 md:gap-8 lg:grid-cols-3">
+        {/* Hauteur de rangée fixe : paysages et portraits d'une même
+            rangée font exactement la même hauteur, object-cover recadre. */}
+        <div className="grid auto-rows-[230px] grid-flow-dense grid-cols-2 gap-6 sm:auto-rows-[300px] md:gap-8 lg:auto-rows-[380px] lg:grid-cols-3">
           {visible.map((photo, i) => (
             <figure
               key={photo.file}
               className={cn(
                 "group relative border-3 border-ink transition-transform duration-300 ease-out",
                 "hover:z-10 hover:rotate-0 hover:scale-105",
-                isLandscape(photo) ? "col-span-2 aspect-3/2" : "aspect-3/4",
+                isLandscape(photo) && "col-span-2",
                 INK_SHADOW[photo.ink],
                 TILTS[i % TILTS.length],
               )}

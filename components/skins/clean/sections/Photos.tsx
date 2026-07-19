@@ -23,13 +23,15 @@ export function Photos({ dict }: { dict: Dictionary }) {
       number={dict.photos.number}
       title={dict.photos.title}
     >
-      <div className="grid grid-flow-dense grid-cols-2 gap-4 lg:grid-cols-3">
+      {/* Hauteur de rangée fixe : paysages et portraits d'une même rangée
+          font exactement la même hauteur, object-cover recadre. */}
+      <div className="grid auto-rows-[210px] grid-flow-dense grid-cols-2 gap-4 sm:auto-rows-[260px] lg:auto-rows-[300px] lg:grid-cols-3">
         {visible.map((photo) => (
           <figure
             key={photo.file}
             className={cn(
               "group relative overflow-hidden rounded-xl",
-              isLandscape(photo) ? "col-span-2 aspect-3/2" : "aspect-3/4",
+              isLandscape(photo) && "col-span-2",
             )}
           >
             <Image

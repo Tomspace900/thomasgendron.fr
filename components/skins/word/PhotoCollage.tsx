@@ -8,12 +8,14 @@ import { cn } from "@/lib/cn";
 
 /** Collage brut : images collées, paysages sur deux colonnes, zéro fioriture. */
 export function PhotoCollage({ dict }: { dict: Dictionary }) {
+  // La grille du collage passe à 3 colonnes dès `sm` (640px)
   const { visible, expanded, hiddenCount, toggle, anchorRef } =
-    usePhotoGallery();
+    usePhotoGallery("(min-width: 640px)");
 
   return (
     <div>
-      <div className="grid grid-flow-dense grid-cols-2 gap-1 sm:grid-cols-3">
+      {/* Hauteur de rangée fixe pour un collage sans décrochage */}
+      <div className="grid auto-rows-[180px] grid-flow-dense grid-cols-2 gap-1 sm:auto-rows-[240px] sm:grid-cols-3">
         {visible.map((photo, i) => (
           <Image
             key={photo.file}
@@ -24,7 +26,7 @@ export function PhotoCollage({ dict }: { dict: Dictionary }) {
             height={photo.height}
             className={cn(
               "size-full border border-black object-cover",
-              isLandscape(photo) ? "col-span-2 aspect-3/2" : "aspect-3/4",
+              isLandscape(photo) && "col-span-2",
             )}
           />
         ))}
