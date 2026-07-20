@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   AnimatePresence,
   motion,
@@ -11,10 +12,14 @@ import {
 type Splat = { id: number; x: number; y: number };
 
 /**
- * Curseur encreur (desktop uniquement) : une pastille de papier cerclée d'encre
- * — le contour reste visible sur le papier, le remplissage clair sur les zones
- * sombres, donc toujours lisible quel que soit le fond — colle au pointeur sans
- * inertie, grossit sur les liens et laisse une éclaboussure au clic.
+ * Curseur encreur (desktop uniquement) : un point blanc en mix-blend-difference
+ * — il inverse le fond sous lui, donc toujours lisible quelle que soit l'encre —
+ * colle au pointeur sans inertie, grossit sur les liens, éclabousse au clic.
+ *
+ * Le blend n'opère que contre le backdrop du contexte d'empilement du point : il
+ * faut donc que chaque élément soit `position: fixed` + `mix-blend-mode` posés
+ * DIRECTEMENT dessus et rendus en portail sur <body>, sans conteneur isolant
+ * (un simple `position: fixed`/`z-index` intermédiaire couperait le mélange).
  */
 export function InkCursor() {
   const [enabled, setEnabled] = useState(false);
@@ -75,10 +80,13 @@ export function InkCursor() {
 
   if (!enabled || reduceMotion) return null;
 
-  return (
-    <div aria-hidden className="pointer-events-none fixed inset-0 z-110">
+  // Portail sur <body> : les éléments partagent le contexte d'empilement racine
+  // avec la page, condition sine qua non pour que le mix-blend-mode la mélange.
+  return createPortal(
+    <>
       <motion.div
-        className="absolute size-4 rounded-full border-2 border-ink bg-paper"
+        aria-hidden
+        className="pointer-events-none fixed top-0 left-0 z-110 size-4 rounded-full bg-white mix-blend-difference"
         style={{ x: mx, y: my, translateX: "-50%", translateY: "-50%" }}
         animate={{ scale: hovering ? 2.6 : 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
@@ -87,8 +95,9 @@ export function InkCursor() {
         {splats.map((s) => (
           <motion.div
             key={s.id}
-            className="absolute size-4 rounded-full bg-ink"
-            style={{ left: s.x, top: s.y, translateX: "-50%", translateY: "-50%" }}
+            aria-hidden
+            className="pointer-events-none fixed top-0 left-0 z-110 size-4 rounded-full bg-white mix-blend-difference"
+            style={{ x: s.x, y: s.y, translateX: "-50%", translateY: "-50%" }}
             initial={{ scale: 0.4, opacity: 0.8 }}
             animate={{ scale: 3, opacity: 0 }}
             exit={{ opacity: 0 }}
@@ -96,6 +105,7 @@ export function InkCursor() {
           />
         ))}
       </AnimatePresence>
-    </div>
+    </>,
+    document.body,
   );
 }
