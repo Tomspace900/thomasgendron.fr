@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { SectionShell } from "../SectionShell";
 import { Button } from "../ui/button";
+import { CameraIcon, MapPinIcon } from "../ui/icons";
 import type { Dictionary } from "@/content/i18n";
 import { isLandscape } from "@/content/photos";
 import { usePhotoGallery } from "@/lib/hooks/usePhotoGallery";
@@ -19,7 +20,7 @@ export function Photos({ dict }: { dict: Dictionary }) {
   return (
     <SectionShell
       id="photos"
-      emoji="📷"
+      icon={<CameraIcon />}
       number={dict.photos.number}
       title={dict.photos.title}
     >
@@ -46,8 +47,9 @@ export function Photos({ dict }: { dict: Dictionary }) {
               aria-hidden
               className="pointer-events-none absolute inset-0 rounded-xl shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)]"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 bg-c-bg/60 px-3 py-2 text-xs font-medium backdrop-blur-md">
-              📍 {photo.location}
+            <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-1.5 bg-c-bg/60 px-3 py-2 text-xs font-medium backdrop-blur-md">
+              <MapPinIcon size={13} className="text-c-muted" />
+              {photo.location}
             </figcaption>
           </figure>
         ))}

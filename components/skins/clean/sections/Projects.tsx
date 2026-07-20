@@ -1,5 +1,6 @@
 import { SectionShell } from "../SectionShell";
 import { Badge } from "../ui/badge";
+import { LayersIcon, LockIcon, ArrowUpRightIcon } from "../ui/icons";
 import type { Dictionary } from "@/content/i18n";
 import { projects } from "@/content/projects";
 
@@ -7,14 +8,14 @@ export function Projects({ dict }: { dict: Dictionary }) {
   return (
     <SectionShell
       id="projects"
-      emoji="🚀"
+      icon={<LayersIcon />}
       number={dict.projects.number}
       title={dict.projects.title}
     >
       <ul className="grid gap-4 sm:grid-cols-2">
         {projects.map((project) => (
           <li key={project.slug}>
-            <article className="flex h-full flex-col rounded-xl border border-c-border bg-c-card p-5 transition-shadow hover:shadow-sm">
+            <article className="v-card flex h-full flex-col rounded-xl border border-c-border bg-c-card p-5">
               <div className="flex items-baseline justify-between gap-3">
                 <h3 className="font-semibold">{project.name}</h3>
                 <span className="font-geist-m text-xs whitespace-nowrap text-c-muted">
@@ -35,13 +36,15 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     href={project.repo}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-c-accent hover:underline"
+                    className="inline-flex items-center gap-1 text-c-accent hover:underline"
                   >
                     {dict.projects.seeCode}
+                    <ArrowUpRightIcon size={14} />
                   </a>
                 ) : (
-                  <span className="text-c-muted">
-                    🔒 {dict.projects.privateRepo}
+                  <span className="inline-flex items-center gap-1.5 text-c-muted">
+                    <LockIcon size={14} />
+                    {dict.projects.privateRepo}
                   </span>
                 )}
                 {project.live && (
@@ -49,9 +52,10 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     href={project.live}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-c-accent hover:underline"
+                    className="inline-flex items-center gap-1 text-c-accent hover:underline"
                   >
                     {dict.projects.seeLive}
+                    <ArrowUpRightIcon size={14} />
                   </a>
                 )}
               </div>

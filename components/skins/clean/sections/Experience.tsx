@@ -1,4 +1,5 @@
 import { SectionShell } from "../SectionShell";
+import { CompassIcon, BriefcaseIcon, GraduationIcon } from "../ui/icons";
 import type { Dictionary, Locale } from "@/content/i18n";
 import { experience } from "@/content/experience";
 
@@ -12,7 +13,7 @@ export function Experience({
   return (
     <SectionShell
       id="experience"
-      emoji="🧭"
+      icon={<CompassIcon />}
       number={dict.experience.number}
       title={dict.experience.title}
     >
@@ -26,8 +27,15 @@ export function Experience({
             <p className="font-geist-m text-xs text-c-muted">
               {entry.period[locale]}
             </p>
-            <h3 className="mt-1 font-semibold">
-              {entry.kind === "work" ? "💼" : "🎓"} {entry.title[locale]}
+            <h3 className="mt-1 flex items-center gap-2 font-semibold">
+              <span aria-hidden className="text-c-muted">
+                {entry.kind === "work" ? (
+                  <BriefcaseIcon size={16} />
+                ) : (
+                  <GraduationIcon size={16} />
+                )}
+              </span>
+              {entry.title[locale]}
             </h3>
             <p className="mt-0.5 text-sm text-c-muted">{entry.place[locale]}</p>
           </li>

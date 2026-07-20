@@ -13,8 +13,9 @@ const base =
   "transition-colors disabled:pointer-events-none disabled:opacity-50";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-c-fg text-c-bg hover:opacity-85",
-  outline: "border border-c-border bg-transparent hover:bg-c-card",
+  primary: "bg-c-fg text-c-bg hover:bg-c-fg-hover",
+  outline:
+    "border border-c-border bg-transparent hover:border-c-muted hover:bg-c-card",
   ghost: "hover:bg-c-card",
 };
 
