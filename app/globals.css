@@ -113,6 +113,14 @@ body {
   outline-offset: 2px;
 }
 
+/* Tailwind v4 ne pose plus cursor:pointer sur les <button> — on le rétablit
+   pour tout l'interactif du skin (toggles, ThemePicker, concierge, etc.). */
+[data-skin="clean"] button:not(:disabled),
+[data-skin="clean"] [role="button"]:not([aria-disabled="true"]),
+[data-skin="clean"] label:has(> input) {
+  cursor: pointer;
+}
+
 /* Carte Vercel : la bordure est un box-shadow à 1px (technique Geist),
    avec une élévation douce qui apparaît au survol. */
 [data-skin="clean"] .v-card {

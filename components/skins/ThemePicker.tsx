@@ -18,9 +18,9 @@ const STYLES: Record<Skin, { base: string; active: string }> = {
   },
   clean: {
     base:
-      "font-geist rounded-md border border-[#ebebeb] bg-white px-5 py-2.5 text-sm font-medium text-[#171717] " +
-      "shadow-[0_0_0_1px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:bg-[#fafafa]",
-    active: "border-[#171717] ring-1 ring-[#171717]",
+      "font-geist cursor-pointer rounded-md bg-[#171717] px-5 py-2.5 text-sm font-medium text-white " +
+      "transition-colors hover:bg-[#383838]",
+    active: "",
   },
   word: {
     base: "w95-btn px-5! py-2! font-bold text-black",

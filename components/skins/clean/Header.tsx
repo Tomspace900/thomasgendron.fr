@@ -18,20 +18,7 @@ export function Header({ dict, locale }: HeaderProps) {
         {dict.header.skipToContent}
       </a>
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-        <a
-          href="#top"
-          className="flex items-center gap-2 text-sm font-semibold tracking-tight"
-        >
-          <svg
-            width="17"
-            height="15"
-            viewBox="0 0 76 65"
-            fill="currentColor"
-            aria-hidden
-            className="translate-y-px"
-          >
-            <path d="M37.53 0 75.06 65H0L37.53 0z" />
-          </svg>
+        <a href="#top" className="text-sm font-semibold tracking-tight">
           Thomas Gendron
         </a>
         <nav
