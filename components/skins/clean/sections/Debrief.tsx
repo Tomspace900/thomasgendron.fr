@@ -1,6 +1,7 @@
 "use client";
 
 import { SectionShell } from "../SectionShell";
+import { SparklesIcon } from "../ui/icons";
 import { useConcierge } from "@/lib/concierge/ConciergeContext";
 import { useInViewOnce } from "@/lib/concierge/useInViewOnce";
 import type { Dictionary } from "@/content/i18n";
@@ -12,7 +13,7 @@ export function Debrief({ dict }: { dict: Dictionary }) {
   return (
     <SectionShell
       id="debrief"
-      emoji="🧾"
+      icon={<SparklesIcon />}
       number={dict.debrief.number}
       title={dict.debrief.title}
     >

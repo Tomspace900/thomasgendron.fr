@@ -1,5 +1,12 @@
 import { SectionShell } from "../SectionShell";
 import { ButtonLink } from "../ui/button";
+import {
+  MailIcon,
+  DownloadIcon,
+  GithubIcon,
+  LinkedinIcon,
+  InstagramIcon,
+} from "../ui/icons";
 import type { Dictionary } from "@/content/i18n";
 import { site } from "@/content/site";
 
@@ -8,45 +15,53 @@ export function Contact({ dict }: { dict: Dictionary }) {
     <>
       <SectionShell
         id="contact"
-        emoji="📬"
+        icon={<MailIcon />}
         number={dict.contact.number}
         title={dict.contact.title}
       >
         <p className="-mt-4 max-w-lg text-c-muted">{dict.contact.catch}</p>
         <div className="mt-6 flex flex-wrap gap-3">
           <ButtonLink href={`mailto:${site.email}`}>
-            ✉️ {dict.contact.emailButton}
+            <MailIcon size={16} />
+            {dict.contact.emailButton}
           </ButtonLink>
           <ButtonLink href={site.cvPath} download variant="outline">
-            📄 {dict.contact.cvButton}
+            <DownloadIcon size={16} />
+            {dict.contact.cvButton}
           </ButtonLink>
         </div>
         <nav
           aria-label="Réseaux sociaux"
-          className="mt-8 flex gap-5 text-sm font-medium"
+          className="mt-8 flex gap-3 text-sm font-medium"
         >
           <a
             href={site.links.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="text-c-muted transition-colors hover:text-c-accent"
+            aria-label="LinkedIn"
+            className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-muted transition-colors hover:border-c-fg hover:text-c-fg"
           >
+            <LinkedinIcon size={18} />
             LinkedIn
           </a>
           <a
             href={site.links.github}
             target="_blank"
             rel="noreferrer"
-            className="text-c-muted transition-colors hover:text-c-accent"
+            aria-label="GitHub"
+            className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-muted transition-colors hover:border-c-fg hover:text-c-fg"
           >
+            <GithubIcon size={18} />
             GitHub
           </a>
           <a
             href={site.links.instagram}
             target="_blank"
             rel="noreferrer"
-            className="text-c-muted transition-colors hover:text-c-accent"
+            aria-label="Instagram"
+            className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-muted transition-colors hover:border-c-fg hover:text-c-fg"
           >
+            <InstagramIcon size={18} />
             Instagram
           </a>
         </nav>

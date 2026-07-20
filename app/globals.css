@@ -9,13 +9,16 @@
   --color-sun: #ffd500;
   --color-leaf: #00a874;
 
-  /* ——— Skin clean : neutres shadcn, light/dark auto via light-dark() ——— */
-  --color-c-bg: light-dark(#ffffff, #0a0a0a);
+  /* ——— Skin clean : palette Geist / Vercel, light/dark auto via light-dark() ——— */
+  --color-c-bg: light-dark(#ffffff, #000000);
   --color-c-fg: light-dark(#171717, #ededed);
-  --color-c-muted: light-dark(#737373, #a3a3a3);
-  --color-c-border: light-dark(#e5e5e5, #262626);
-  --color-c-card: light-dark(#fafafa, #141414);
-  --color-c-accent: light-dark(#2563eb, #3b82f6);
+  --color-c-muted: light-dark(#666666, #a1a1a1);
+  --color-c-border: light-dark(#ebebeb, #2e2e2e);
+  --color-c-card: light-dark(#fafafa, #0a0a0a);
+  /* Le bleu signature Vercel (#0070f3), éclairci sur fond noir pour le contraste */
+  --color-c-accent: light-dark(#0070f3, #3b82f6);
+  /* Survol du CTA noir : gris-800 en clair, blanc cassé en sombre */
+  --color-c-fg-hover: light-dark(#383838, #cccccc);
 
   --font-display: var(--font-archivo), system-ui, sans-serif;
   --font-mono: var(--font-space-mono), ui-monospace, monospace;
@@ -94,6 +97,10 @@ body {
   background: var(--color-c-bg);
   color: var(--color-c-fg);
   font-family: var(--font-geist);
+  /* Rendu de texte façon Vercel : lissage et ligatures Geist */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 [data-skin="clean"] ::selection {
@@ -104,6 +111,30 @@ body {
 [data-skin="clean"] :focus-visible {
   outline: 2px solid var(--color-c-accent);
   outline-offset: 2px;
+}
+
+/* Carte Vercel : la bordure est un box-shadow à 1px (technique Geist),
+   avec une élévation douce qui apparaît au survol. */
+[data-skin="clean"] .v-card {
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+[data-skin="clean"] .v-card:hover {
+  box-shadow:
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px,
+    rgba(0, 0, 0, 0.06) 0px 8px 16px -8px;
+}
+
+/* En sombre, l'ombre portée disparaît : on éclaircit seulement la bordure. */
+@media (prefers-color-scheme: dark) {
+  [data-skin="clean"] .v-card:hover {
+    box-shadow: none;
+    border-color: #3d3d3d;
+  }
 }
 
 /* ——————————————— Skin word (pastiche Word 97 / Win95) ——————————————— */

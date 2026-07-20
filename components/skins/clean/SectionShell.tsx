@@ -1,17 +1,17 @@
 import type { ReactNode } from "react";
 import { cn } from "@/lib/cn";
 
-/** Gabarit de section clean : conteneur centré, titre avec emoji + numéro. */
+/** Gabarit de section clean : conteneur centré, titre avec icône Geist + numéro. */
 export function SectionShell({
   id,
-  emoji,
+  icon,
   number,
   title,
   children,
   className,
 }: {
   id?: string;
-  emoji: string;
+  icon: ReactNode;
   number: string;
   title: string;
   children: ReactNode;
@@ -25,10 +25,15 @@ export function SectionShell({
         className,
       )}
     >
-      <p className="mb-2 font-geist-m text-sm text-c-muted">{number}</p>
-      <h2 className="mb-8 text-2xl font-bold tracking-tight md:text-3xl">
-        <span aria-hidden className="mr-2">
-          {emoji}
+      <p className="mb-3 font-geist-m text-xs tracking-wide text-c-muted">
+        {number}
+      </p>
+      <h2 className="mb-8 flex items-center gap-2.5 text-2xl font-semibold tracking-tight md:text-3xl">
+        <span
+          aria-hidden
+          className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-c-border bg-c-card text-c-muted"
+        >
+          {icon}
         </span>
         {title}
       </h2>

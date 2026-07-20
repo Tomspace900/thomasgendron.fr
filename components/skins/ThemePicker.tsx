@@ -18,8 +18,8 @@ const STYLES: Record<Skin, { base: string; active: string }> = {
   },
   clean: {
     base:
-      "font-geist rounded-md border border-[#e5e5e5] bg-white px-5 py-2.5 text-sm font-medium text-[#171717] " +
-      "shadow-[0_1px_2px_rgba(0,0,0,0.08)] transition-colors hover:bg-[#f5f5f5]",
+      "font-geist rounded-md border border-[#ebebeb] bg-white px-5 py-2.5 text-sm font-medium text-[#171717] " +
+      "shadow-[0_0_0_1px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.06)] transition-colors hover:bg-[#fafafa]",
     active: "border-[#171717] ring-1 ring-[#171717]",
   },
   word: {
