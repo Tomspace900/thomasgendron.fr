@@ -15,7 +15,7 @@ export function Header({ dict, locale }: HeaderProps) {
         aria-label="Thomas Gendron — retour en haut"
         className="border-3 border-ink bg-paper px-2 py-0.5 font-mono text-lg font-bold text-ink shadow-[3px_3px_0_var(--color-ink)]"
       >
-        TG
+        Thomas G
       </a>
       <LocaleSwitcher current={locale} />
     </header>

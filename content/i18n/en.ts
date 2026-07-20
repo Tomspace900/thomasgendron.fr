@@ -3,13 +3,13 @@ import type { Dictionary } from "./types";
 export const en = {
   meta: {
     description:
-      "Thomas Gendron — full-stack developer in Paris. One portfolio, three interfaces: Riso, Vercel and Word 97.",
+      "Thomas Gendron — full-stack developer in Paris. One portfolio, three interfaces: Graphic, Vercel and Word 97.",
   },
   header: {
     skipToContent: "Skip to content",
   },
   skins: {
-    riso: "Riso",
+    riso: "Graphic",
     clean: "Vercel",
     word: "Word 97",
   },

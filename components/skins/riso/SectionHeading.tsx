@@ -26,7 +26,7 @@ export function SectionHeading({
         layers={layers}
         blend={blend}
         drift={8}
-        className="text-[clamp(2.6rem,7vw,6.5rem)] text-balance"
+        className="text-[clamp(2rem,7vw,6.5rem)] text-balance"
       />
     </div>
   );
