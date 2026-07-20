@@ -66,14 +66,6 @@ body {
   outline-offset: 4px;
 }
 
-/* Quand le curseur encreur est monté (desktop, motion OK), on masque le vrai
-   pointeur : seul le point d'encre reste visible. La classe est posée par
-   InkCursor, donc si l'overlay ne tourne pas, le curseur système revient. */
-[data-skin="riso"].ink-active,
-[data-skin="riso"].ink-active * {
-  cursor: none !important;
-}
-
 /* Titres façon affiche : ultra-noirs, étirés, serrés */
 .display-title {
   font-weight: 900;
