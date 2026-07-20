@@ -6,15 +6,15 @@ import {
   motion,
   useMotionValue,
   useReducedMotion,
-  useSpring,
 } from "motion/react";
 
 type Splat = { id: number; x: number; y: number };
 
 /**
- * Curseur encreur (desktop uniquement) : un point d'encre suit le pointeur en
- * mix-blend-difference (visible sur toutes les encres), grossit sur les liens
- * et laisse une éclaboussure au clic.
+ * Curseur encreur (desktop uniquement) : une pastille de papier cerclée d'encre
+ * — le contour reste visible sur le papier, le remplissage clair sur les zones
+ * sombres, donc toujours lisible quel que soit le fond — colle au pointeur sans
+ * inertie, grossit sur les liens et laisse une éclaboussure au clic.
  */
 export function InkCursor() {
   const [enabled, setEnabled] = useState(false);
@@ -22,10 +22,9 @@ export function InkCursor() {
   const [splats, setSplats] = useState<Splat[]>([]);
   const reduceMotion = useReducedMotion();
 
+  // Position brute, sans ressort : le point suit le curseur en temps réel.
   const mx = useMotionValue(-100);
   const my = useMotionValue(-100);
-  const x = useSpring(mx, { stiffness: 500, damping: 40, mass: 0.6 });
-  const y = useSpring(my, { stiffness: 500, damping: 40, mass: 0.6 });
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)");
@@ -79,8 +78,8 @@ export function InkCursor() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-110">
       <motion.div
-        className="absolute size-4 rounded-full bg-paper mix-blend-difference"
-        style={{ x, y, translateX: "-50%", translateY: "-50%" }}
+        className="absolute size-4 rounded-full border-2 border-ink bg-paper"
+        style={{ x: mx, y: my, translateX: "-50%", translateY: "-50%" }}
         animate={{ scale: hovering ? 2.6 : 1 }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       />
@@ -88,7 +87,7 @@ export function InkCursor() {
         {splats.map((s) => (
           <motion.div
             key={s.id}
-            className="absolute size-4 rounded-full bg-paper mix-blend-difference"
+            className="absolute size-4 rounded-full bg-ink"
             style={{ left: s.x, top: s.y, translateX: "-50%", translateY: "-50%" }}
             initial={{ scale: 0.4, opacity: 0.8 }}
             animate={{ scale: 3, opacity: 0 }}
