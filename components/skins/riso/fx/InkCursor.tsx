@@ -35,6 +35,14 @@ export function InkCursor() {
     return () => fine.removeEventListener("change", update);
   }, []);
 
+  // Masque le curseur système tant que l'overlay encreur est actif.
+  useEffect(() => {
+    if (!enabled || reduceMotion) return;
+    const root = document.documentElement;
+    root.classList.add("ink-active");
+    return () => root.classList.remove("ink-active");
+  }, [enabled, reduceMotion]);
+
   useEffect(() => {
     if (!enabled || reduceMotion) return;
 

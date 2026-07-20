@@ -66,6 +66,14 @@ body {
   outline-offset: 4px;
 }
 
+/* Quand le curseur encreur est monté (desktop, motion OK), on masque le vrai
+   pointeur : seul le point d'encre reste visible. La classe est posée par
+   InkCursor, donc si l'overlay ne tourne pas, le curseur système revient. */
+[data-skin="riso"].ink-active,
+[data-skin="riso"].ink-active * {
+  cursor: none !important;
+}
+
 /* Titres façon affiche : ultra-noirs, étirés, serrés */
 .display-title {
   font-weight: 900;
@@ -165,6 +173,31 @@ body {
 [data-skin="word"] :focus-visible {
   outline: 1px dotted #000000;
   outline-offset: 0px;
+}
+
+/* Curseurs vintage Win95 : flèche noire à liseré blanc partout (cursor hérite),
+   main « lien IE » sur l'interactif, faisceau texte dans les champs. */
+[data-skin="word"] {
+  cursor:
+    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACPUlEQVRYhe3XMWhTURTG8ZNgA0mHZGmXkASKnQuSqWARnCTSZAk4GDAgDi6ZFIQWOgqKoptD5pBFSOkmbULGkJopdmmIdEjnivgw3vf+cl7zoILFUl5vFz+4EHKG83sn3PtuREQE2ATeAFG5jgB9TvMBiFwnQPP+WgCDwYBGo+ELgLfWAf1+n7m5OVqtVoB4ZR0gIsRiMXZ2dgLEhnWAiBCPx9nd3fVmiBfWASJCIpGg3W4HiGfWASLC/Pw83W5XEbqeWgeICMlkkl6vFyCeWAeICKlUiv39fc91XUU8tA4QERYWFhgOh64GeGAdICIsLi5ycHCghl9A0TpAREin04xGI0VMgfvWASJCJpNhPB4r4idwzzpARMjlchwdHRljjAPcsQ4QEZaXlzk+PnaNMT+A21cKSCQSlEolyuXyH2trawvP8zDGfAPyoQKy2ay/9HOtVuMC+RQaYG1tjZOTE/fw8NCNRqMsLS3pU+pB9Bkon7OyoQDW19dxHEcPHN3vFItF//tms8nsDMhcqtFFAJVKhel06hljvgK39Lfd29vztJbP54NRv74SQK1W0yfU5l+A9Kz2TjuurKz4wE6no/XvQCpUwHSqBxsK6ALJM7WbiqrX6z6gUCgEU3geKoDT6IUw/pf6tuM4nr6QIpGI/1IyxkyAWFiAzdmob5xTv+tfEDc2/ClUq9VgCo9CAfwr+mfFGDOcTCbu6urq2ev75fb9ZQI8DrrO7gQfdZfYBMQBva+/BHLWGv+PXHF+A6EfJBtbFrYTAAAAAElFTkSuQmCC")
+      2 1,
+    auto;
+}
+
+[data-skin="word"] a,
+[data-skin="word"] button:not(:disabled),
+[data-skin="word"] [role="button"]:not([aria-disabled="true"]),
+[data-skin="word"] label:has(> input),
+[data-skin="word"] summary {
+  cursor:
+    url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAAAsTAAALEwEAmpwYAAABuklEQVRYhe2UQYgSURyHJ4M0SPBg3gSPIUgQCN3tFgVdzUMguHYpunTYFDp68NahY3eP0UEIRNirdRikkEBZ9KJ4UGbmvbczr/3iRdvBYHfBdYSYD37MO73f9/4z8ywr4hIAN4DHwBPgphV2uRDi62q1UsvlUgkhfgC3whR4ZMqTySSJRILZbCaBZ2EKHAyHQ88sTXq9ngDeRALWnl9BB7i7F4FOpxMsFguptdbAO+A1cDs0gVgs9vtZr9cZjUbStm0ppTwG7gDXty7UWr9wXXfquu534OGmwGbi8Tie55lpIIQYAsltTvtAKRVUq1UajcbpnzF/Pk/AJJvNkk6nGY/H5o54vo3AYb/fl2cbVyoVtNanFwmcpdvtGoG32wjc931fl0qlv5uWy2Xa7fbPUAQMWutDIYRfLBYvLNyJgCEIgvZ6vT7J5/P7EQCuKaU+zOfzk1wuF76AwfzTUspPk8lEZTKZSwkMBgMPeGldFUBCSnlk27ZKpVLnlhcKBcwHDNy7MgGDuViEEF+m06lqNpvUarV/0mq1cBzHV0q9t3YBkABeua575DjOt80IIT4CT3dSHhEREfHf8wtpMQ6oBsg/+gAAAABJRU5ErkJggg==")
+      10 3,
+    pointer;
+}
+
+[data-skin="word"] input:not([type="checkbox"]):not([type="radio"]):not([type="button"]),
+[data-skin="word"] textarea {
+  cursor: text;
 }
 
 /* Reliefs Win95 : 2px clair en haut/gauche, sombre en bas/droite */
