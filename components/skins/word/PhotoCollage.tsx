@@ -20,8 +20,12 @@ export function PhotoCollage({ dict }: { dict: Dictionary }) {
           <Image
             key={photo.file}
             src={photo.file}
-            alt={`${dict.word.figure} ${i + 1} — ${photo.location}`}
-            title={photo.location}
+            alt={`${dict.word.figure} ${i + 1} - ${photo.alt}`}
+            title={
+              photo.date
+                ? `${photo.location} (${photo.date.slice(0, 4)})`
+                : photo.location
+            }
             width={photo.width}
             height={photo.height}
             className={cn(

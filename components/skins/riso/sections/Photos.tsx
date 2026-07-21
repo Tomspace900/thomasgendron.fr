@@ -65,6 +65,7 @@ export function Photos({ dict }: { dict: Dictionary }) {
               </div>
               <figcaption className="absolute bottom-3 left-3 border-2 border-ink bg-paper px-2 py-1 font-mono text-xs font-bold uppercase">
                 ⌖ {photo.location}
+                {photo.date && ` · ${photo.date.slice(0, 4)}`}
               </figcaption>
             </figure>
           ))}

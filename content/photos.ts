@@ -1,6 +1,6 @@
 export type Photo = {
   file: string;
-  /** [À COMPLÉTER par Thomas] — lieux devinés depuis les noms de fichiers */
+  /** Lieux résolus depuis le GPS EXIF des originaux (photos-src/) */
   location: string;
   date?: string;
   alt: string;
@@ -36,15 +36,15 @@ export function mosaicOrder(list: Photo[]): Photo[] {
 
 /**
  * Ajouter des photos : déposer les originaux dans photos-src/ puis
- * `node scripts/process-photos.mjs` — le script convertit en webp optimisé
+ * `node scripts/process-photos.mjs` - le script convertit en webp optimisé
  * et imprime les entrées à coller ici.
  */
 export const photos: Photo[] = [
   {
     file: "/images/photos/2023-07-28.webp",
-    location: "[Lieu à fournir]",
+    location: "Yosemite, California, USA",
     date: "2023-07-28",
-    alt: "Photo de voyage, juillet 2023",
+    alt: "Vallée de Yosemite, Californie",
     ink: "rose",
     width: 1600,
     height: 1205,
@@ -60,7 +60,7 @@ export const photos: Photo[] = [
   },
   {
     file: "/images/photos/bryce-canyon-city.webp",
-    location: "Bryce Canyon, USA",
+    location: "Bryce Canyon, Utah, USA",
     date: "2023-08-05",
     alt: "Bryce Canyon",
     ink: "sun",
@@ -69,7 +69,7 @@ export const photos: Photo[] = [
   },
   {
     file: "/images/photos/arches-astro.webp",
-    location: "Arches National Park, USA",
+    location: "Arches National Park, Utah, USA",
     date: "2023-08-07",
     alt: "Ciel étoilé à Arches National Park",
     ink: "leaf",
@@ -87,7 +87,7 @@ export const photos: Photo[] = [
   },
   {
     file: "/images/photos/antelope.webp",
-    location: "Antelope Canyon, USA",
+    location: "Antelope Canyon, Arizona, USA",
     date: "2023-08-11",
     alt: "Antelope Canyon",
     ink: "blue",
@@ -96,15 +96,16 @@ export const photos: Photo[] = [
   },
   {
     file: "/images/photos/new-york.webp",
-    location: "New York, USA",
+    location: "Manhattan, New York, USA",
     date: "2023-08-22",
-    alt: "New York",
+    alt: "Manhattan, New York",
     ink: "sun",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/unknown.webp",
+    // Aucune donnée GPS dans l'original - seul lieu resté à renseigner
     location: "[Lieu à fournir]",
     date: "2023-08-27",
     alt: "Photo de voyage, août 2023",
@@ -114,81 +115,82 @@ export const photos: Photo[] = [
   },
   {
     file: "/images/photos/2023-10-12.webp",
-    location: "[Lieu à fournir]",
+    location: "Cần Thơ, Mekong Delta, Vietnam",
     date: "2023-10-12",
-    alt: "Photo de voyage, octobre 2023",
+    alt: "Cần Thơ, dans le delta du Mékong",
     ink: "rose",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/drone-2023-10-12.webp",
-    location: "[Lieu à fournir]",
+    // Pas de GPS sur le fichier drone - lieu déduit de la date (même journée)
+    location: "Mekong Delta, Vietnam",
     date: "2023-10-12",
-    alt: "Vue aérienne au drone, octobre 2023",
+    alt: "Vue aérienne du delta du Mékong",
     ink: "blue",
     width: 1200,
     height: 1600,
   },
   {
     file: "/images/photos/2023-10-18.webp",
-    location: "[Lieu à fournir]",
+    location: "Hà Giang, Vietnam",
     date: "2023-10-18",
-    alt: "Photo de voyage, octobre 2023",
+    alt: "Montagnes de la région de Hà Giang",
     ink: "sun",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/2023-10-21.webp",
-    location: "[Lieu à fournir]",
+    location: "Sa Pa, Lào Cai, Vietnam",
     date: "2023-10-21",
-    alt: "Photo de voyage, octobre 2023",
+    alt: "Rizières en terrasses autour de Sa Pa",
     ink: "leaf",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/2023-10-26.webp",
-    location: "[Lieu à fournir]",
+    location: "Hanoi, Vietnam",
     date: "2023-10-26",
-    alt: "Photo de voyage, octobre 2023",
+    alt: "Rue de Hanoï",
     ink: "rose",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/2024-10-06.webp",
-    location: "[Lieu à fournir]",
+    location: "San Pedro de Atacama, Chile",
     date: "2024-10-06",
-    alt: "Photo de voyage, octobre 2024",
+    alt: "Désert d'Atacama, autour de San Pedro",
     ink: "blue",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/2024-10-10.webp",
-    location: "[Lieu à fournir]",
+    location: "Uyuni, Bolivia",
     date: "2024-10-10",
-    alt: "Photo de voyage, octobre 2024",
+    alt: "Salar d'Uyuni, Bolivie",
     ink: "sun",
     width: 1205,
     height: 1600,
   },
   {
     file: "/images/photos/2024-10-11.webp",
-    location: "[Lieu à fournir]",
+    location: "Sur Lípez, Bolivia",
     date: "2024-10-11",
-    alt: "Photo de voyage, octobre 2024",
+    alt: "Lagunes d'altitude du Sud Lípez",
     ink: "leaf",
     width: 1204,
     height: 1600,
   },
   {
     file: "/images/photos/2024-10-17.webp",
-    location: "[Lieu à fournir]",
+    location: "Sucre, Bolivia",
     date: "2024-10-17",
-    alt: "Photo de voyage, octobre 2024",
+    alt: "Sucre, Bolivie",
     ink: "rose",
     width: 1205,
     height: 1600,

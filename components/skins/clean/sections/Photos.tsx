@@ -50,6 +50,9 @@ export function Photos({ dict }: { dict: Dictionary }) {
             <figcaption className="absolute inset-x-0 bottom-0 flex items-center gap-1.5 bg-c-bg/60 px-3 py-2 text-xs font-medium backdrop-blur-md">
               <MapPinIcon size={13} className="text-c-muted" />
               {photo.location}
+              {photo.date && (
+                <span className="text-c-muted">· {photo.date.slice(0, 4)}</span>
+              )}
             </figcaption>
           </figure>
         ))}
