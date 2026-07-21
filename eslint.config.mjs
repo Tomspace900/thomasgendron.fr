@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Worktrees d'agents : ils embarquent leur propre .next, que le motif
+    // ci-dessus ne couvre pas (il n'attrape que la racine).
+    ".claude/**",
   ]),
 ]);
 

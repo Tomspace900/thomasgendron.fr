@@ -3,10 +3,13 @@
  * ici - le registre des composants vit dans index.ts, côté serveur, pour que
  * seul le skin actif parte dans le bundle).
  */
+/** Les libellés affichés viennent de l'i18n (`dict.skins`) - ceux-ci ne
+ *  servent que de repère de lecture, gardés alignés pour ne pas induire
+ *  en erreur. */
 export const skinMeta = [
-  { name: "riso", label: "Encre" },
-  { name: "clean", label: "Lisse" },
-  { name: "word", label: "Brut" },
+  { name: "riso", label: "Graphique" },
+  { name: "clean", label: "Vercel" },
+  { name: "word", label: "Word 97" },
 ] as const;
 
 export type Skin = (typeof skinMeta)[number]["name"];

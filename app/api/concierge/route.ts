@@ -8,6 +8,7 @@ import {
   fallbackDebrief,
   fallbackFor,
 } from "@/content/concierge";
+import { styleLabels } from "@/lib/concierge/triggers";
 import type { ConciergeEvent, TriggerId, VisitSnapshot } from "@/lib/concierge/types";
 
 const TRIGGERS: TriggerId[] = [
@@ -62,12 +63,6 @@ function signature(kind: string, event: ConciergeEvent, locale: string): string 
   ].join("|");
 }
 
-const THEME_LABELS: Record<string, string> = {
-  riso: "Riso (imprimée, colorée)",
-  clean: "Vercel (sobre, moderne)",
-  word: "Word 97 (vieux document Windows)",
-};
-
 /**
  * Contexte minimal d'une réplique. Le fait à commenter arrive à part :
  * ici on ne donne que de quoi éviter un contresens, surtout pas un tableau
@@ -78,7 +73,7 @@ function lineContext(v: VisitSnapshot, locale: string): string {
   return [
     `Langue de la réponse : ${locale === "fr" ? "français" : "anglais"}`,
     `Heure chez le visiteur : ${v.hour}h${v.isWeekend ? ", un week-end" : ""}`,
-    `Interface affichée : ${THEME_LABELS[v.theme] ?? v.theme}`,
+    `Style affiché : ${styleLabels[v.theme] ?? v.theme}`,
   ].join("\n");
 }
 
@@ -92,7 +87,7 @@ function describeVisit(v: VisitSnapshot, locale: string): string {
     `Temps total sur le site : environ ${round10(v.elapsedSeconds)}s`,
     `Page parcourue : ${v.scrolledPct}%`,
     `Sections vues : ${v.sectionsSeen.join(", ") || "aucune"}`,
-    `Interfaces essayées : ${v.themeSwitches + 1}, il termine sur ${THEME_LABELS[v.theme] ?? v.theme}`,
+    `Styles essayés : ${v.themeSwitches + 1}, il termine sur ${styleLabels[v.theme] ?? v.theme}`,
     `Appareil : ${v.device}`,
     `Langue à utiliser : ${locale === "fr" ? "français" : "anglais"}`,
   ].join("\n");

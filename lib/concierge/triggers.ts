@@ -1,6 +1,21 @@
 import type { ConciergeEvent, TriggerId, VisitSnapshot } from "./types";
 
 /**
+ * Les trois styles, décrits pour le modèle. Source unique - la route s'y
+ * réfère aussi, pour ne jamais désigner un style par un nom que le site
+ * n'affiche plus.
+ *
+ * Ils vivent ici, et non dans content/, parce que ce module ne doit avoir
+ * AUCUN import runtime : c'est ce qui le rend exécutable hors bundler,
+ * donc testable directement.
+ */
+export const styleLabels: Record<string, string> = {
+  riso: "Graphique (couleurs vives, gros aplats)",
+  clean: "Vercel (sobre et épuré)",
+  word: "Word 97 (imite un vieux document Windows)",
+};
+
+/**
  * LE MOTEUR DE DÉCLENCHEMENT - le cœur du concierge, et volontairement
  * 100 % déterministe : c'est ce code qui décide QUAND parler, le modèle
  * ne décide que QUOI dire. Fonction pure, sans DOM ni horloge implicite,
@@ -82,8 +97,8 @@ function matches(trigger: TriggerId, s: EngineState): boolean {
       return v.section === "projects" && v.dwellSeconds > 30;
     case "themeHopping":
       return v.themeSwitches >= 2;
-    // Rester sur une interface APRÈS en avoir essayé d'autres, c'est un
-    // choix - et un choix, ça se commente. Y être par défaut, non.
+    // Rester sur un style APRÈS en avoir essayé d'autres, c'est un choix -
+    // et un choix, ça se commente. Y être par défaut, non.
     case "themeLoyal":
       return v.themeSwitches >= 1 && v.themeSeconds > 75;
     case "cameBack":
@@ -96,12 +111,6 @@ function matches(trigger: TriggerId, s: EngineState): boolean {
       return flags.idle === true && v.elapsedSeconds > 90;
   }
 }
-
-const THEME_LABELS: Record<string, string> = {
-  riso: "Riso, l'interface imprimée en couleurs",
-  clean: "Vercel, l'interface sobre et moderne",
-  word: "Word 97, l'interface qui imite un vieux document Windows",
-};
 
 /**
  * Le fait qu'on commentera si ce déclencheur tombe - utilisé aussi pour
@@ -124,7 +133,7 @@ export function focusForSnapshot(
 /** LE fait unique à commenter - jamais deux. */
 function focusFor(trigger: TriggerId, s: EngineState): string {
   const v = s.snapshot;
-  const theme = THEME_LABELS[v.theme] ?? v.theme;
+  const style = styleLabels[v.theme] ?? v.theme;
   switch (trigger) {
     case "returning":
       return `c'est sa ${v.visitCount}e visite sur le site`;
@@ -139,9 +148,9 @@ function focusFor(trigger: TriggerId, s: EngineState): string {
     case "dwellProject":
       return `il reste sur la section projets depuis ${Math.round(v.dwellSeconds)} secondes`;
     case "themeHopping":
-      return `il a changé d'interface ${v.themeSwitches} fois`;
+      return `il a changé de style ${v.themeSwitches} fois`;
     case "themeLoyal":
-      return `après en avoir essayé d'autres, il est resté sur ${theme}`;
+      return `après en avoir essayé d'autres, il est resté sur le style ${style}`;
     case "cameBack":
       return "il avait quitté l'onglet, il vient d'y revenir";
     case "gallery":
@@ -187,10 +196,10 @@ export function explain(event: ConciergeEvent): string[] {
     `provenance: ${v.source}`,
     `${String(v.hour).padStart(2, "0")}h locale${v.isWeekend ? " · week-end" : ""}`,
     `section: ${v.section}`,
-    `interface: ${v.theme} (${Math.round(v.themeSeconds)}s)`,
+    `style: ${v.theme} (${Math.round(v.themeSeconds)}s)`,
   ];
   if (v.dwellSeconds >= 5) why.push(`lecture: ${Math.round(v.dwellSeconds)}s`);
   if (v.visitCount > 1) why.push(`visite nº${v.visitCount}`);
-  if (v.themeSwitches > 0) why.push(`changements d'interface: ${v.themeSwitches}`);
+  if (v.themeSwitches > 0) why.push(`changements de style: ${v.themeSwitches}`);
   return why;
 }
