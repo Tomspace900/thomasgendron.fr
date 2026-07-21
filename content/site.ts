@@ -1,8 +1,7 @@
 export const site = {
   name: "Thomas Gendron",
   url: "https://thomasgendron.fr",
-  /** [À FOURNIR] email de contact public — placeholder en attendant */
-  email: "contact@thomasgendron.fr",
+  email: "thomas.gendron2000@gmail.com",
   cvPath: "/cv-thomas-gendron.pdf",
   links: {
     linkedin: "https://linkedin.com/in/gendron-thomas/",

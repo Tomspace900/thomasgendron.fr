@@ -29,11 +29,15 @@ export function About({ dict }: { dict: Dictionary }) {
           title={dict.about.title}
           layers={["text-rose", "text-blue"]}
         />
-        <Reveal>
-          <p className="max-w-3xl text-xl leading-relaxed font-medium md:text-2xl">
-            {dict.about.body}
-          </p>
-        </Reveal>
+        <div className="max-w-3xl space-y-6">
+          {dict.about.body.map((paragraph, i) => (
+            <Reveal key={i} delay={i * 0.05}>
+              <p className="text-xl leading-relaxed font-medium md:text-2xl">
+                {paragraph}
+              </p>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

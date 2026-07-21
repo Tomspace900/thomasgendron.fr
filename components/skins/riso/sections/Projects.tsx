@@ -30,9 +30,16 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     </p>
                   </div>
 
-                  <p className="mt-4 grow text-base leading-relaxed font-medium">
-                    {dict.projects.items[project.slug]}
-                  </p>
+                  <div className="grow">
+                    <p className="mt-4 text-base leading-relaxed font-medium">
+                      {dict.projects.items[project.slug]}
+                    </p>
+
+                    {/* Ce que j'en retiens - la voix perso, en retrait */}
+                    <p className="mt-4 border-l-3 border-rose pl-3 text-sm leading-relaxed italic">
+                      {dict.projects.takeaways[project.slug]}
+                    </p>
+                  </div>
 
                   {project.contribution && (
                     <p className="mt-3 font-mono text-xs opacity-60">

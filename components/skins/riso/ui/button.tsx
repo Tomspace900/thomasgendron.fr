@@ -8,11 +8,17 @@ import { cn } from "@/lib/cn";
 type Variant = "ink" | "paper" | "outline";
 type Size = "md" | "lg";
 
+const layout =
+  "inline-flex items-center justify-center gap-3 font-mono font-bold uppercase tracking-wide border-3";
+
 const base =
-  "inline-flex items-center justify-center gap-3 font-mono font-bold uppercase tracking-wide " +
-  "border-3 border-ink transition-transform duration-150 " +
+  layout +
+  " border-ink transition-transform duration-150 " +
   "shadow-[5px_5px_0_var(--color-ink)] hover:translate-x-[2px] hover:translate-y-[2px] " +
   "hover:shadow-[3px_3px_0_var(--color-ink)] active:translate-x-[5px] active:translate-y-[5px] active:shadow-none";
+
+/** Lien inactif : plus d'ombre ni de relief, curseur interdit. */
+const disabledLink = "cursor-not-allowed border-current opacity-40";
 
 const variants: Record<Variant, string> = {
   ink: "bg-ink text-paper",
@@ -47,16 +53,29 @@ export function Button({
 type ButtonLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   variant?: Variant;
   size?: Size;
+  disabled?: boolean;
   children: ReactNode;
 };
 
 export function ButtonLink({
   variant = "ink",
   size = "md",
+  disabled,
   className,
   children,
   ...props
 }: ButtonLinkProps) {
+  if (disabled) {
+    return (
+      <span
+        aria-disabled="true"
+        className={cn(layout, sizes[size], disabledLink, className)}
+      >
+        {children}
+      </span>
+    );
+  }
+
   return (
     <a
       className={cn(base, variants[variant], sizes[size], className)}

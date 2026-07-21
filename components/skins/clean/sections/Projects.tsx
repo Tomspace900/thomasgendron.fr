@@ -22,9 +22,15 @@ export function Projects({ dict }: { dict: Dictionary }) {
                   {dict.projects.kinds[project.kind]} · {project.year}
                 </span>
               </div>
-              <p className="mt-2 grow text-sm leading-6 text-c-muted">
-                {dict.projects.items[project.slug]}
-              </p>
+              <div className="grow">
+                <p className="mt-2 text-sm leading-6 text-c-muted">
+                  {dict.projects.items[project.slug]}
+                </p>
+                {/* Ce que j'en retiens - la voix perso, en retrait */}
+                <p className="mt-3 border-l-2 border-c-border pl-3 text-sm leading-6 text-c-muted italic">
+                  {dict.projects.takeaways[project.slug]}
+                </p>
+              </div>
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {project.tags.map((tag) => (
                   <Badge key={tag}>{tag}</Badge>

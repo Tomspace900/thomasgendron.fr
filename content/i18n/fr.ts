@@ -3,7 +3,7 @@ import type { Dictionary } from "./types";
 export const fr = {
   meta: {
     description:
-      "Thomas Gendron — développeur full-stack à Paris. Un portfolio, trois interfaces : Graphique, Vercel et Word 97.",
+      "Thomas Gendron - ingénieur full-stack à Paris. Un portfolio, trois interfaces : Graphique, Vercel et Word 97.",
   },
   header: {
     skipToContent: "Aller au contenu",
@@ -14,22 +14,22 @@ export const fr = {
     word: "Word 97",
   },
   manifesto: {
-    punch: "Aujourd'hui, n'importe qui fait un beau frontend en une après-midi.",
-    body: "Ce n'est plus ça qui fait la différence — alors je ne m'en suis pas privé, j'en ai fait trois.",
-    pick: "À vous de choisir :",
+    punch: "Choisissez le style",
+    body: "Aujourd'hui, n'importe qui sort un beau front-end en un prompt. La forme ne prouve plus rien. Alors tant qu'à faire, j'en ai fait trois, le contenu reste le même.",
+    pick: "Essayez :",
   },
   word: {
     docTitle: "Microsoft Word - thomasgendron_CV_FINAL_v5(1).doc",
     menus: ["Fichier", "Édition", "Affichage", "Insertion", "Format", "Outils", "?"],
     pageInfo: "Page 1 sur 1   Sec 1   À 2,5 cm   Li 1   Col 1",
     clippy:
-      "Il semble que vous essayiez de recruter un développeur full-stack. Voulez-vous de l'aide ?",
+      "Il semble que vous essayiez de recruter un développeur full-stack. Voulez-vous de l'aide ?",
     figure: "Figure",
     switching: "Changement d'affichage en cours…",
   },
   hero: {
-    hello: "Bonjour, moi c'est",
-    tagline: "Développeur full-stack basé à Paris.",
+    hello: "Bonjour, je suis",
+    tagline: "Ingénieur full-stack basé à Paris.",
     scroll: "Faites défiler",
     trioCaption: "Le même moi, trois registres",
   },
@@ -40,16 +40,20 @@ export const fr = {
   },
   about: {
     number: "01",
-    title: "À propos",
-    body: "[BIO À FOURNIR — un vrai paragraphe qui raconte qui est Thomas : développeur full-stack, formation d'ingénieur EFREI, passé par la physique à Orsay et un semestre à Kuala Lumpur, goût pour les projets géo, le voyage et la photo. Ce texte sera remplacé par la version écrite par Thomas.]",
+    title: "En bref",
+    body: [
+      "Passionné par la physique et les sciences en général. J'ai découvert l'informatique via son utilisation dans l'analyse scientifique d'abord, et j'y ai pris goût.",
+      "Aujourd'hui ingénieur full-stack chez Canal+, en CDI après mon stage de fin d'études. Au quotidien je travaille sur des applications et architectures complexes : TypeScript, React, Nest, Kube, AWS, Jenkins…",
+      "En perso : j'aime accompagner un projet sur toutes ses étapes, de l'idée de base jusqu'à la production, en expérimentant des technos à chaque fois ; c'est là que j'apprends le plus vite.",
+    ],
   },
   experience: {
     number: "02",
-    title: "Parcours",
+    title: "Mon parcours",
   },
   projects: {
     number: "03",
-    title: "Projets",
+    title: "Mes projets",
     seeCode: "Voir le code",
     seeLive: "Voir en ligne",
     privateRepo: "Repo privé",
@@ -60,22 +64,36 @@ export const fr = {
     },
     items: {
       geodoku:
-        "Puzzle géographique quotidien : une grille 3×3 à remplir en croisant des critères sur les pays. Un nouveau défi chaque jour.",
+        "Puzzle géographique quotidien : une grille de 3×3 pays à remplir en croisant des critères. Algorithmes de génération et planification des grilles autonomes côté serveur. UI/UX, référencement, monitoring, etc.",
       "phase-diversity":
-        "Outil de recherche pour astronomes : interface web autour de l'algorithme de phase diversity d'Eric Gendron, pour analyser les aberrations optiques des télescopes.",
+        "Interface web qui enveloppe un algorithme Python existant utilisé par des astrophysiciens. Un outil de recherche pour ajuster des paramètres optiques, visualiser la reconstruction du front d'onde, et suivre le tuning de l'algorithme de diversité de phase.",
       tomato:
-        "Plateforme de suivi d'objets perdus via QR codes : web, mobile et backend Supabase. Contribution au projet de Victor Billaud.",
+        "Suivi d'objets perdus par QR code avec messagerie instantanée sans compte. Web et mobile.",
       "revision-droit":
-        "Outil de révision générique : PWA mobile-first qui transforme un PDF de cours en fiches interactives, quiz et assistant IA — sans backend.",
+        "PWA mobile-first qui transforme un PDF de prises de notes de cours en une application complète de révision : fiches de cours, notions, lexique, quiz vrai/faux, mises en situation, questions ouvertes, et chatbot IA pour toute question.",
       sesame:
-        "Coffre-fort intelligent pour centraliser et surveiller achats, abonnements et voyages au même endroit.",
+        "Coffre-fort personnel : détecte achats, abonnements, voyages et réservations depuis la boîte mail et centralise en dossiers. Permet de savoir quand les garanties expirent, les livraisons de colis, retrouver une réservation d'hôtel, etc.",
       opheli:
-        "Dématérialisation des ordonnances médicales : API Express et front React.",
+        "Dématérialisation des ordonnances médicales : accès quadri-parties (médecin, patient, pharmacien, mutuelles). Une entité numérique qui supporte les renouvellements, médicaments génériques, suivis de remboursement, etc.",
+    },
+    takeaways: {
+      geodoku:
+        "Mon premier projet perso poussé aussi loin. Une production qui tourne, des dizaines de joueurs chaque jour. J'en suis fier.",
+      "phase-diversity":
+        "Développé pour mon père, astronome. L'outil n'est pas en production mais utilisé localement par les astrophysiciens pour la recherche scientifique.",
+      tomato:
+        "Projet d'école, le jury nous a poussés à amener le produit sur le marché, propositions à l'appui. Mais encore trop étudiant pour aller au bout de l'idée.",
+      "revision-droit":
+        "Vibe-codé en quelques jours pour les partiels de ma copine. Étonnamment efficace et utile pour le peu de temps passé dessus.",
+      sesame:
+        "Marche très bien pour une utilisation personnelle, mais le coût IA n'aurait pas été viable pour déployer à grande échelle.",
+      opheli:
+        "Mon plus vieux projet ici, le premier mené jusqu'au bout : vidéo de communication, données de santé. Pas destiné à la production mais très formateur.",
     },
   },
   photos: {
     number: "04",
-    title: "Je voyage, et je prends des photos",
+    title: "Plus personnel",
     showMore: "Voir plus de photos",
     showLess: "En voir moins",
   },
@@ -92,15 +110,16 @@ export const fr = {
     title: "Le mot de la fin",
     loading: "Relecture de votre visite…",
     disclaimer:
-      "Écrit à l'instant d'après votre visite. Rien n'est enregistré : tout vit dans votre onglet.",
+      "Écrit à l'instant d'après votre visite. Rien n'est enregistré : tout vit dans votre onglet.",
   },
   contact: {
     number: "06",
-    title: "Contact",
-    catch: "Un projet, un poste, une question — ou juste envie de dire bonjour ?",
+    title: "Me contacter",
+    catch:
+      "Une question ? Un projet ? Un poste de CTO ? Peut-être juste une envie de dire bonjour ?",
     emailButton: "M'écrire un email",
     cvButton: "Télécharger mon CV",
-    marquee: "Disponible pour de nouvelles aventures",
+    marquee: "Ouvert aux propositions",
   },
   footer: {
     credits: "Conçu et développé par Thomas Gendron",

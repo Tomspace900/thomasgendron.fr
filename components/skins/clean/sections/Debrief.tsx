@@ -17,7 +17,7 @@ export function Debrief({ dict }: { dict: Dictionary }) {
       number={dict.debrief.number}
       title={dict.debrief.title}
     >
-      <div ref={ref} className="rounded-xl border border-c-border bg-c-card p-5">
+      <div ref={ref} className="max-w-2xl rounded-xl border border-c-border bg-c-card p-5">
         {debrief.status === "done" ? (
           <p className="leading-7">{debrief.text}</p>
         ) : (

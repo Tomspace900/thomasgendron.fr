@@ -28,13 +28,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
           >
             ✉ {dict.contact.emailButton}
           </ButtonLink>
-          <ButtonLink
-            href={site.cvPath}
-            download
-            variant="outline"
-            size="lg"
-            className="text-paper"
-          >
+          <ButtonLink disabled size="lg" className="text-paper">
             ↓ {dict.contact.cvButton}
           </ButtonLink>
         </div>
@@ -65,7 +59,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
 
       <footer className="px-6 py-6 font-mono text-xs opacity-70 md:px-12">
         <p>
-          © {new Date().getFullYear()} — {dict.footer.credits}
+          © {new Date().getFullYear()} - {dict.footer.credits}
         </p>
       </footer>
     </section>

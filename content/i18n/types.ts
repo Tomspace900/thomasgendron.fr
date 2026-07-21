@@ -15,7 +15,7 @@ export type Dictionary = {
   };
   /** Libellés des positions du toggle de skin */
   skins: Record<Skin, string>;
-  /** Le « pourquoi trois interfaces » — switcher central du hero */
+  /** Le « pourquoi trois interfaces » - switcher central du hero */
   manifesto: {
     punch: string;
     body: string;
@@ -44,7 +44,8 @@ export type Dictionary = {
   about: {
     number: string;
     title: string;
-    body: string;
+    /** Un paragraphe par entrée */
+    body: string[];
   };
   experience: {
     number: string;
@@ -57,7 +58,10 @@ export type Dictionary = {
     seeLive: string;
     privateRepo: string;
     kinds: Record<ProjectKind, string>;
+    /** Ce que fait le projet */
     items: Record<ProjectSlug, string>;
+    /** Ce qu'il a appris ou prouvé - la voix perso, pas la fiche produit */
+    takeaways: Record<ProjectSlug, string>;
   };
   photos: {
     number: string;

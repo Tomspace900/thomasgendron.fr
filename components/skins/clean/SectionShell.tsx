@@ -21,7 +21,7 @@ export function SectionShell({
     <section
       id={id}
       className={cn(
-        "mx-auto max-w-3xl scroll-mt-20 border-t border-c-border px-6 py-16 md:py-20",
+        "mx-auto max-w-5xl scroll-mt-20 border-t border-c-border px-6 py-16 md:py-20",
         className,
       )}
     >

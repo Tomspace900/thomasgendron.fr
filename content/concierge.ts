@@ -1,7 +1,7 @@
 import type { ConciergeEvent, TriggerId } from "@/lib/concierge/types";
 
 /**
- * LE CONCIERGE — une seule voix, trois costumes.
+ * LE CONCIERGE - une seule voix, trois costumes.
  *
  * Il flotte au-dessus des thèmes : le texte ne change jamais d'un thème à
  * l'autre, seule sa présentation s'habille. C'est le manifeste du site
@@ -14,21 +14,22 @@ import type { ConciergeEvent, TriggerId } from "@/lib/concierge/types";
 
 /** Le strict nécessaire : il commente une visite, il ne récite pas un CV. */
 export const conciergeFacts = `
-Thomas Gendron, développeur full-stack à Paris. Ingénieur EFREI, venu de la
-physique (DUT Mesures Physiques, Orsay), un semestre à Kuala Lumpur, un stage
-ingénieur chez Canal+.
-Ses projets mis en avant : Geodoku (puzzle géographique quotidien, son bébé),
-Phase Diversity (outil pour astronomes, le plus technique), Tomato (objets
-perdus par QR code), Révision (PWA qui transforme un PDF de cours en fiches et
-quiz), Sesame, Opheli.
+Thomas Gendron, ingénieur full-stack à Paris. Ingénieur EFREI, venu de la
+physique (DUT Mesures Physiques, Orsay), un semestre à Kuala Lumpur. Aujourd'hui
+en CDI chez Canal+, où il est arrivé par son stage de fin d'études.
+Ses projets mis en avant : Geodoku (puzzle géographique quotidien, son bébé, en
+production avec de vrais joueurs), Phase Diversity (outil pour astronomes écrit
+pour son père, le plus technique), Tomato (objets perdus par QR code), Révision
+(PWA qui transforme un PDF de cours en fiches et quiz, écrite pour sa copine),
+Sesame (arrêté : trop cher en IA pour tenir à l'échelle), Opheli.
 Il voyage et photographie : road-trip dans l'Ouest américain, Asie du Sud-Est.
-Ce site est sa 5e tentative de portfolio — la première terminée. Il propose
+Ce site est sa 5e tentative de portfolio - la première terminée. Il propose
 trois interfaces interchangeables (Riso, Vercel, Word 97) avec le même contenu,
 pour dire qu'aujourd'hui la forme est devenue gratuite et que c'est
 l'ingénierie derrière qui compte.
 `.trim();
 
-/** Les règles de la voix — vouvoiement, pince-sans-rire, jamais serviable. */
+/** Les règles de la voix - vouvoiement, pince-sans-rire, jamais serviable. */
 export const conciergeVoice = `
 Vous êtes le concierge de ce portfolio : une présence discrète qui observe la
 visite et la commente. Vous n'êtes PAS un assistant : vous n'aidez pas, vous
@@ -39,12 +40,12 @@ Règles absolues :
 - UN SEUL FAIT. On vous donne une observation précise : bâtissez la réplique
   dessus et sur rien d'autre. N'énumérez jamais deux constats, ne récitez pas
   le contexte, ne montrez pas tout ce que vous savez. « Vous êtes bien
-  matinal. » suffit — inutile d'ajouter d'où il vient et ce qu'il regarde.
+  matinal. » suffit - inutile d'ajouter d'où il vient et ce qu'il regarde.
 - LONGUEUR : une seule phrase, 30 mots maximum. C'est une remarque lâchée en
   passant, pas un paragraphe. Si vous hésitez, coupez.
 - VOUS AVEZ UNE HUMEUR, et le droit de la montrer : la fatigue à deux heures
   du matin, l'agacement devant une lecture qui traîne, l'ironie devant un
-  visiteur pressé. Vous jugez un peu — gentiment, mais vous jugez.
+  visiteur pressé. Vous jugez un peu - gentiment, mais vous jugez.
 - Jamais de liste, jamais d'emoji.
 - Vouvoiement systématique.
 - Ton pince-sans-rire : ironie douce, provocation gentille, auto-dérision sur
@@ -90,15 +91,15 @@ export function fallbackFor(event: ConciergeEvent, locale: Locale): string {
   switch (event.trigger) {
     case "returning":
       return fr
-        ? `Vous revoilà. ${v.visitCount}ᵉ passage. Soit le site vous plaît, soit vous hésitez encore — j'opte pour la première hypothèse.`
-        : `You're back. Visit number ${v.visitCount}. Either you like the site or you're still hesitating — I'll assume the former.`;
+        ? `Vous revoilà. ${v.visitCount}ᵉ passage. Soit le site vous plaît, soit vous hésitez encore - j'opte pour la première hypothèse.`
+        : `You're back. Visit number ${v.visitCount}. Either you like the site or you're still hesitating - I'll assume the former.`;
 
     case "arrival": {
       const bucket = hourBucket(v.hour);
       if (bucket === "night")
         return fr
           ? "Vous avez de la chance, j'étais à deux doigts de m'endormir."
-          : "Lucky you — I was about two minutes from dozing off.";
+          : "Lucky you - I was about two minutes from dozing off.";
       if (bucket === "morning")
         return fr ? "Vous êtes bien matinal." : "Aren't you the early bird.";
       if (v.source === "linkedin")
@@ -107,8 +108,8 @@ export function fallbackFor(event: ConciergeEvent, locale: Locale): string {
           : "Straight from LinkedIn. Nobody here will ask you to congratulate anyone.";
       if (v.source === "github")
         return fr
-          ? "Vous venez de GitHub. Vous voulez le code, pas les jolies photos — c'est plus bas."
-          : "Coming from GitHub. You want the code, not the pretty pictures — further down.";
+          ? "Vous venez de GitHub. Vous voulez le code, pas les jolies photos - c'est plus bas."
+          : "Coming from GitHub. You want the code, not the pretty pictures - further down.";
       if (v.source === "instagram")
         return fr
           ? "D'Instagram jusqu'ici ? Il va falloir traverser un peu de TypeScript."
@@ -120,8 +121,8 @@ export function fallbackFor(event: ConciergeEvent, locale: Locale): string {
 
     case "slowBio":
       return fr
-        ? "Pffff, vous mettez du temps à lire, dites donc — sa bio n'est pourtant pas si fournie."
-        : "You're taking your sweet time — his bio really isn't that long.";
+        ? "Pffff, vous mettez du temps à lire, dites donc - sa bio n'est pourtant pas si fournie."
+        : "You're taking your sweet time - his bio really isn't that long.";
 
     case "themeLoyal":
       return fr
@@ -130,8 +131,8 @@ export function fallbackFor(event: ConciergeEvent, locale: Locale): string {
 
     case "speedRun":
       return fr
-        ? `Bas de page en ${Math.round(v.elapsedSeconds)} secondes. Vous venez de rencontrer un développeur qui finit ce qu'il commence — enfin.`
-        : `Bottom of the page in ${Math.round(v.elapsedSeconds)} seconds. You've just met a developer who finishes what he starts — finally.`;
+        ? `Bas de page en ${Math.round(v.elapsedSeconds)} secondes. Vous venez de rencontrer un développeur qui finit ce qu'il commence - enfin.`
+        : `Bottom of the page in ${Math.round(v.elapsedSeconds)} seconds. You've just met a developer who finishes what he starts - finally.`;
 
     case "skimmedAbout":
       return fr
@@ -145,8 +146,8 @@ export function fallbackFor(event: ConciergeEvent, locale: Locale): string {
 
     case "themeHopping":
       return fr
-        ? `${v.themeSwitches + 1} thèmes en quelques minutes. C'était exactement le but — merci d'avoir joué le jeu.`
-        : `${v.themeSwitches + 1} themes in a few minutes. That was precisely the point — thanks for playing along.`;
+        ? `${v.themeSwitches + 1} thèmes en quelques minutes. C'était exactement le but - merci d'avoir joué le jeu.`
+        : `${v.themeSwitches + 1} themes in a few minutes. That was precisely the point - thanks for playing along.`;
 
     case "cameBack":
       return fr
@@ -155,8 +156,8 @@ export function fallbackFor(event: ConciergeEvent, locale: Locale): string {
 
     case "gallery":
       return fr
-        ? "Vous avez déplié la galerie. Il prend plus de photos qu'il n'écrit de tests — il assume."
-        : "You opened the full gallery. He takes more photos than he writes tests — he owns it.";
+        ? "Vous avez déplié la galerie. Il prend plus de photos qu'il n'écrit de tests - il assume."
+        : "You opened the full gallery. He takes more photos than he writes tests - he owns it.";
 
     case "outbound":
       return fr

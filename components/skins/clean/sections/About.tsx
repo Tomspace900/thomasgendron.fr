@@ -10,7 +10,13 @@ export function About({ dict }: { dict: Dictionary }) {
       number={dict.about.number}
       title={dict.about.title}
     >
-      <p className="leading-7 text-c-muted">{dict.about.body}</p>
+      <div className="max-w-2xl space-y-4">
+        {dict.about.body.map((paragraph, i) => (
+          <p key={i} className="leading-7 text-c-muted">
+            {paragraph}
+          </p>
+        ))}
+      </div>
     </SectionShell>
   );
 }

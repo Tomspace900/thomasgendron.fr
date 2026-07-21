@@ -31,9 +31,14 @@ export function Experience({
                   <p className="font-mono text-sm font-bold tracking-wide uppercase opacity-80">
                     {entry.period[locale]}
                   </p>
-                  <h3 className="display-title text-2xl md:text-4xl">
-                    {entry.title[locale]}
-                  </h3>
+                  <div>
+                    <h3 className="display-title text-2xl md:text-4xl">
+                      {entry.title[locale]}
+                    </h3>
+                    <p className="mt-2 max-w-xl text-sm leading-relaxed opacity-80">
+                      {entry.description[locale]}
+                    </p>
+                  </div>
                   <p className="font-mono text-sm md:text-right">
                     {entry.place[locale]}
                     <span

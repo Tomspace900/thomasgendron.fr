@@ -25,7 +25,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
             <MailIcon size={16} />
             {dict.contact.emailButton}
           </ButtonLink>
-          <ButtonLink href={site.cvPath} download variant="outline">
+          <ButtonLink disabled>
             <DownloadIcon size={16} />
             {dict.contact.cvButton}
           </ButtonLink>
@@ -65,12 +65,18 @@ export function Contact({ dict }: { dict: Dictionary }) {
             Instagram
           </a>
         </nav>
+
+        {/* Même message que le bandeau des autres skins, en pastille de statut */}
+        <p className="mt-8 inline-flex items-center gap-2 rounded-full border border-c-border bg-c-card px-3 py-1 text-xs font-medium text-c-muted">
+          <span aria-hidden className="size-1.5 rounded-full bg-c-accent" />
+          {dict.contact.marquee}
+        </p>
       </SectionShell>
 
       <footer className="border-t border-c-border">
-        <div className="mx-auto max-w-3xl px-6 py-8 text-xs text-c-muted">
+        <div className="mx-auto max-w-5xl px-6 py-8 text-xs text-c-muted">
           <p>
-            © {new Date().getFullYear()} — {dict.footer.credits}
+            © {new Date().getFullYear()} - {dict.footer.credits}
           </p>
         </div>
       </footer>

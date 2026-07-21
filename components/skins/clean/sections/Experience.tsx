@@ -17,7 +17,7 @@ export function Experience({
       number={dict.experience.number}
       title={dict.experience.title}
     >
-      <ol className="relative space-y-8 border-l border-c-border pl-6">
+      <ol className="relative max-w-2xl space-y-8 border-l border-c-border pl-6">
         {experience.map((entry) => (
           <li key={entry.slug} className="relative">
             <span
@@ -38,6 +38,9 @@ export function Experience({
               {entry.title[locale]}
             </h3>
             <p className="mt-0.5 text-sm text-c-muted">{entry.place[locale]}</p>
+            <p className="mt-1.5 text-sm leading-6 text-c-muted">
+              {entry.description[locale]}
+            </p>
           </li>
         ))}
       </ol>

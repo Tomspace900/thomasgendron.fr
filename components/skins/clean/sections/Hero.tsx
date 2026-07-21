@@ -21,7 +21,7 @@ export function Hero({
   personas: PersonaData[];
 }) {
   return (
-    <section id="top" className="mx-auto max-w-3xl px-6 pt-36 pb-16 md:pt-44">
+    <section id="top" className="mx-auto max-w-5xl px-6 pt-36 pb-16 md:pt-44">
       {/* Eyebrow façon Vercel : petit label discret, pas d'emoji */}
       <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-c-border bg-c-card px-3 py-1 text-xs font-medium text-c-muted">
         <span aria-hidden className="size-1.5 rounded-full bg-c-accent" />
@@ -34,7 +34,7 @@ export function Hero({
         {dict.hero.tagline}
       </p>
 
-      {/* Trio de personas — compact, façon rangée de chips */}
+      {/* Trio de personas - compact, façon rangée de chips */}
       <ul className="mt-8 flex flex-wrap gap-2.5">
         {personas.map((p) => {
           const Icon = PERSONA_ICON[p.key];
@@ -56,7 +56,7 @@ export function Hero({
       </ul>
 
       {/* Manifesto : pourquoi trois interfaces */}
-      <div className="v-card mt-14 rounded-xl border border-c-border bg-c-card p-6">
+      <div className="v-card mt-14 max-w-2xl rounded-xl border border-c-border bg-c-card p-6">
         <p className="text-xl font-semibold tracking-tight">
           {dict.manifesto.punch}
         </p>
