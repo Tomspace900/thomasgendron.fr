@@ -19,7 +19,7 @@ export function SectionHeading({
   return (
     <div className={cn("mb-12 md:mb-16", className)}>
       <p className="mb-3 font-mono text-sm font-bold tracking-widest uppercase opacity-80">
-        {number} —
+        {number} -
       </p>
       <MisregisterTitle
         text={title}

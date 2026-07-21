@@ -3,7 +3,7 @@ import type { SVGProps } from "react";
 /**
  * Icônes ligne monochromes façon Geist (le set d'icônes de Vercel) : trait de
  * 1.5px, `currentColor`, bouts arrondis, grille 24. Elles remplacent les
- * emojis du skin clean — Vercel n'utilise jamais d'emoji dans son UI, c'est
+ * emojis du skin clean - Vercel n'utilise jamais d'emoji dans son UI, c'est
  * l'un des marqueurs les plus forts de son identité visuelle.
  */
 type IconProps = SVGProps<SVGSVGElement> & { size?: number };
@@ -138,7 +138,7 @@ export function LockIcon(props: IconProps) {
   );
 }
 
-/* — Réseaux : glyphes monochromes remplis (lisibles à petite taille) — */
+/* - Réseaux : glyphes monochromes remplis (lisibles à petite taille) - */
 
 export function GithubIcon({ size = 20, ...props }: IconProps) {
   return (

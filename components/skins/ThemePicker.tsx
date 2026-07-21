@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 
 /**
  * Le sélecteur central du manifesto : chaque bouton est stylé comme le
- * thème qu'il déclenche — un aperçu d'un monde dans l'autre. Volontairement
+ * thème qu'il déclenche - un aperçu d'un monde dans l'autre. Volontairement
  * hors-système dans chacun des trois skins.
  */
 const STYLES: Record<Skin, { base: string; active: string }> = {

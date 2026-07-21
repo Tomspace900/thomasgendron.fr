@@ -6,7 +6,7 @@ import { useConcierge } from "@/lib/concierge/ConciergeContext";
 import type { Dictionary } from "@/content/i18n";
 
 /**
- * Le concierge en Word 97 : le trombone reprend du service — et pour une
+ * Le concierge en Word 97 : le trombone reprend du service - et pour une
  * fois, il a vraiment quelque chose à dire.
  */
 export function Concierge({ dict }: { dict: Dictionary }) {

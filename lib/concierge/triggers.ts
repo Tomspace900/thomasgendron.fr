@@ -1,7 +1,7 @@
 import type { ConciergeEvent, TriggerId, VisitSnapshot } from "./types";
 
 /**
- * LE MOTEUR DE DÉCLENCHEMENT — le cœur du concierge, et volontairement
+ * LE MOTEUR DE DÉCLENCHEMENT - le cœur du concierge, et volontairement
  * 100 % déterministe : c'est ce code qui décide QUAND parler, le modèle
  * ne décide que QUOI dire. Fonction pure, sans DOM ni horloge implicite,
  * donc testable et prévisible.
@@ -17,7 +17,7 @@ import type { ConciergeEvent, TriggerId, VisitSnapshot } from "./types";
 export const QUIET_START_MS = 8_000;
 /** Délai minimum entre deux répliques. */
 export const COOLDOWN_MS = 45_000;
-/** Plafond par session — au-delà, ce n'est plus une remarque, c'est du bruit. */
+/** Plafond par session - au-delà, ce n'est plus une remarque, c'est du bruit. */
 export const MAX_PER_SESSION = 5;
 
 /** Du plus remarquable au plus anecdotique : en cas d'égalité, le premier gagne. */
@@ -38,7 +38,7 @@ const PRIORITY: TriggerId[] = [
 
 export type EngineState = {
   snapshot: VisitSnapshot;
-  /** Triggers déjà utilisés — on ne se répète jamais. */
+  /** Triggers déjà utilisés - on ne se répète jamais. */
   fired: TriggerId[];
   /** Horodatage de la dernière réplique (0 si aucune) */
   lastAt: number;
@@ -83,7 +83,7 @@ function matches(trigger: TriggerId, s: EngineState): boolean {
     case "themeHopping":
       return v.themeSwitches >= 2;
     // Rester sur une interface APRÈS en avoir essayé d'autres, c'est un
-    // choix — et un choix, ça se commente. Y être par défaut, non.
+    // choix - et un choix, ça se commente. Y être par défaut, non.
     case "themeLoyal":
       return v.themeSwitches >= 1 && v.themeSeconds > 75;
     case "cameBack":
@@ -104,7 +104,7 @@ const THEME_LABELS: Record<string, string> = {
 };
 
 /**
- * Le fait qu'on commentera si ce déclencheur tombe — utilisé aussi pour
+ * Le fait qu'on commentera si ce déclencheur tombe - utilisé aussi pour
  * pré-écrire une réplique à l'avance, sur un état projeté.
  */
 export function focusForSnapshot(
@@ -121,7 +121,7 @@ export function focusForSnapshot(
   });
 }
 
-/** LE fait unique à commenter — jamais deux. */
+/** LE fait unique à commenter - jamais deux. */
 function focusFor(trigger: TriggerId, s: EngineState): string {
   const v = s.snapshot;
   const theme = THEME_LABELS[v.theme] ?? v.theme;
@@ -179,7 +179,7 @@ export function selectTrigger(
   return null;
 }
 
-/** Les signaux affichés derrière le « ? » — la preuve que rien n'est scripté. */
+/** Les signaux affichés derrière le « ? » - la preuve que rien n'est scripté. */
 export function explain(event: ConciergeEvent): string[] {
   const v = event.snapshot;
   const why = [

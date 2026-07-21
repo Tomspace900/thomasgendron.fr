@@ -77,7 +77,7 @@ for (const file of files.sort()) {
   console.log(`✓ ${file} → ${slug}.webp (${info.width}×${info.height}, ${Math.round(info.size / 1024)} Ko)`);
 }
 
-console.log("\n— Entrées pour content/photos.ts —\n");
+console.log("\n- Entrées pour content/photos.ts -\n");
 for (const [i, e] of entries.entries()) {
   console.log(`  {
     file: "/images/photos/${e.slug}.webp",

@@ -1,6 +1,6 @@
 /**
  * Rate-limiter en mémoire, fenêtre glissante par IP.
- * Best-effort sur serverless (l'état vit par instance) — suffisant contre
+ * Best-effort sur serverless (l'état vit par instance) - suffisant contre
  * l'abus naïf. Pour du garanti multi-instances : @upstash/ratelimit.
  */
 

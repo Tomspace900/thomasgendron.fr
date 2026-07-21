@@ -59,7 +59,7 @@ function useMediaQuery(query: string): boolean {
  * Logique commune des galeries : ordre adapté au nombre de colonnes,
  * voir plus / voir moins, et au repli un retour fluide sur le bouton.
  *
- * @param threeColQuery — media query à partir de laquelle la grille passe
+ * @param threeColQuery - media query à partir de laquelle la grille passe
  * à 3 colonnes (doit correspondre aux classes de la galerie).
  */
 export function usePhotoGallery(threeColQuery = "(min-width: 1024px)") {

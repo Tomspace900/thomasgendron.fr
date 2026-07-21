@@ -47,7 +47,7 @@ type OverlayState = { from: Skin; target: Skin; phase: Phase };
 
 /**
  * Monté dans le layout (il persiste au router.refresh) : chaque thème a sa
- * sortie de scène — rideau d'encre (riso), fondu (vercel), sablier (word).
+ * sortie de scène - rideau d'encre (riso), fondu (vercel), sablier (word).
  */
 export function SkinTransitionProvider({
   skin,

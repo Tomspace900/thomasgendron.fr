@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* ——— Skin riso : les 5 encres + le papier ——— */
+  /* --- Skin riso : les 5 encres + le papier --- */
   --color-ink: #161412;
   --color-paper: #f3ecdd;
   --color-rose: #ff4fa3;
@@ -9,7 +9,7 @@
   --color-sun: #ffd500;
   --color-leaf: #00a874;
 
-  /* ——— Skin clean : palette Geist / Vercel, light/dark auto via light-dark() ——— */
+  /* --- Skin clean : palette Geist / Vercel, light/dark auto via light-dark() --- */
   --color-c-bg: light-dark(#ffffff, #000000);
   --color-c-fg: light-dark(#171717, #ededed);
   --color-c-muted: light-dark(#666666, #a1a1a1);
@@ -44,7 +44,7 @@ body {
   overflow-x: clip;
 }
 
-/* ——————————————— Skin riso ——————————————— */
+/* --------------- Skin riso --------------- */
 
 [data-skin="riso"] {
   color-scheme: light;
@@ -75,7 +75,7 @@ body {
   line-height: 0.9;
 }
 
-/* Grain de papier — tuile SVG feTurbulence en data-URI, un seul overlay fixe pour tout le site */
+/* Grain de papier - tuile SVG feTurbulence en data-URI, un seul overlay fixe pour tout le site */
 .grain-overlay {
   position: fixed;
   inset: 0;
@@ -87,7 +87,7 @@ body {
   background-size: 140px 140px;
 }
 
-/* ——————————————— Skin clean ——————————————— */
+/* --------------- Skin clean --------------- */
 
 [data-skin="clean"] {
   color-scheme: light dark;
@@ -113,7 +113,7 @@ body {
   outline-offset: 2px;
 }
 
-/* Tailwind v4 ne pose plus cursor:pointer sur les <button> — on le rétablit
+/* Tailwind v4 ne pose plus cursor:pointer sur les <button> - on le rétablit
    pour tout l'interactif du skin (toggles, ThemePicker, concierge, etc.). */
 [data-skin="clean"] button:not(:disabled),
 [data-skin="clean"] [role="button"]:not([aria-disabled="true"]),
@@ -145,7 +145,7 @@ body {
   }
 }
 
-/* ——————————————— Skin word (pastiche Word 97 / Win95) ——————————————— */
+/* --------------- Skin word (pastiche Word 97 / Win95) --------------- */
 
 [data-skin="word"] {
   color-scheme: light;

@@ -19,7 +19,7 @@ export type SectionId =
 /**
  * Les moments que le concierge sait remarquer. Règle d'or : un déclencheur
  * n'existe que s'il y a vraiment quelque chose à dire. Une visite banale à
- * 15h un mardi ne mérite aucun commentaire — le silence fait partie du ton.
+ * 15h un mardi ne mérite aucun commentaire - le silence fait partie du ton.
  */
 export type TriggerId =
   | "returning" // visite répétée
@@ -35,7 +35,7 @@ export type TriggerId =
   | "outbound" // a ouvert un lien externe
   | "idle"; // ne bouge plus
 
-/** Photographie de la visite à l'instant t — le seul contexte envoyé au serveur. */
+/** Photographie de la visite à l'instant t - le seul contexte envoyé au serveur. */
 export type VisitSnapshot = {
   source: VisitSource;
   /** Heure locale du visiteur (0-23) */

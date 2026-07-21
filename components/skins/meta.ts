@@ -1,6 +1,6 @@
 /**
  * Métadonnées des skins, importables côté client (AUCUN import de composants
- * ici — le registre des composants vit dans index.ts, côté serveur, pour que
+ * ici - le registre des composants vit dans index.ts, côté serveur, pour que
  * seul le skin actif parte dans le bundle).
  */
 export const skinMeta = [

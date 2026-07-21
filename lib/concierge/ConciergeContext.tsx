@@ -148,7 +148,7 @@ export function ConciergeProvider({
   const prefetched = useRef(new Map<TriggerId, string>());
   const prefetching = useRef(new Set<TriggerId>());
 
-  // ——— Mise en place des capteurs ———
+  // --- Mise en place des capteurs ---
   useEffect(() => {
     const now = Date.now();
     const state = engine.current;
@@ -358,13 +358,13 @@ export function ConciergeProvider({
     [locale],
   );
 
-  // ——— La boucle : elle regarde, elle ne parle presque jamais ———
+  // --- La boucle : elle regarde, elle ne parle presque jamais ---
   useEffect(() => {
     const id = setInterval(() => {
       const state = engine.current;
       if (state.muted || busy.current) return;
       // Onglet en arrière-plan : personne ne regarde. On ne brûle pas une
-      // réplique dans le vide — elle attendra le retour du visiteur.
+      // réplique dans le vide - elle attendra le retour du visiteur.
       if (document.hidden) return;
 
       state.snapshot = { ...snapshot() };

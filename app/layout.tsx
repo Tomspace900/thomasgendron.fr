@@ -20,7 +20,7 @@ const spaceMono = Space_Mono({
   variable: "--font-space-mono",
 });
 
-// Fontes du skin clean — pas de preload : elles ne se chargent
+// Fontes du skin clean - pas de preload : elles ne se chargent
 // que quand le skin est actif (font-family scopée par data-skin).
 const geist = Geist({
   subsets: ["latin"],

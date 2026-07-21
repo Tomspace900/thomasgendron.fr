@@ -1,7 +1,7 @@
 import type { SectionId, VisitSource } from "./types";
 
 /**
- * Collecte des signaux — tout reste dans l'onglet du visiteur.
+ * Collecte des signaux - tout reste dans l'onglet du visiteur.
  * Rien n'est stocké côté serveur : seul un descripteur d'événement
  * anonyme part à l'API pour écrire la réplique.
  */

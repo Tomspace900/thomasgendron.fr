@@ -5,7 +5,7 @@ import { clean } from "./clean";
 import { word } from "./word";
 
 /**
- * Registre des skins — usage côté serveur uniquement (layout.tsx, page.tsx) :
+ * Registre des skins - usage côté serveur uniquement (layout.tsx, page.tsx) :
  * comme seuls les composants du skin actif sont rendus, les autres skins ne
  * sont jamais envoyés au client.
  *

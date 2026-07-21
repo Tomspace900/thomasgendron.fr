@@ -30,7 +30,7 @@ const TRIGGERS: TriggerId[] = [
  * un soir de semaine déclenchent le même événement : inutile de repayer une
  * génération.
  *
- * Le modèle met plusieurs secondes à répondre — une éternité pour une
+ * Le modèle met plusieurs secondes à répondre - une éternité pour une
  * remarque censée tomber pendant que le moment est vrai. D'où la règle :
  * dès qu'UNE réplique existe pour la signature, on la sert instantanément,
  * et on enrichit le vivier en tâche de fond (after()) jusqu'à VARIANTS.
@@ -71,7 +71,7 @@ const THEME_LABELS: Record<string, string> = {
 /**
  * Contexte minimal d'une réplique. Le fait à commenter arrive à part :
  * ici on ne donne que de quoi éviter un contresens, surtout pas un tableau
- * de bord à réciter — c'est ce qui produisait des remarques qui énuméraient
+ * de bord à réciter - c'est ce qui produisait des remarques qui énuméraient
  * tout ce que le concierge savait.
  */
 function lineContext(v: VisitSnapshot, locale: string): string {
@@ -100,7 +100,7 @@ function describeVisit(v: VisitSnapshot, locale: string): string {
 
 /**
  * Une phrase, propre : pas de guillemets parasites ni de roman. Si le modèle
- * déborde, on coupe à la fin de phrase précédente plutôt qu'en plein mot —
+ * déborde, on coupe à la fin de phrase précédente plutôt qu'en plein mot -
  * une réplique tronquée au milieu tue l'effet.
  */
 function sanitize(raw: string, maxChars: number): string {
