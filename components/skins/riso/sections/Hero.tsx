@@ -7,7 +7,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="top"
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-rose px-6 pt-28 pb-20 md:px-12 md:pt-32"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-rose px-6 pt-12 pb-20 md:px-12 md:pt-28"
     >
       <StampShape
         variant="splat"
@@ -50,7 +50,7 @@ export function Hero({ dict }: { dict: Dictionary }) {
         </div>
 
         {/* L'unique encart : pourquoi trois interfaces, et de quoi en changer */}
-        <div className="w-full max-w-lg justify-self-center lg:justify-self-end">
+        <div className="w-full min-w-[335px] max-w-[400px] justify-self-center lg:justify-self-end">
           <StylePress dict={dict} />
         </div>
       </div>

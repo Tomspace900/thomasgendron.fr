@@ -3,13 +3,13 @@ import type { Dictionary } from "./types";
 export const fr = {
   meta: {
     description:
-      "Thomas Gendron - ingénieur full-stack à Paris. Un portfolio, trois interfaces : Graphique, Vercel et Word 97.",
+      "Thomas Gendron - ingénieur full-stack à Paris. Un portfolio, trois interfaces : Graphic, Vercel et Word 97.",
   },
   header: {
     skipToContent: "Aller au contenu",
   },
   skins: {
-    riso: "Graphique",
+    riso: "Graphic",
     clean: "Vercel",
     word: "Word 97",
   },

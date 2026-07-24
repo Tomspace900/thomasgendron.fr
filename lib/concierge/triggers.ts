@@ -10,7 +10,7 @@ import type { ConciergeEvent, TriggerId, VisitSnapshot } from "./types";
  * donc testable directement.
  */
 export const styleLabels: Record<string, string> = {
-  riso: "Graphique (couleurs vives, gros aplats)",
+  riso: "Graphic (couleurs vives, gros aplats)",
   clean: "Vercel (sobre et épuré)",
   word: "Word 97 (imite un vieux document Windows)",
 };
@@ -71,7 +71,8 @@ export type EngineState = {
 
 /** Une arrivée n'est commentable que si elle a quelque chose de singulier. */
 function arrivalAngle(v: VisitSnapshot): string | null {
-  if (v.hour >= 23 || v.hour < 6) return `il est ${v.hour}h chez lui, en pleine nuit`;
+  if (v.hour >= 23 || v.hour < 6)
+    return `il est ${v.hour}h chez lui, en pleine nuit`;
   if (v.hour < 8) return `il est ${v.hour}h du matin chez lui`;
   if (v.source === "linkedin") return "il débarque de LinkedIn";
   if (v.source === "github") return "il débarque de GitHub";

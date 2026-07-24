@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { cn } from "@/lib/cn";
 import { ThemeButton } from "../ThemeButton";
@@ -21,49 +21,21 @@ const INK: Record<Skin, { text: string; offset: { x: number; y: number } }> = {
   word: { text: "text-blue", offset: { x: 14, y: 8 } },
 };
 
-/** Durée d'exposition d'une encre quand la presse tourne toute seule. */
-const CYCLE_MS = 1800;
-
 /**
  * La même forme imprimée trois fois en surimpression sur une feuille posée de
- * travers. Au repos la presse tourne toute seule : chaque encre passe devant à
- * son tour et son bouton s'enfonce, comme si on les cliquait l'un après
- * l'autre. Entrer dans la carte arrête la boucle et rend la main : les trois
- * encres reviennent à pleine opacité - c'est le seul moment où l'on voit la
- * surimpression complète - et survoler un bouton isole son passage d'encre.
+ * travers. Au repos elle ne bouge pas : on voit la surimpression entière.
+ * Survoler (ou focus) un thème isole son passage d'encre - la presse ne
+ * réagit qu'à ce qu'on lui demande.
  */
 export function StylePress({ dict }: { dict: Dictionary }) {
-  const [hovered, setHovered] = useState<Skin | null>(null);
-  const [inCard, setInCard] = useState(false);
-  const [step, setStep] = useState(0);
+  const [active, setActive] = useState<Skin | null>(null);
   const reduceMotion = useReducedMotion();
 
-  const looping = !inCard && hovered === null && !reduceMotion;
-
-  // Un `setTimeout` réarmé à chaque pas plutôt qu'un `setInterval` : il n'y a
-  // jamais qu'un seul timer en vol, même si l'effet est remonté (StrictMode).
-  useEffect(() => {
-    if (!looping) return;
-    const id = setTimeout(
-      () => setStep((i) => (i + 1) % skinMeta.length),
-      CYCLE_MS,
-    );
-    return () => clearTimeout(id);
-  }, [looping, step]);
-
-  // Survol d'un bouton > la boucle > repos (souris dans la carte, ou mouvement
-  // réduit) : au repos rien n'est isolé, la surimpression est entière.
-  const active = hovered ?? (looping ? skinMeta[step].name : null);
-
+  // Le rembourrage horizontal de mobile compense ce que l'inclinaison et la
+  // surlargeur sortent de l'écran : ce sont les coins qui débordent, jamais le
+  // contenu.
   return (
-    <div
-      onMouseEnter={() => setInCard(true)}
-      onMouseLeave={() => {
-        setInCard(false);
-        setHovered(null);
-      }}
-      className="relative rotate-2 border-3 border-ink bg-paper p-6 pb-5 shadow-[10px_10px_0_var(--color-ink)] md:rotate-3 md:p-7"
-    >
+    <div className="relative rotate-[4deg] border-3 border-ink bg-paper px-11 py-5 shadow-[10px_10px_0_var(--color-ink)] md:rotate-3 md:p-7 md:pb-6">
       {/* La presse : trois passages d'encre pour la même forme */}
       <div className="relative mx-auto aspect-square w-32 md:w-36" aria-hidden>
         {skinMeta.map(({ name }) => {
@@ -107,17 +79,17 @@ export function StylePress({ dict }: { dict: Dictionary }) {
       <p className="mt-5 border-t-3 border-ink pt-3 font-mono text-[11px] font-bold tracking-widest uppercase">
         {dict.manifesto.pick}
       </p>
+      {/* Jamais de retour à la ligne : les trois styles se lisent d'un bloc. */}
       <ul
         aria-label={dict.manifesto.pick}
-        className="mt-3 flex flex-wrap items-center gap-3"
+        className="mt-3 flex flex-nowrap items-center gap-2 md:gap-3"
       >
         {skinMeta.map(({ name }) => (
           <li key={name}>
             <ThemeButton
               skin={name}
               label={dict.skins[name]}
-              pressed={active === name}
-              onHoverChange={(isHovered) => setHovered(isHovered ? name : null)}
+              onHoverChange={(isHovered) => setActive(isHovered ? name : null)}
             />
           </li>
         ))}

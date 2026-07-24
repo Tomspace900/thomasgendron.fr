@@ -218,11 +218,8 @@ body {
   padding: 2px 10px;
 }
 
-/* `data-pressed` : enfoncement piloté par le composant (la presse riso
-   « clique » les thèmes à tour de rôle) indépendamment du thème courant. */
 .w95-btn:active,
-.w95-btn[aria-pressed="true"],
-.w95-btn[data-pressed="true"] {
+.w95-btn[aria-pressed="true"] {
   border-color: #404040 #ffffff #ffffff #404040;
   background: #b0b0b0;
 }

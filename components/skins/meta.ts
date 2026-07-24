@@ -7,7 +7,7 @@
  *  servent que de repère de lecture, gardés alignés pour ne pas induire
  *  en erreur. */
 export const skinMeta = [
-  { name: "riso", label: "Graphique" },
+  { name: "riso", label: "Graphic" },
   { name: "clean", label: "Vercel" },
   { name: "word", label: "Word 97" },
 ] as const;
@@ -17,7 +17,5 @@ export type Skin = (typeof skinMeta)[number]["name"];
 export const defaultSkin: Skin = "riso";
 
 export function isSkin(value: unknown): value is Skin {
-  return (
-    typeof value === "string" && skinMeta.some((s) => s.name === value)
-  );
+  return typeof value === "string" && skinMeta.some((s) => s.name === value);
 }

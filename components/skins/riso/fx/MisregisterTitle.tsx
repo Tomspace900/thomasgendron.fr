@@ -36,7 +36,7 @@ type Props = {
  * `(1 - f + r/2) / (1 + r)`, avec `r` sa hauteur rapportée à celle du viewport.
  * Pour f = 0.3 et un titre occupant 15 à 20 % de la hauteur, ça tombe sur 0.67.
  */
-const NEUTRAL = 0.75;
+const NEUTRAL = 0.7;
 
 /**
  * Titre "mal calé" : le texte est imprimé en trois passages d'encre superposés

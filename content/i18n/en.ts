@@ -114,8 +114,7 @@ export const en = {
   contact: {
     number: "06",
     title: "Get in touch",
-    catch:
-      "A question? A project? A CTO role? Or maybe just fancy saying hi?",
+    catch: "A question? A project? A CTO role? Or maybe just fancy saying hi?",
     emailButton: "Send me an email",
     cvButton: "Download my resume",
     marquee: "Open to offers",
