@@ -11,9 +11,13 @@ export function Debrief({ dict }: { dict: Dictionary }) {
   const ref = useInViewOnce<HTMLDivElement>(requestDebrief);
 
   return (
-    <section id="debrief" className="bg-leaf px-6 py-24 md:px-12 md:py-32">
+    <section
+      id="debrief"
+      className="scroll-mt-24 bg-leaf px-6 py-24 md:px-12 md:py-32"
+    >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          id="debrief"
           number={dict.debrief.number}
           title={dict.debrief.title}
           layers={["text-sun", "text-blue"]}

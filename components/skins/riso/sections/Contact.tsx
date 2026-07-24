@@ -10,6 +10,7 @@ export function Contact({ dict }: { dict: Dictionary }) {
     <section id="contact" className="scroll-mt-24 bg-ink pt-24 text-paper md:pt-32">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <SectionHeading
+          id="contact"
           number={dict.contact.number}
           title={dict.contact.title}
           layers={["text-rose", "text-blue"]}

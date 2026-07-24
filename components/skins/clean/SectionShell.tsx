@@ -10,7 +10,8 @@ export function SectionShell({
   children,
   className,
 }: {
-  id?: string;
+  /** id de la section : le titre devient un lien partageable */
+  id: string;
   icon: ReactNode;
   number: string;
   title: string;
@@ -28,14 +29,22 @@ export function SectionShell({
       <p className="mb-3 font-geist-m text-xs tracking-wide text-c-muted">
         {number}
       </p>
-      <h2 className="mb-8 flex items-center gap-2.5 text-2xl font-semibold tracking-tight md:text-3xl">
-        <span
-          aria-hidden
-          className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-c-border bg-c-card text-c-muted"
-        >
-          {icon}
-        </span>
-        {title}
+      <h2 className="mb-8 text-2xl font-semibold tracking-tight md:text-3xl">
+        <a href={`#${id}`} className="group flex w-fit items-center gap-2.5">
+          <span
+            aria-hidden
+            className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-c-border bg-c-card text-c-muted"
+          >
+            {icon}
+          </span>
+          {title}
+          <span
+            aria-hidden
+            className="text-c-muted opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100"
+          >
+            #
+          </span>
+        </a>
       </h2>
       {children}
     </section>

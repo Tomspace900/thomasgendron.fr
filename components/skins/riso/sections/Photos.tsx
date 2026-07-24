@@ -35,6 +35,7 @@ export function Photos({ dict }: { dict: Dictionary }) {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          id="photos"
           number={dict.photos.number}
           title={dict.photos.title}
           layers={["text-leaf", "text-rose"]}

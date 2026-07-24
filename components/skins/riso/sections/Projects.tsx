@@ -11,6 +11,7 @@ export function Projects({ dict }: { dict: Dictionary }) {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          id="projects"
           number={dict.projects.number}
           title={dict.projects.title}
           layers={["text-rose", "text-leaf"]}

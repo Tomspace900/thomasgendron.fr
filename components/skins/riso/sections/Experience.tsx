@@ -17,6 +17,7 @@ export function Experience({
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          id="experience"
           number={dict.experience.number}
           title={dict.experience.title}
           layers={["text-sun", "text-rose"]}

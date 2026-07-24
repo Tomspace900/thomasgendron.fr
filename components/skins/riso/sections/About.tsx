@@ -25,6 +25,7 @@ export function About({ dict }: { dict: Dictionary }) {
 
       <div className="mx-auto max-w-7xl">
         <SectionHeading
+          id="about"
           number={dict.about.number}
           title={dict.about.title}
           layers={["text-rose", "text-blue"]}
