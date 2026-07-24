@@ -41,12 +41,6 @@ export function Projects({ dict }: { dict: Dictionary }) {
                     </p>
                   </div>
 
-                  {project.contribution && (
-                    <p className="mt-3 font-mono text-xs opacity-60">
-                      ⑂ {project.contribution}
-                    </p>
-                  )}
-
                   <div className="mt-6 flex flex-wrap items-center gap-2">
                     {project.tags.map((tag) => (
                       <span

@@ -24,8 +24,6 @@ export type Project = {
   tags: string[];
   repo?: string;
   live?: string;
-  /** Contribution à un projet tiers */
-  contribution?: string;
 };
 
 export const projects: Project[] = [
@@ -34,7 +32,7 @@ export const projects: Project[] = [
     name: "Geodoku",
     year: "2026",
     kind: "perso",
-    tags: ["TypeScript", "React", "Convex", "PostHog"],
+    tags: ["React", "Convex", "PostHog"],
     repo: "https://github.com/Tomspace900/geodoku",
     live: "https://geodoku.app",
   },
@@ -55,7 +53,6 @@ export const projects: Project[] = [
     tags: ["Next.js", "Supabase", "React Native"],
     repo: "https://github.com/victorbillaud/tomato",
     live: "https://tomato-snowy.vercel.app",
-    contribution: "victorbillaud/tomato",
   },
   {
     slug: "revision-droit",
