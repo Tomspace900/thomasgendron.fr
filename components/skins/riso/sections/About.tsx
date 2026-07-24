@@ -16,9 +16,9 @@ export function About({ dict }: { dict: Dictionary }) {
         speed={0.5}
       />
       <StampShape
-        variant="star"
+        variant="pool"
         className="bottom-[12%] left-[2%] hidden text-rose md:block"
-        size={90}
+        size={120}
         speed={0.25}
         rotate={20}
       />

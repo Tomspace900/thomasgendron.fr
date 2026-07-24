@@ -17,15 +17,15 @@ export function Hero({
       className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-rose px-6 pt-28 pb-16 md:px-12 md:pt-32"
     >
       <StampShape
-        variant="ring"
+        variant="splat"
         className="top-[12%] right-[6%] hidden text-sun md:block"
         size={190}
         speed={0.5}
       />
       <StampShape
-        variant="cross"
+        variant="drop"
         className="bottom-[8%] left-[4%] text-blue"
-        size={110}
+        size={130}
         speed={0.3}
         rotate={14}
       />
