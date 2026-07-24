@@ -1,7 +1,8 @@
 "use client";
 
-import { useMemo, useRef, useState, useSyncExternalStore } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import { isLandscape, photos, type Photo } from "@/content/photos";
+import { useExpandable } from "./useExpandable";
 
 /**
  * Motifs de rangées par nombre de colonnes (L = paysage sur 2 colonnes,
@@ -63,38 +64,14 @@ function useMediaQuery(query: string): boolean {
  * à 3 colonnes (doit correspondre aux classes de la galerie).
  */
 export function usePhotoGallery(threeColQuery = "(min-width: 1024px)") {
-  const [expanded, setExpanded] = useState(false);
-  const anchorRef = useRef<HTMLDivElement | null>(null);
+  // Le concierge aime savoir qu'on a voulu voir toutes les photos
+  const { expanded, toggle, anchorRef } = useExpandable("tg:gallery-expanded");
 
   const cols: Cols = useMediaQuery(threeColQuery) ? 3 : 2;
   const ordered = useMemo(() => orderForColumns(photos, cols), [cols]);
 
   const visible = expanded ? ordered : ordered.slice(0, INITIAL_COUNT[cols]);
   const hiddenCount = ordered.length - INITIAL_COUNT[cols];
-
-  function toggle() {
-    const collapsing = expanded;
-    setExpanded(!expanded);
-    // Le concierge aime savoir qu'on a voulu voir toutes les photos
-    if (!collapsing) {
-      window.dispatchEvent(new CustomEvent("tg:gallery-expanded"));
-    }
-    if (collapsing) {
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      ).matches;
-      // setTimeout : on laisse le layout raccourci et le scroll-anchoring
-      // se poser avant de ramener le bouton en vue, en douceur.
-      setTimeout(
-        () =>
-          anchorRef.current?.scrollIntoView({
-            block: "center",
-            behavior: reduceMotion ? "instant" : "smooth",
-          }),
-        80,
-      );
-    }
-  }
 
   return { visible, expanded, hiddenCount, toggle, anchorRef };
 }
