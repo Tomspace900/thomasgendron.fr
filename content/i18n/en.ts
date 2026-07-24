@@ -31,7 +31,6 @@ export const en = {
     hello: "Hi, I'm",
     tagline: "Full-stack engineer based in Paris.",
     scroll: "Scroll down",
-    trioCaption: "Same me, three registers",
   },
   personas: {
     linkedin: { label: "LinkedIn", tagline: "A bit more formal" },

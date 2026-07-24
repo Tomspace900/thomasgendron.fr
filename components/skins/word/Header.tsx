@@ -39,7 +39,9 @@ export function Header({ dict, locale }: HeaderProps) {
             </span>
           ))}
         </p>
-        <span className="flex items-center py-0.5">
+        {/* `ml-auto` : la barre de menus est masquée sous `md`, le switcher
+            resterait collé à gauche sans ça. */}
+        <span className="ml-auto flex items-center py-0.5">
           <LocaleSwitcher current={locale} />
         </span>
       </div>

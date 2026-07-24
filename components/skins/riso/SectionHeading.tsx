@@ -35,7 +35,7 @@ export function SectionHeading({
           text={title}
           layers={layers}
           blend={blend}
-          drift={8}
+          drift={5}
           className="text-[clamp(2rem,7vw,6.5rem)] text-balance"
         />
       </a>

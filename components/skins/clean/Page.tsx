@@ -10,13 +10,13 @@ import type { PageProps } from "../types";
 export function Page({ dict, locale, personas }: PageProps) {
   return (
     <>
-      <Hero dict={dict} personas={personas} />
+      <Hero dict={dict} />
       <About dict={dict} />
       <Experience dict={dict} locale={locale} />
       <Projects dict={dict} />
       <Photos dict={dict} />
       <Debrief dict={dict} />
-      <Contact dict={dict} />
+      <Contact dict={dict} personas={personas} />
     </>
   );
 }

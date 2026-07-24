@@ -15,7 +15,7 @@ export type Dictionary = {
   };
   /** Libellés des positions du toggle de skin */
   skins: Record<Skin, string>;
-  /** Le « pourquoi trois interfaces » - switcher central du hero */
+  /** Le « pourquoi trois interfaces » - l'unique encart du hero */
   manifesto: {
     punch: string;
     body: string;
@@ -34,7 +34,6 @@ export type Dictionary = {
     hello: string;
     tagline: string;
     scroll: string;
-    trioCaption: string;
   };
   personas: {
     linkedin: { label: string; tagline: string };

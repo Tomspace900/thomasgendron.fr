@@ -11,7 +11,7 @@ import type { PageProps } from "../types";
 export function Page({ dict, locale, personas }: PageProps) {
   return (
     <>
-      <Hero dict={dict} personas={personas} />
+      <Hero dict={dict} />
       <InkWipe from="bg-rose" to="bg-paper" />
       <About dict={dict} />
       <InkWipe from="bg-paper" to="bg-blue" />
@@ -23,7 +23,7 @@ export function Page({ dict, locale, personas }: PageProps) {
       <InkWipe from="bg-paper" to="bg-leaf" />
       <Debrief dict={dict} />
       <InkWipe from="bg-leaf" to="bg-ink" />
-      <Contact dict={dict} />
+      <Contact dict={dict} personas={personas} />
     </>
   );
 }

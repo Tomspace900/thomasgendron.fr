@@ -162,9 +162,13 @@ body {
   color: #ffffff;
 }
 
+/* Le pointillé d'époque se déclenchait aussi au clic souris sur les boutons
+   (FR/EN notamment), où il ressemblait à un état sélectionné plutôt qu'à un
+   focus. On garde un indicateur - le supprimer laisserait la navigation au
+   clavier sans repère - mais en trait plein, dans le bleu de sélection Win95. */
 [data-skin="word"] :focus-visible {
-  outline: 1px dotted #000000;
-  outline-offset: 0px;
+  outline: 2px solid #000080;
+  outline-offset: 1px;
 }
 
 /* Curseurs vintage Win95 : flèche noire à liseré blanc partout (cursor hérite),
@@ -214,8 +218,11 @@ body {
   padding: 2px 10px;
 }
 
+/* `data-pressed` : enfoncement piloté par le composant (la presse riso
+   « clique » les thèmes à tour de rôle) indépendamment du thème courant. */
 .w95-btn:active,
-.w95-btn[aria-pressed="true"] {
+.w95-btn[aria-pressed="true"],
+.w95-btn[data-pressed="true"] {
   border-color: #404040 #ffffff #ffffff #404040;
   background: #b0b0b0;
 }

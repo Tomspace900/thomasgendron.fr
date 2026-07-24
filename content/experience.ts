@@ -34,25 +34,25 @@ export const experience: ExperienceEntry[] = [
     slug: "efrei",
     kind: "education",
     title: {
-      fr: "Diplôme d'ingénieur en informatique",
-      en: "Engineering degree in computer science",
+      fr: "Diplôme d'ingénieur",
+      en: "Engineering degree",
     },
     place: { fr: "EFREI Paris, Villejuif", en: "EFREI Paris, France" },
     period: { fr: "2021 - 2024", en: "2021 - 2024" },
     description: {
-      fr: "Cycle ingénieur en IT. Cursus en anglais.",
-      en: "Engineering programme in IT, taught in English.",
+      fr: "Cycle ingénieur en informatique. Cursus en anglais.",
+      en: "Engineering programme in computer science, taught in English.",
     },
   },
   {
     slug: "maisons-du-monde",
     kind: "work",
     title: {
-      fr: "Stage développeur front-end",
-      en: "Front-end developer internship",
+      fr: "Développeur front-end",
+      en: "Front-end developer",
     },
     place: { fr: "Maisons du Monde, Paris", en: "Maisons du Monde, Paris" },
-    period: { fr: "2022 - 2023", en: "2022 - 2023" },
+    period: { fr: "2023", en: "2023" },
     description: {
       fr: "Stage de six mois de développement front-end sur un produit e-commerce à grande audience. Première expérience en entreprise.",
       en: "A six-month front-end internship on a high-traffic e-commerce product. My first experience in a company.",
@@ -62,17 +62,17 @@ export const experience: ExperienceEntry[] = [
     slug: "apu",
     kind: "education",
     title: {
-      fr: "Semestre d'échange en Computer Science",
-      en: "Exchange semester in Computer Science",
+      fr: "Semestre d'échange",
+      en: "Exchange semester",
     },
     place: {
       fr: "APU, Kuala Lumpur, Malaisie",
       en: "APU, Kuala Lumpur, Malaysia",
     },
-    period: { fr: "Janvier - Mai 2022", en: "January - May 2022" },
+    period: { fr: "2022", en: "2022" },
     description: {
-      fr: "Semestre d'échange à l'Asia Pacific University.",
-      en: "Exchange semester at Asia Pacific University.",
+      fr: "Semestre d'échange en Computer Science à l'Asia Pacific University.",
+      en: "Exchange semester in Computer Science at Asia Pacific University.",
     },
   },
   {

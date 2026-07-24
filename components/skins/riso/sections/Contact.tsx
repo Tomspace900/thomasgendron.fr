@@ -1,9 +1,24 @@
 import { SectionHeading } from "../SectionHeading";
 import { ButtonLink } from "../ui/button";
+import type { PersonaData } from "../../types";
 import type { Dictionary } from "@/content/i18n";
 import { site } from "@/content/site";
+import { cn } from "@/lib/cn";
 
-export function Contact({ dict }: { dict: Dictionary }) {
+/** Une encre par réseau, comme la presse du hero. */
+const HOVER: Record<PersonaData["key"], string> = {
+  linkedin: "hover:text-blue",
+  github: "hover:text-sun",
+  instagram: "hover:text-rose",
+};
+
+export function Contact({
+  dict,
+  personas,
+}: {
+  dict: Dictionary;
+  personas: PersonaData[];
+}) {
   const marqueeText = Array(6).fill(dict.contact.marquee).join(" ✳ ") + " ✳ ";
 
   return (
@@ -36,17 +51,22 @@ export function Contact({ dict }: { dict: Dictionary }) {
 
         <nav
           aria-label="Réseaux sociaux"
-          className="mt-14 flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm font-bold uppercase"
+          className="mt-14 flex flex-wrap gap-x-10 gap-y-4 font-mono text-sm"
         >
-          <a href={site.links.linkedin} target="_blank" rel="noreferrer" className="underline decoration-2 underline-offset-4 hover:text-blue">
-            LinkedIn ↗
-          </a>
-          <a href={site.links.github} target="_blank" rel="noreferrer" className="underline decoration-2 underline-offset-4 hover:text-sun">
-            GitHub ↗
-          </a>
-          <a href={site.links.instagram} target="_blank" rel="noreferrer" className="underline decoration-2 underline-offset-4 hover:text-rose">
-            Instagram ↗
-          </a>
+          {personas.map((p) => (
+            <a
+              key={p.key}
+              href={p.href}
+              target="_blank"
+              rel="noreferrer"
+              className={cn("transition-colors", HOVER[p.key])}
+            >
+              <span className="font-bold uppercase underline decoration-2 underline-offset-4">
+                {p.label} ↗
+              </span>
+              <span className="block text-xs opacity-70">{p.tagline}</span>
+            </a>
+          ))}
         </nav>
       </div>
 

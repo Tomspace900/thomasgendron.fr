@@ -1,20 +1,13 @@
 import { MisregisterTitle } from "../fx/MisregisterTitle";
 import { StampShape } from "../fx/StampShape";
-import { PersonaPress, type Persona } from "../PersonaPress";
-import { ThemePicker } from "../../ThemePicker";
+import { StylePress } from "../StylePress";
 import type { Dictionary } from "@/content/i18n";
 
-export function Hero({
-  dict,
-  personas,
-}: {
-  dict: Dictionary;
-  personas: Persona[];
-}) {
+export function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section
       id="top"
-      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-rose px-6 pt-28 pb-16 md:px-12 md:pt-32"
+      className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-rose px-6 pt-28 pb-20 md:px-12 md:pt-32"
     >
       <StampShape
         variant="splat"
@@ -30,24 +23,24 @@ export function Hero({
         rotate={14}
       />
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.6fr_1fr] lg:gap-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <div>
           <p className="mb-4 font-mono text-sm font-bold tracking-widest uppercase md:text-base">
             {dict.hero.hello}
           </p>
-          <h1 className="display-title text-[clamp(2.4rem,11.5vw,10.5rem)]">
+          <h1 className="display-title text-[clamp(2.4rem,11.5vw,10.5rem)] lg:text-[clamp(3rem,7.5vw,8rem)]">
             <MisregisterTitle
               text="Thomas"
               as="span"
               layers={["text-blue", "text-sun"]}
-              drift={14}
+              drift={8}
               className="block"
             />
             <MisregisterTitle
               text="Gendron"
               as="span"
               layers={["text-sun", "text-blue"]}
-              drift={14}
+              drift={8}
               className="block"
             />
           </h1>
@@ -56,23 +49,9 @@ export function Hero({
           </p>
         </div>
 
-        <div className="justify-self-center lg:justify-self-end">
-          <PersonaPress personas={personas} caption={dict.hero.trioCaption} />
-        </div>
-      </div>
-
-      {/* Manifesto : pourquoi trois interfaces */}
-      <div className="relative z-10 mx-auto mt-16 w-full max-w-7xl pb-10">
-        <div className="max-w-2xl -rotate-1 border-3 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--color-ink)] md:p-8">
-          <p className="display-title text-2xl md:text-3xl">
-            {dict.manifesto.punch}
-          </p>
-          <p className="mt-4 text-sm leading-relaxed font-medium">
-            {dict.manifesto.body}
-          </p>
-          <div className="mt-6">
-            <ThemePicker labels={dict.skins} pickLabel={dict.manifesto.pick} />
-          </div>
+        {/* L'unique encart : pourquoi trois interfaces, et de quoi en changer */}
+        <div className="w-full max-w-lg justify-self-center lg:justify-self-end">
+          <StylePress dict={dict} />
         </div>
       </div>
 

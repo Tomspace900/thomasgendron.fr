@@ -23,6 +23,22 @@ type Props = {
 };
 
 /**
+ * Progression de scroll à laquelle la dérive s'annule - le « calage parfait ».
+ *
+ * Avec `offset: ["start end", "end start"]`, 0.5 correspond au titre pile au
+ * milieu du viewport. Mauvais point neutre ici : sur desktop le titre du hero
+ * est déjà centré au repos (donc calé, aucun effet visible), alors que sur
+ * mobile il arrive bien plus haut (donc déjà très décalé). En remontant le
+ * point neutre vers le premier tiers du viewport, les deux partent d'un
+ * décalage comparable - simplement de signe opposé.
+ *
+ * Un titre est à la fraction `f` du haut du viewport quand la progression vaut
+ * `(1 - f + r/2) / (1 + r)`, avec `r` sa hauteur rapportée à celle du viewport.
+ * Pour f = 0.3 et un titre occupant 15 à 20 % de la hauteur, ça tombe sur 0.67.
+ */
+const NEUTRAL = 0.75;
+
+/**
  * Titre "mal calé" : le texte est imprimé en trois passages d'encre superposés
  * (multiply), les deux calques du dessous dérivent au fil du scroll comme un
  * tirage risographie dont les plaques ont bougé.
@@ -31,7 +47,7 @@ export function MisregisterTitle({
   text,
   as: Tag = "h2",
   layers = ["text-blue", "text-rose"],
-  drift = 12,
+  drift = 8,
   blend = "multiply",
   className,
 }: Props) {
@@ -45,7 +61,7 @@ export function MisregisterTitle({
     offset: ["start end", "end start"],
   });
   const progress = useSpring(
-    useTransform(scrollYProgress, [0, 0.5, 1], [-1, 0, 1]),
+    useTransform(scrollYProgress, [0, NEUTRAL, 1], [-1, 0, 1]),
     { stiffness: 60, damping: 18 },
   );
 

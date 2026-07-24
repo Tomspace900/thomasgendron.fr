@@ -1,3 +1,4 @@
+import type { ComponentType, SVGProps } from "react";
 import { SectionShell } from "../SectionShell";
 import { ButtonLink } from "../ui/button";
 import {
@@ -7,10 +8,26 @@ import {
   LinkedinIcon,
   InstagramIcon,
 } from "../ui/icons";
+import type { PersonaData } from "../../types";
 import type { Dictionary } from "@/content/i18n";
 import { site } from "@/content/site";
 
-export function Contact({ dict }: { dict: Dictionary }) {
+const PERSONA_ICON: Record<
+  PersonaData["key"],
+  ComponentType<SVGProps<SVGSVGElement> & { size?: number }>
+> = {
+  linkedin: LinkedinIcon,
+  github: GithubIcon,
+  instagram: InstagramIcon,
+};
+
+export function Contact({
+  dict,
+  personas,
+}: {
+  dict: Dictionary;
+  personas: PersonaData[];
+}) {
   return (
     <>
       <SectionShell
@@ -32,38 +49,28 @@ export function Contact({ dict }: { dict: Dictionary }) {
         </div>
         <nav
           aria-label="Réseaux sociaux"
-          className="mt-8 flex gap-3 text-sm font-medium"
+          className="mt-8 flex flex-wrap gap-3 text-sm font-medium"
         >
-          <a
-            href={site.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-            className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-muted transition-colors hover:border-c-fg hover:text-c-fg"
-          >
-            <LinkedinIcon size={18} />
-            LinkedIn
-          </a>
-          <a
-            href={site.links.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-            className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-muted transition-colors hover:border-c-fg hover:text-c-fg"
-          >
-            <GithubIcon size={18} />
-            GitHub
-          </a>
-          <a
-            href={site.links.instagram}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-muted transition-colors hover:border-c-fg hover:text-c-fg"
-          >
-            <InstagramIcon size={18} />
-            Instagram
-          </a>
+          {personas.map((p) => {
+            const Icon = PERSONA_ICON[p.key];
+            return (
+              <a
+                key={p.key}
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
+                // Icône et nom en pleine encre, la tagline en retrait : c'est
+                // le réseau qu'on cherche du regard, pas sa description.
+                className="inline-flex items-center gap-2 rounded-md border border-c-border px-3 py-2 text-c-fg transition-colors hover:border-c-fg"
+              >
+                <Icon size={18} />
+                {p.label}
+                <span className="text-xs font-normal text-c-muted">
+                  {p.tagline}
+                </span>
+              </a>
+            );
+          })}
         </nav>
 
         {/* Même message que le bandeau des autres skins, en pastille de statut */}

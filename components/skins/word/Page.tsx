@@ -2,7 +2,8 @@ import { Fragment } from "react";
 import { DocHeading } from "./DocHeading";
 import { Debrief } from "./Debrief";
 import { PhotoCollage } from "./PhotoCollage";
-import { ThemePicker } from "../ThemePicker";
+import { ThemeButton } from "../ThemeButton";
+import { skinMeta } from "../meta";
 import type { PageProps } from "../types";
 import { experience } from "@/content/experience";
 import { projects } from "@/content/projects";
@@ -28,32 +29,24 @@ export function Page({ dict, locale, personas }: PageProps) {
           <p className="mt-4 italic">{dict.hero.tagline}</p>
         </section>
 
-        {/* --- Trio de personas --- */}
+        {/* --- L'unique encart : pourquoi trois interfaces, et de quoi en changer --- */}
         <section className="mt-8">
-          <p>{dict.hero.trioCaption} :</p>
-          <ul className="mt-2 list-disc pl-8">
-            {personas.map((p) => (
-              <li key={p.key} className="mb-1">
-                <a
-                  href={p.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="word-link"
-                >
-                  {p.label}
-                </a>{" "}
-                - {p.tagline}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* --- Manifesto : pourquoi trois interfaces --- */}
-        <section className="mt-8 border border-black p-4">
-          <p className="font-bold">{dict.manifesto.punch}</p>
-          <p className="mt-2 text-justify text-[14px]">{dict.manifesto.body}</p>
-          <div className="mt-4 text-[13px]">
-            <ThemePicker labels={dict.skins} pickLabel={dict.manifesto.pick} />
+          <div className="border border-black p-4">
+            <p className="font-bold">{dict.manifesto.punch}</p>
+            <p className="mt-2 text-justify text-[14px]">
+              {dict.manifesto.body}
+            </p>
+            <p className="mt-4 text-[13px]">{dict.manifesto.pick}</p>
+            <ul
+              aria-label={dict.manifesto.pick}
+              className="mt-2 flex flex-wrap items-center gap-3"
+            >
+              {skinMeta.map(({ name }) => (
+                <li key={name}>
+                  <ThemeButton skin={name} label={dict.skins[name]} />
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 
@@ -189,6 +182,19 @@ export function Page({ dict, locale, personas }: PageProps) {
               </span>{" "}
               <span className="text-[13px] italic">(.pdf, 1 page)</span>
             </li>
+            {personas.map((p) => (
+              <li key={p.key} className="mb-1">
+                <a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="word-link"
+                >
+                  {p.label}
+                </a>{" "}
+                - {p.tagline}
+              </li>
+            ))}
           </ul>
         </section>
 

@@ -1,4 +1,5 @@
 import { LocaleSwitcher } from "./LocaleSwitcher";
+import { HeaderName } from "./HeaderName";
 import type { HeaderProps } from "../types";
 
 export function Header({ dict, locale }: HeaderProps) {
@@ -10,13 +11,7 @@ export function Header({ dict, locale }: HeaderProps) {
       >
         {dict.header.skipToContent}
       </a>
-      <a
-        href="#top"
-        aria-label="Thomas Gendron - retour en haut"
-        className="border-3 border-ink bg-paper px-2 py-0.5 font-mono text-lg font-bold text-ink shadow-[3px_3px_0_var(--color-ink)]"
-      >
-        Thomas G
-      </a>
+      <HeaderName label="Thomas Gendron" />
       <LocaleSwitcher current={locale} />
     </header>
   );
