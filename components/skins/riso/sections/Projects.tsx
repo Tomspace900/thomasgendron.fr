@@ -1,9 +1,19 @@
+"use client";
+
 import { SectionHeading } from "../SectionHeading";
 import { Reveal } from "../fx/Reveal";
+import { Button } from "../ui/button";
 import type { Dictionary } from "@/content/i18n";
-import { projects } from "@/content/projects";
+import { projects, PROJECTS_PREVIEW_COUNT } from "@/content/projects";
+import { useExpandable } from "@/lib/hooks/useExpandable";
+import { cn } from "@/lib/cn";
+
+/** Au-delà de `md`, la grille passe à deux colonnes : tout est déjà visible. */
+const HIDDEN_ON_MOBILE = projects.length - PROJECTS_PREVIEW_COUNT;
 
 export function Projects({ dict }: { dict: Dictionary }) {
+  const { expanded, toggle, anchorRef } = useExpandable();
+
   return (
     <section
       id="projects"
@@ -19,7 +29,12 @@ export function Projects({ dict }: { dict: Dictionary }) {
 
         <ul className="grid gap-6 md:grid-cols-2 md:gap-8">
           {projects.map((project, i) => (
-            <li key={project.slug}>
+            <li
+              key={project.slug}
+              className={cn(
+                !expanded && i >= PROJECTS_PREVIEW_COUNT && "hidden md:block",
+              )}
+            >
               <Reveal delay={(i % 2) * 0.08} className="h-full">
                 <article className="group flex h-full flex-col border-3 border-ink bg-paper p-6 shadow-[8px_8px_0_var(--color-ink)] transition-transform duration-200 hover:-translate-y-1 hover:rotate-[-0.5deg] md:p-8">
                   <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
@@ -84,6 +99,16 @@ export function Projects({ dict }: { dict: Dictionary }) {
             </li>
           ))}
         </ul>
+
+        {HIDDEN_ON_MOBILE > 0 && (
+          <div ref={anchorRef} className="mt-12 text-center md:hidden">
+            <Button type="button" variant="paper" onClick={toggle}>
+              {expanded
+                ? dict.projects.showLess
+                : `${dict.projects.showMore} (+${HIDDEN_ON_MOBILE})`}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -57,6 +57,9 @@ export type Dictionary = {
     seeLive: string;
     privateRepo: string;
     kinds: Record<ProjectKind, string>;
+    /** Dépli de la liste sur mobile, où seuls les premiers projets s'affichent */
+    showMore: string;
+    showLess: string;
     /** Ce que fait le projet */
     items: Record<ProjectSlug, string>;
     /** Ce qu'il a appris ou prouvé - la voix perso, pas la fiche produit */

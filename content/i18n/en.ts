@@ -61,6 +61,8 @@ export const en = {
       pro: "Work",
       scolaire: "School",
     },
+    showMore: "Show more projects",
+    showLess: "Show fewer",
     items: {
       geodoku:
         "Daily geographic puzzle: a 3×3 grid of countries to fill by crossing criteria. Self-running grid generation and scheduling algorithms server-side. UI/UX, SEO, monitoring, and the rest.",

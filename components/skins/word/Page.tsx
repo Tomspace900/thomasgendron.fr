@@ -2,11 +2,11 @@ import { Fragment } from "react";
 import { DocHeading } from "./DocHeading";
 import { Debrief } from "./Debrief";
 import { PhotoCollage } from "./PhotoCollage";
+import { ProjectsList } from "./ProjectsList";
 import { ThemeButton } from "../ThemeButton";
 import { skinMeta } from "../meta";
 import type { PageProps } from "../types";
 import { experience } from "@/content/experience";
-import { projects } from "@/content/projects";
 import { site } from "@/content/site";
 
 /**
@@ -103,48 +103,7 @@ export function Page({ dict, locale, personas }: PageProps) {
             number={dict.projects.number}
             title={dict.projects.title}
           />
-          <ol className="mt-2 list-decimal pl-8">
-            {projects.map((project) => (
-              <li key={project.slug} className="mb-3">
-                <span className="word-typo font-bold">{project.name}</span>{" "}
-                ({dict.projects.kinds[project.kind].toLowerCase()}, {project.year})
-                - {dict.projects.items[project.slug]}{" "}
-                {project.repo ? (
-                  <a
-                    href={project.repo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="word-link"
-                  >
-                    [{dict.projects.seeCode}]
-                  </a>
-                ) : (
-                  <span className="italic">[{dict.projects.privateRepo}]</span>
-                )}
-                {project.live && (
-                  <>
-                    {" "}
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="word-link"
-                    >
-                      [{dict.projects.seeLive}]
-                    </a>
-                  </>
-                )}
-                <br />
-                <span className="text-[13px] italic">
-                  {project.tags.join(", ")}
-                </span>
-                <br />
-                <span className="text-[13px]">
-                  {dict.projects.takeaways[project.slug]}
-                </span>
-              </li>
-            ))}
-          </ol>
+          <ProjectsList dict={dict} />
         </section>
 
         {/* --- Photos : collage brut, images collées, tailles libres --- */}

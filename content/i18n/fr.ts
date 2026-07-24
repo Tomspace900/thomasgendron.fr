@@ -69,6 +69,8 @@ export const fr = {
       pro: "Pro",
       scolaire: "Scolaire",
     },
+    showMore: "Voir plus de projets",
+    showLess: "En voir moins",
     items: {
       geodoku:
         "Puzzle géographique quotidien : une grille de 3×3 pays à remplir en croisant des critères. Algorithmes de génération et planification des grilles autonomes côté serveur. UI/UX, référencement, monitoring, etc.",

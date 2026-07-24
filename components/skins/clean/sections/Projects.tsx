@@ -1,10 +1,20 @@
+"use client";
+
 import { SectionShell } from "../SectionShell";
 import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
 import { LayersIcon, LockIcon, ArrowUpRightIcon } from "../ui/icons";
 import type { Dictionary } from "@/content/i18n";
-import { projects } from "@/content/projects";
+import { projects, PROJECTS_PREVIEW_COUNT } from "@/content/projects";
+import { useExpandable } from "@/lib/hooks/useExpandable";
+import { cn } from "@/lib/cn";
+
+/** Au-delà de `sm`, la grille passe à deux colonnes : tout est déjà visible. */
+const HIDDEN_ON_MOBILE = projects.length - PROJECTS_PREVIEW_COUNT;
 
 export function Projects({ dict }: { dict: Dictionary }) {
+  const { expanded, toggle, anchorRef } = useExpandable();
+
   return (
     <SectionShell
       id="projects"
@@ -13,8 +23,13 @@ export function Projects({ dict }: { dict: Dictionary }) {
       title={dict.projects.title}
     >
       <ul className="grid gap-4 sm:grid-cols-2">
-        {projects.map((project) => (
-          <li key={project.slug}>
+        {projects.map((project, i) => (
+          <li
+            key={project.slug}
+            className={cn(
+              !expanded && i >= PROJECTS_PREVIEW_COUNT && "hidden sm:block",
+            )}
+          >
             <article className="v-card flex h-full flex-col rounded-xl border border-c-border bg-c-card p-5">
               <div className="flex items-baseline justify-between gap-3">
                 <h3 className="font-semibold">{project.name}</h3>
@@ -69,6 +84,16 @@ export function Projects({ dict }: { dict: Dictionary }) {
           </li>
         ))}
       </ul>
+
+      {HIDDEN_ON_MOBILE > 0 && (
+        <div ref={anchorRef} className="mt-6 text-center sm:hidden">
+          <Button type="button" variant="outline" onClick={toggle}>
+            {expanded
+              ? dict.projects.showLess
+              : `${dict.projects.showMore} (+${HIDDEN_ON_MOBILE})`}
+          </Button>
+        </div>
+      )}
     </SectionShell>
   );
 }

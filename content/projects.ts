@@ -6,13 +6,16 @@
 export const PROJECT_SLUGS = [
   "geodoku",
   "phase-diversity",
-  "tomato",
-  "revision-droit",
   "sesame",
+  "revision-droit",
+  "tomato",
   "opheli",
 ] as const;
 
 export type ProjectSlug = (typeof PROJECT_SLUGS)[number];
+
+/** Nombre de projets visibles sur mobile avant dépli (cf. sections Projets). */
+export const PROJECTS_PREVIEW_COUNT = 3;
 
 export type ProjectKind = "perso" | "pro" | "scolaire";
 
@@ -46,13 +49,12 @@ export const projects: Project[] = [
     live: "https://www.phase-diversity.thomasgendron.fr/",
   },
   {
-    slug: "tomato",
-    name: "Tomato",
-    year: "2023",
-    kind: "scolaire",
-    tags: ["Next.js", "Supabase", "React Native"],
-    repo: "https://github.com/victorbillaud/tomato",
-    live: "https://tomato-snowy.vercel.app",
+    slug: "sesame",
+    name: "Sésame",
+    year: "2026",
+    kind: "perso",
+    tags: ["React 19", "Supabase", "Gemini"],
+    repo: "https://github.com/Tomspace900/sesame",
   },
   {
     slug: "revision-droit",
@@ -63,12 +65,13 @@ export const projects: Project[] = [
     // Repo privé - pas de lien public
   },
   {
-    slug: "sesame",
-    name: "Sésame",
-    year: "2026",
-    kind: "perso",
-    tags: ["React 19", "Supabase", "Gemini"],
-    repo: "https://github.com/Tomspace900/sesame",
+    slug: "tomato",
+    name: "Tomato",
+    year: "2023",
+    kind: "scolaire",
+    tags: ["Next.js", "Supabase", "React Native"],
+    repo: "https://github.com/victorbillaud/tomato",
+    live: "https://tomato-snowy.vercel.app",
   },
   {
     slug: "opheli",
